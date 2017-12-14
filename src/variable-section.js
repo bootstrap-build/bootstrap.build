@@ -15,19 +15,20 @@ class VariableSection extends Component {
         {this.props.fields.map((field, index) => {
           return (
             <div key={index} className="sidebar2__field">
-              <div className="sidebar2__field__description">{field.description}</div>
               <div className="sidebar2__field__variable">{field.variable}</div>
               <VariableField
                 {...field}
                 index={index}
                 onChange={this.handleChange}
               />
+              <div className="sidebar2__field__description" dangerouslySetInnerHTML={{ __html: field.description }} />
             </div>
           )
         })}
       </div>
     )
   }
+  
 }
 
 export default VariableSection

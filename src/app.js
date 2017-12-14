@@ -1,28 +1,25 @@
 import React, { Component } from 'react'
 import './styles.css'
 import 'antd/dist/antd.min.css';
-import Sass from 'sass.js/dist/sass.js'
 
 import debounce from 'debounce'
-import { BounceLoader } from 'react-spinners'
 
-import SidebarElements from './sidebar-elements.js'
-import elements from './elements.js'
-import VariableSection from './variable-section.js'
-import PreviewMenu from './preview-menu.js'
-import Header from './header.js'
-import variables from './variables.js'
+import SidebarElements from './sidebar-elements'
+import elements from './elements'
+import VariableSection from './variable-section'
+import PreviewMenu from './preview-menu'
+import Header from './header'
+import variables from './variables'
+import Loader from './loader'
+import compiler from './compiler'
 
-Sass.setWorkerUrl('/sass.worker.js');
-const sass = new Sass()
-
-const cache = {}
 
 class App extends Component {
 
   state = {
     loading: false,
-    activeSection: 'Core settings',
+    lock: false,
+    active: 'Core settings',
     code: '',
     color: '#fff',
     open: false,
@@ -34,42 +31,13 @@ class App extends Component {
   }
 
   compileSass = async () => {
-    this.setState({
-      loading: true
-    })
+    this.setState({ loading: true })
     const code = this.state.variables.map(variable => `${variable.variable}: ${variable.value};`).join('\n')
-    const bootstrap = await (await fetch('/bootstrap_scss/bootstrap.scss')).text()
-    sass.compile(code + ' ' + bootstrap, result => {
-      this.iframe.contentWindow.postMessage({
-        css: result.text
-      }, '*')
-      this.setState({
-        loading: false
-      })
-    });
-    sass.importer(async function(request, done) {
-      const pathArr = request.current.split('/')
-      const path = pathArr.reduce((prev, current, index) => {
-        if(current.length === 1) {
-          return `_${current}.scss`
-        } else {
-          if(index === pathArr.length - 1) {
-            return `${prev}/_${current}.scss`
-          } else {
-            return `${prev}/${current}`
-          }
-        }
-      }, '')
-      if(cache[path]) {
-        return done({
-          content: cache[path]
-        })
-      }
-      const partial = await (await (fetch(`/bootstrap_scss/${path}`))).text()
-      cache[path] = partial
-      return done({
-        content: partial
-      })
+    const css = await compiler(code, '/bootstrap_scss')
+    this.iframe.contentWindow.postMessage({ css }, '*')
+    this.setState({
+      currentCSS: css,
+      loading: false
     })
   }
 
@@ -80,7 +48,7 @@ class App extends Component {
 
   handleSectionChange = section => {
     this.setState({
-      activeSection: section,
+      active: section,
       variables: variables[section]
     })
   }
@@ -92,18 +60,41 @@ class App extends Component {
     this.debouncedCompileSass()
   }
 
-  render() {
+  handleLockChange = lock => {
+    this.setState({
+      lock,
+      lockedTemplate: lock ? elements.find(e => e.text === this.state.active).template : null
+    })
+  }
 
+  handleFrameLoaded = () => {
+    this.iframe.contentWindow.postMessage({ css: this.state.currentCSS }, '*')
+  }
+
+  render() {
     const _elements = elements.map(element => {
       return {
         ...element,
-        active: element.text === this.state.activeSection
+        active: element.text === this.state.active
       }
     })
-
-
-    const element = elements.find(element => element.text === this.state.activeSection)
-
+    const element = elements.find(element => element.text === this.state.active)
+    let iframe = ''
+    if(this.state.lock) {
+      iframe = <iframe
+        src={this.state.lockedTemplate}
+        ref={ref => this.iframe = ref}
+        onLoad={this.handleFrameLoaded}
+      />
+    } else {
+      if(element) {
+        iframe = <iframe
+          src={element.template}
+          ref={ref => this.iframe = ref}
+          onLoad={this.handleFrameLoaded}
+        />
+      }
+    }
     return (
       <div className="App">
         <Header />
@@ -115,15 +106,13 @@ class App extends Component {
           />
         </div>
         <div className="preview">
-          <PreviewMenu />
-          <div className="preview__content preview__loader" style={{ display: this.state.loading ? 'block' : 'none'}}>
-            <div style={{ width: 60, textAlign: 'center', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
-              <BounceLoader size={60} color={`#9EDCFF`} />
-              Compiling...
-            </div>
-          </div>
+          <PreviewMenu
+            lock={this.state.lock}
+            onLockChange={this.handleLockChange}
+          />
+          {this.state.loading && <Loader />}
           <div className={this.state.loading ? "preview__content blur" : "preview__content"}>
-            {element && <iframe src={element.template} ref={ref => this.iframe = ref} />}
+            {iframe}
           </div>
         </div>
       </div>

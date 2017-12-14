@@ -19,6 +19,10 @@ class ColorField extends Component {
     this.props.onChange(colorCss)
   }
 
+  handleInputChange = event => {
+    this.props.onChange(event.target.value)
+  }
+
   handleInputFocus = () => {
     this.setState({
       colorPickerVisible: true
@@ -45,6 +49,7 @@ class ColorField extends Component {
             value={this.props.value}
             onFocus={this.handleInputFocus}
             onBlur={this.handleInputBlur}
+            onChange={this.handleInputChange}
             suffix={<div className="color-swatch" style={{ backgroundColor: this.props.value }}/>}
           />
           {this.state.colorPickerVisible && <SketchPicker

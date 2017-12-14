@@ -50,6 +50,7 @@ header {
   border-left: 1px solid #ddd;
   background: #f9f9f9;
   padding: 20px;
+  overflow-y: auto;
 }
 
 .sidebar2__field {
@@ -59,12 +60,12 @@ header {
 }
 
 .sidebar2__field__description {
-
+  font-size: 13px;
 }
 
 .sidebar2__field__variable {
   font-weight: bold;
-  font-size: 11px;
+  font-size: 13px;
   margin-top: 3px;
 }
 
