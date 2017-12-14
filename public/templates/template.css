@@ -1,0 +1,6 @@
+body {
+  padding: 40px;
+}
+* {
+  transition: all 0.3s ease !important;
+}
