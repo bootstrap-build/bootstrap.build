@@ -19,11 +19,11 @@ class App extends Component {
   state = {
     loading: false,
     lock: false,
-    active: 'Core settings',
+    active: 'Buttons',
     code: '',
     color: '#fff',
     open: false,
-    variables: variables['Core settings']
+    variables: variables['Buttons']
   }
 
   handleButtonClick = () => {
