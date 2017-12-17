@@ -395,7 +395,7 @@
     {
       "variable": "$component-active-bg",
       "value": "theme-color(primary)",
-      "type": "size",
+      "type": "string",
       "description": ""
     },
     {

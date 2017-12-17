@@ -5,6 +5,7 @@ import BooleanField from './boolean-field.js'
 import TextField from './text-field.js'
 import SizeField from './size-field.js'
 import ReferenceField from './reference-field.js'
+import getVariableType from './get-variable-type.js'
 
 class VariableField extends Component {
 
@@ -16,11 +17,12 @@ class VariableField extends Component {
   }
 
   renderHardVariable = () => {
-    if(this.props.type === 'color') {
+    const type = getVariableType(this.props.value)
+    if(type === 'color') {
       return <ColorField {...this.props} onChange={this.handleChange}/>
-    } else if(this.props.type === 'boolean') {
+    } else if(type === 'boolean') {
       return <BooleanField {...this.props} onChange={this.handleChange}/>
-    } else if(this.props.type === 'size') {
+    } else if(type === 'size') {
       return <SizeField {...this.props} onChange={this.handleChange} />
     } else {
       return <TextField {...this.props} onChange={this.handleChange}/>
@@ -31,19 +33,10 @@ class VariableField extends Component {
     let isReferenceVar = this.props.value.indexOf('$') === 0
     return (
       <div className="sidebar2__field__variable__split">
-        <div className="sidebar2__field__variable__split__left">
-          { isReferenceVar ?
-            <ReferenceField {...this.props} onChange={this.handleChange} /> :
-            this.renderHardVariable()
-          }
-        </div>
-        <div className="sidebar2__field__variable__split__right">
-          <Switch
-            size="small"
-            checked={isReferenceVar}
-            checkedChildren={<img src="link.svg" height="11"/>}
-            unCheckedChildren={<img src="code.svg" height="11"/>} />
-        </div>
+        { isReferenceVar ?
+          <ReferenceField {...this.props} onChange={this.handleChange} /> :
+          this.renderHardVariable()
+        }
       </div>
     )
   }

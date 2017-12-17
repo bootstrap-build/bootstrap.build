@@ -1,10 +1,17 @@
 import React, { Component } from 'react'
 import { AutoComplete } from 'antd'
+import getVariableType from './get-variable-type.js'
 
 class ReferenceField extends Component {
 
   handleChange = value => {
-    this.props.onChange(value)
+    if(this.props.referenceVars[value]) {
+      this.props.onChange(value)
+    } else {
+      if(getVariableType(value) !== 'string') {
+        this.props.onChange(value)
+      }
+    }
   }
 
   render() {

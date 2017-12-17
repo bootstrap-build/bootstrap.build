@@ -7,6 +7,10 @@ class PreviewMenu extends Component {
     this.props.onLockChange(event.target.checked)
   }
 
+  handleShowDocsToggle = () => {
+    this.props.onShowDocsToggle()
+  }
+
   render() {
     return (
       <div className="preview__menu">
@@ -14,8 +18,13 @@ class PreviewMenu extends Component {
           <Checkbox
             checked={this.props.lock}
             onChange={this.handleLockChange}
-          >Stay on this page
-        </Checkbox>
+          >Stay on this page</Checkbox>
+        </div>
+        <div style={{ float: 'left' }}>
+          <Checkbox
+            checked={this.props.showDocs}
+            onChange={this.handleShowDocsToggle}
+          >Show docs</Checkbox>
         </div>
         <div style={{ float: 'right' }}>
           <a href="#">Edit HTML</a>

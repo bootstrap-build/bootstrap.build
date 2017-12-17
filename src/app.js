@@ -14,6 +14,8 @@ import variables from './curated-variables'
 import Loader from './loader'
 import compiler from './compiler'
 
+
+
 const flatten_variables = {}
 Object.keys(variables).forEach(key => {
   variables[key].forEach(_var => {
@@ -24,9 +26,7 @@ Object.keys(variables).forEach(key => {
 const defaultReferenceVars = {}
 Object.keys(variables).forEach(key => {
   variables[key].forEach(variable => {
-    if(variable.value.indexOf('$') === 0) {
-      defaultReferenceVars[variable.variable] = variable.value
-    }
+    defaultReferenceVars[variable.variable] = variable.value
   })
 })
 
@@ -39,6 +39,7 @@ class App extends Component {
     code: '',
     color: '#fff',
     open: false,
+    showDocs: false,
     // all bootstrap vars
     variables: variables['Buttons'],
     // only $variables, that are possible to reference in other variables
@@ -145,6 +146,13 @@ class App extends Component {
     this.iframe.contentWindow.postMessage({ css: this.state.currentCSS }, '*')
   }
 
+  handleShowDocsToggle = () => {
+    this.iframe.contentWindow.postMessage({ toggleCode: true }, '*')
+    this.setState({
+      showDocs: !this.state.showDocs
+    })
+  }
+
   render() {
     const _elements = elements.map(element => {
       return {
@@ -184,6 +192,8 @@ class App extends Component {
           <PreviewMenu
             lock={this.state.lock}
             onLockChange={this.handleLockChange}
+            onShowDocsToggle={this.handleShowDocsToggle}
+            showDocs={this.showDocs}
           />
           {this.state.loading && <Loader />}
           <div className={this.state.loading ? "preview__content blur" : "preview__content"}>

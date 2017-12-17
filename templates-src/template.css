@@ -4,3 +4,6 @@ body {
 * {
   transition: all 0.3s ease !important;
 }
+p, ul, .bd-callout, .highlight {
+  display: none;
+}
