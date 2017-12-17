@@ -23,6 +23,7 @@ body::-webkit-scrollbar-thumb:hover {
   background-color: #cccccc;
 }
 
-p, ul, .bd-callout, .highlight {
+/*p, ul, .bd-callout, .highlight {
   display: none;
 }
+*/

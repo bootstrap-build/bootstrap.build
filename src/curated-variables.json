@@ -247,9 +247,19 @@
       "value": "true",
       "type": "boolean",
       "description": ""
-    }
-  ],
-  "Spacing": [
+    },
+    {
+      "variable": "$body-bg",
+      "value": "$white",
+      "type": "variable",
+      "description": ""
+    },
+    {
+      "variable": "$body-color",
+      "value": "$gray-900",
+      "type": "variable",
+      "description": ""
+    },
     {
       "variable": "$spacer",
       "value": "1rem",
@@ -269,25 +279,11 @@
       "description": ""
     }
   ],
-  "Body": [
-    {
-      "variable": "$body-bg",
-      "value": "$white",
-      "type": "variable",
-      "description": ""
-    },
-    {
-      "variable": "$body-color",
-      "value": "$gray-900",
-      "type": "variable",
-      "description": ""
-    }
-  ],
   "Links": [
     {
       "variable": "$link-color",
       "value": "theme-color(primary)",
-      "type": "size",
+      "type": "string",
       "description": ""
     },
     {
@@ -309,25 +305,17 @@
       "description": ""
     }
   ],
-  "Paragraphs": [
-    {
-      "variable": "$paragraph-margin-bottom",
-      "value": "1rem",
-      "type": "size",
-      "description": ""
-    }
-  ],
   "Grid": [
     {
       "variable": "$grid-breakpoints",
       "value": "(xs: 0,sm: 576px,md: 768px,lg: 992px,xl: 1200px)",
-      "type": "size",
+      "type": "string",
       "description": ""
     },
     {
       "variable": "$container-max-widths",
       "value": "(sm: 540px,md: 720px,lg: 960px,xl: 1140px)",
-      "type": "size",
+      "type": "string",
       "description": ""
     },
     {
@@ -423,7 +411,7 @@
       "description": ""
     }
   ],
-  "Fonts": [
+  "Typography": [
     {
       "variable": "$font-family-sans-serif",
       "value": "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
@@ -692,6 +680,12 @@
       "variable": "$mark-bg",
       "value": "#fcf8e3",
       "type": "color",
+      "description": ""
+    },
+    {
+      "variable": "$paragraph-margin-bottom",
+      "value": "1rem",
+      "type": "size",
       "description": ""
     }
   ],
@@ -2451,7 +2445,7 @@
     {
       "variable": "$progress-bar-bg",
       "value": "theme-color(primary)",
-      "type": "size",
+      "type": "string",
       "description": ""
     },
     {

@@ -8,20 +8,8 @@ const items = [
     template: '/templates/colors.html'
   },
   {
-    text: 'Spacing',
-    template: '/templates/spacing.html'
-  },
-  {
-    text: 'Body',
-    template: '/templates/body.html'
-  },
-  {
     text: 'Links',
     template: '/templates/links.html'
-  },
-  {
-    text: 'Paragraphs',
-    template: '/templates/paragraphs.html'
   },
   {
     text: 'Grid',
@@ -32,8 +20,8 @@ const items = [
     template: '/templates/components.html'
   },
   {
-    text: 'Fonts',
-    template: '/templates/fonts.html'
+    text: 'Typography',
+    template: '/templates/typography.html'
   },
   {
     text: 'Tables',
@@ -92,8 +80,8 @@ const items = [
     template: '/templates/alerts.html'
   },
   {
-    text: 'Progress Bars',
-    template: '/templates/progress-bars.html'
+    text: 'Progress',
+    template: '/templates/progress.html'
   },
   {
     text: 'List group',

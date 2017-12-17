@@ -183,7 +183,7 @@ class App extends Component {
         <SidebarElements items={_elements} onChange={this.handleSectionChange}/>
         <div className="sidebar2 scroll-style">
           <VariableSection
-            fields={this.state.variables[this.state.active]}
+            fields={this.state.variables[this.state.active] || []}
             referenceVars={this.state.referenceVars}
             onChange={this.handleVariableChange}
           />
