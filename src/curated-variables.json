@@ -141,49 +141,49 @@
     {
       "variable": "$primary",
       "value": "$blue",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$secondary",
       "value": "$gray-600",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$success",
       "value": "$green",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$info",
       "value": "$cyan",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$warning",
       "value": "$yellow",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$danger",
       "value": "$red",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$light",
       "value": "$gray-100",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$dark",
       "value": "$gray-800",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -273,13 +273,13 @@
     {
       "variable": "$body-bg",
       "value": "$white",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$body-color",
       "value": "$gray-900",
-      "type": "string",
+      "type": "variable",
       "description": ""
     }
   ],
@@ -365,7 +365,7 @@
     {
       "variable": "$border-color",
       "value": "$gray-200",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -389,7 +389,7 @@
     {
       "variable": "$component-active-color",
       "value": "$white",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -439,7 +439,7 @@
     {
       "variable": "$font-family-base",
       "value": "$font-family-sans-serif",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -481,7 +481,7 @@
     {
       "variable": "$font-weight-base",
       "value": "$font-weight-normal",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -523,7 +523,7 @@
     {
       "variable": "$h6-font-size",
       "value": "$font-size-base",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -607,7 +607,7 @@
     {
       "variable": "$display-line-height",
       "value": "$headings-line-height",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -631,13 +631,13 @@
     {
       "variable": "$text-muted",
       "value": "$gray-600",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$blockquote-small-color",
       "value": "$gray-600",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -655,7 +655,7 @@
     {
       "variable": "$hr-border-width",
       "value": "$border-width",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -667,7 +667,7 @@
     {
       "variable": "$dt-font-weight",
       "value": "$font-weight-bold",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -679,7 +679,7 @@
     {
       "variable": "$nested-kbd-font-weight",
       "value": "$font-weight-bold",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -729,37 +729,37 @@
     {
       "variable": "$table-active-bg",
       "value": "$table-hover-bg",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$table-border-width",
       "value": "$border-width",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$table-border-color",
       "value": "$gray-200",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$table-head-bg",
       "value": "$gray-200",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$table-head-color",
       "value": "$gray-700",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$table-dark-bg",
       "value": "$gray-900",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -783,7 +783,7 @@
     {
       "variable": "$table-dark-color",
       "value": "$body-bg",
-      "type": "string",
+      "type": "variable",
       "description": ""
     }
   ],
@@ -803,7 +803,7 @@
     {
       "variable": "$input-btn-line-height",
       "value": "$line-height-base",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -839,7 +839,7 @@
     {
       "variable": "$input-btn-line-height-sm",
       "value": "$line-height-sm",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -857,13 +857,13 @@
     {
       "variable": "$input-btn-line-height-lg",
       "value": "$line-height-lg",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$btn-font-weight",
       "value": "$font-weight-normal",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -881,7 +881,7 @@
     {
       "variable": "$btn-link-disabled-color",
       "value": "$gray-600",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -893,19 +893,19 @@
     {
       "variable": "$btn-border-radius",
       "value": "$border-radius",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$btn-border-radius-lg",
       "value": "$border-radius-lg",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$btn-border-radius-sm",
       "value": "$border-radius-sm",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -919,31 +919,31 @@
     {
       "variable": "$input-bg",
       "value": "$white",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$input-disabled-bg",
       "value": "$gray-200",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$input-color",
       "value": "$gray-700",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$input-border-color",
       "value": "$gray-400",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$input-btn-border-width",
       "value": "$border-width",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -955,25 +955,25 @@
     {
       "variable": "$input-border-radius",
       "value": "$border-radius",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$input-border-radius-lg",
       "value": "$border-radius-lg",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$input-border-radius-sm",
       "value": "$border-radius-sm",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$input-focus-bg",
       "value": "$input-bg",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -985,13 +985,13 @@
     {
       "variable": "$input-focus-color",
       "value": "$input-color",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$input-placeholder-color",
       "value": "$gray-600",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -1087,19 +1087,19 @@
     {
       "variable": "$input-group-addon-color",
       "value": "$input-color",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$input-group-addon-bg",
       "value": "$gray-200",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$input-group-addon-border-color",
       "value": "$input-border-color",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -1147,19 +1147,19 @@
     {
       "variable": "$custom-control-indicator-disabled-bg",
       "value": "$gray-200",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$custom-control-description-disabled-color",
       "value": "$gray-600",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$custom-control-indicator-checked-color",
       "value": "$white",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -1183,7 +1183,7 @@
     {
       "variable": "$custom-control-indicator-active-color",
       "value": "$white",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -1201,7 +1201,7 @@
     {
       "variable": "$custom-checkbox-indicator-border-radius",
       "value": "$border-radius",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -1219,7 +1219,7 @@
     {
       "variable": "$custom-checkbox-indicator-indeterminate-color",
       "value": "$custom-control-indicator-checked-color",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -1261,7 +1261,7 @@
     {
       "variable": "$custom-select-height",
       "value": "$input-height",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -1273,31 +1273,31 @@
     {
       "variable": "$custom-select-line-height",
       "value": "$input-btn-line-height",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$custom-select-color",
       "value": "$input-color",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$custom-select-disabled-color",
       "value": "$gray-600",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$custom-select-bg",
       "value": "$white",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$custom-select-disabled-bg",
       "value": "$gray-200",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -1321,19 +1321,19 @@
     {
       "variable": "$custom-select-border-width",
       "value": "$input-btn-border-width",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$custom-select-border-color",
       "value": "$input-border-color",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$custom-select-border-radius",
       "value": "$border-radius",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -1357,13 +1357,13 @@
     {
       "variable": "$custom-select-height-sm",
       "value": "$input-height-sm",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$custom-file-height",
       "value": "$input-height",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -1381,67 +1381,67 @@
     {
       "variable": "$custom-file-padding-y",
       "value": "$input-btn-padding-y",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$custom-file-padding-x",
       "value": "$input-btn-padding-x",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$custom-file-line-height",
       "value": "$input-btn-line-height",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$custom-file-color",
       "value": "$input-color",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$custom-file-bg",
       "value": "$input-bg",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$custom-file-border-width",
       "value": "$input-btn-border-width",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$custom-file-border-color",
       "value": "$input-border-color",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$custom-file-border-radius",
       "value": "$input-border-radius",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$custom-file-box-shadow",
       "value": "$input-box-shadow",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$custom-file-button-color",
       "value": "$custom-file-color",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$custom-file-button-bg",
       "value": "$input-group-addon-bg",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -1485,7 +1485,7 @@
     {
       "variable": "$dropdown-bg",
       "value": "$white",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -1497,13 +1497,13 @@
     {
       "variable": "$dropdown-border-width",
       "value": "$border-width",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$dropdown-divider-bg",
       "value": "$gray-200",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -1515,7 +1515,7 @@
     {
       "variable": "$dropdown-link-color",
       "value": "$gray-900",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -1527,25 +1527,25 @@
     {
       "variable": "$dropdown-link-hover-bg",
       "value": "$gray-100",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$dropdown-link-active-color",
       "value": "$component-active-color",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$dropdown-link-active-bg",
       "value": "$component-active-bg",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$dropdown-link-disabled-color",
       "value": "$gray-600",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -1563,7 +1563,7 @@
     {
       "variable": "$dropdown-header-color",
       "value": "$gray-600",
-      "type": "string",
+      "type": "variable",
       "description": ""
     }
   ],
@@ -1627,7 +1627,7 @@
     {
       "variable": "$nav-link-disabled-color",
       "value": "$gray-600",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -1639,31 +1639,31 @@
     {
       "variable": "$nav-tabs-border-width",
       "value": "$border-width",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$nav-tabs-border-radius",
       "value": "$border-radius",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$nav-tabs-link-hover-border-color",
       "value": "$gray-200",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$nav-tabs-link-active-color",
       "value": "$gray-700",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$nav-tabs-link-active-bg",
       "value": "$body-bg",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -1675,19 +1675,19 @@
     {
       "variable": "$nav-pills-border-radius",
       "value": "$border-radius",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$nav-pills-link-active-color",
       "value": "$component-active-color",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$nav-pills-link-active-bg",
       "value": "$component-active-bg",
-      "type": "string",
+      "type": "variable",
       "description": ""
     }
   ],
@@ -1701,13 +1701,13 @@
     {
       "variable": "$navbar-padding-x",
       "value": "$spacer",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$navbar-brand-font-size",
       "value": "$font-size-lg",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -1743,13 +1743,13 @@
     {
       "variable": "$navbar-toggler-font-size",
       "value": "$font-size-lg",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$navbar-toggler-border-radius",
       "value": "$btn-border-radius",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -1767,7 +1767,7 @@
     {
       "variable": "$navbar-dark-active-color",
       "value": "$white",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -1871,19 +1871,19 @@
     {
       "variable": "$pagination-color",
       "value": "$link-color",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$pagination-bg",
       "value": "$white",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$pagination-border-width",
       "value": "$border-width",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -1895,13 +1895,13 @@
     {
       "variable": "$pagination-hover-color",
       "value": "$link-hover-color",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$pagination-hover-bg",
       "value": "$gray-200",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -1913,7 +1913,7 @@
     {
       "variable": "$pagination-active-color",
       "value": "$white",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -1931,13 +1931,13 @@
     {
       "variable": "$pagination-disabled-color",
       "value": "$gray-600",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$pagination-disabled-bg",
       "value": "$white",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -1957,7 +1957,7 @@
     {
       "variable": "$jumbotron-bg",
       "value": "$gray-200",
-      "type": "string",
+      "type": "variable",
       "description": ""
     }
   ],
@@ -1977,13 +1977,13 @@
     {
       "variable": "$card-border-width",
       "value": "$border-width",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$card-border-radius",
       "value": "$border-radius",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -2007,7 +2007,7 @@
     {
       "variable": "$card-bg",
       "value": "$white",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -2025,7 +2025,7 @@
     {
       "variable": "$card-deck-margin",
       "value": "$card-group-margin",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -2043,7 +2043,7 @@
     {
       "variable": "$card-columns-margin",
       "value": "$card-spacer-y",
-      "type": "string",
+      "type": "variable",
       "description": ""
     }
   ],
@@ -2057,13 +2057,13 @@
     {
       "variable": "$tooltip-color",
       "value": "$white",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$tooltip-bg",
       "value": "$black",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -2105,7 +2105,7 @@
     {
       "variable": "$tooltip-arrow-color",
       "value": "$tooltip-bg",
-      "type": "string",
+      "type": "variable",
       "description": ""
     }
   ],
@@ -2113,7 +2113,7 @@
     {
       "variable": "$popover-bg",
       "value": "$white",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -2125,7 +2125,7 @@
     {
       "variable": "$popover-border-width",
       "value": "$border-width",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -2149,7 +2149,7 @@
     {
       "variable": "$popover-header-color",
       "value": "$headings-color",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -2167,19 +2167,19 @@
     {
       "variable": "$popover-body-color",
       "value": "$body-color",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$popover-body-padding-y",
       "value": "$popover-header-padding-y",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$popover-body-padding-x",
       "value": "$popover-header-padding-x",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -2197,7 +2197,7 @@
     {
       "variable": "$popover-arrow-color",
       "value": "$popover-bg",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -2217,7 +2217,7 @@
     {
       "variable": "$badge-font-weight",
       "value": "$font-weight-bold",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -2235,7 +2235,7 @@
     {
       "variable": "$badge-border-radius",
       "value": "$border-radius",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -2273,13 +2273,13 @@
     {
       "variable": "$modal-title-line-height",
       "value": "$line-height-base",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$modal-content-bg",
       "value": "$white",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -2291,7 +2291,7 @@
     {
       "variable": "$modal-content-border-width",
       "value": "$border-width",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -2309,7 +2309,7 @@
     {
       "variable": "$modal-backdrop-bg",
       "value": "$black",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -2321,25 +2321,25 @@
     {
       "variable": "$modal-header-border-color",
       "value": "$gray-200",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$modal-footer-border-color",
       "value": "$modal-header-border-color",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$modal-header-border-width",
       "value": "$modal-content-border-width",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$modal-footer-border-width",
       "value": "$modal-header-border-width",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -2395,19 +2395,19 @@
     {
       "variable": "$alert-border-radius",
       "value": "$border-radius",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$alert-link-font-weight",
       "value": "$font-weight-bold",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$alert-border-width",
       "value": "$border-width",
-      "type": "string",
+      "type": "variable",
       "description": ""
     }
   ],
@@ -2427,13 +2427,13 @@
     {
       "variable": "$progress-bg",
       "value": "$gray-200",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$progress-border-radius",
       "value": "$border-radius",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -2445,7 +2445,7 @@
     {
       "variable": "$progress-bar-color",
       "value": "$white",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -2471,7 +2471,7 @@
     {
       "variable": "$list-group-bg",
       "value": "$white",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -2483,13 +2483,13 @@
     {
       "variable": "$list-group-border-width",
       "value": "$border-width",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$list-group-border-radius",
       "value": "$border-radius",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -2507,61 +2507,61 @@
     {
       "variable": "$list-group-hover-bg",
       "value": "$gray-100",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$list-group-active-color",
       "value": "$component-active-color",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$list-group-active-bg",
       "value": "$component-active-bg",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$list-group-active-border-color",
       "value": "$list-group-active-bg",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$list-group-disabled-color",
       "value": "$gray-600",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$list-group-disabled-bg",
       "value": "$list-group-bg",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$list-group-action-color",
       "value": "$gray-700",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$list-group-action-hover-color",
       "value": "$list-group-action-color",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$list-group-action-active-color",
       "value": "$body-color",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$list-group-action-active-bg",
       "value": "$gray-200",
-      "type": "string",
+      "type": "variable",
       "description": ""
     }
   ],
@@ -2575,13 +2575,13 @@
     {
       "variable": "$thumbnail-bg",
       "value": "$body-bg",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$thumbnail-border-width",
       "value": "$border-width",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -2593,7 +2593,7 @@
     {
       "variable": "$thumbnail-border-radius",
       "value": "$border-radius",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -2619,7 +2619,7 @@
     {
       "variable": "$figure-caption-color",
       "value": "$gray-600",
-      "type": "string",
+      "type": "variable",
       "description": ""
     }
   ],
@@ -2651,19 +2651,19 @@
     {
       "variable": "$breadcrumb-bg",
       "value": "$gray-200",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$breadcrumb-divider-color",
       "value": "$gray-600",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$breadcrumb-active-color",
       "value": "$gray-600",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -2677,7 +2677,7 @@
     {
       "variable": "$carousel-control-color",
       "value": "$white",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -2713,7 +2713,7 @@
     {
       "variable": "$carousel-indicator-active-bg",
       "value": "$white",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -2725,7 +2725,7 @@
     {
       "variable": "$carousel-caption-color",
       "value": "$white",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -2763,13 +2763,13 @@
     {
       "variable": "$close-font-weight",
       "value": "$font-weight-bold",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$close-color",
       "value": "$black",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
@@ -2807,25 +2807,25 @@
     {
       "variable": "$code-bg",
       "value": "$gray-100",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$kbd-color",
       "value": "$white",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$kbd-bg",
       "value": "$gray-900",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {
       "variable": "$pre-color",
       "value": "$gray-900",
-      "type": "string",
+      "type": "variable",
       "description": ""
     },
     {

@@ -7,13 +7,14 @@ import SizeField from './size-field.js'
 import ReferenceField from './reference-field.js'
 import FontField from './font-field.js'
 
-class VariableField extends Component {
+class Field extends Component {
 
   state = {}
 
   handleChange = value => {
     this.props.onChange({
       ...this.props,
+      type: this.state.type || this.props.type,
       value
     }, this.props.index)
   }
@@ -23,7 +24,6 @@ class VariableField extends Component {
     if(type === 'variable') {
       return <ReferenceField {...this.props} onChange={this.handleChange} />
     } else if (this.props.type === 'font') {
-      alert('font')
       return <FontField {...this.props} onChange={this.handleChange} />
     } else if(type === 'color') {
       return <ColorField {...this.props} onChange={this.handleChange}/>
@@ -32,7 +32,7 @@ class VariableField extends Component {
     } else if(type === 'size') {
       return <SizeField {...this.props} onChange={this.handleChange} />
     } else {
-      return <TextField {...this.props} onChange={this.handleChange}/>
+      return <TextField {...this.props} onChange={this.handleChange} />
     }
   }
 
@@ -57,7 +57,7 @@ class VariableField extends Component {
         { this.renderVariable() }
         <div style={{textAlign: 'right', fontSize: 10}}>
           <Dropdown overlay={typeMenu}>
-            <a className="">{this.state.type || this.props.type}</a>
+            <a className=""><i className="fa fa-gear"></i> {this.state.type || this.props.type}</a>
           </Dropdown>
         </div>
       </div>
@@ -66,4 +66,4 @@ class VariableField extends Component {
 
 }
 
-export default VariableField
+export default Field

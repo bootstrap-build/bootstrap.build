@@ -22,8 +22,24 @@ class SizeField extends Component {
     const parsed = parseUnit(this.props.value)
     const unit = parsed[1]
     const value = Number(parsed[0])
-    const newValue = value - 0.5
-    this.props.onChange(`${newValue}${unit}`)
+    let newValue
+    if(value) {
+      this.props.onChange(`${value - 0.5}${unit}`)
+    } else {
+      this.props.onChange(`1rem`)
+    }
+  }
+
+  handlePlusClick = () => {
+    const parsed = parseUnit(this.props.value)
+    const unit = parsed[1]
+    const value = Number(parsed[0])
+    let newValue
+    if(value) {
+      this.props.onChange(`${value + 0.5}${unit}`)
+    } else {
+      this.props.onChange(`1rem`)
+    }
   }
 
   componentDidMount() {
@@ -38,14 +54,6 @@ class SizeField extends Component {
         value: props.value
       })
     }
-  }
-
-  handlePlusClick = () => {
-    const parsed = parseUnit(this.props.value)
-    const unit = parsed[1]
-    const value = Number(parsed[0])
-    const newValue = value + 0.5
-    this.props.onChange(`${newValue}${unit}`)
   }
 
   render() {

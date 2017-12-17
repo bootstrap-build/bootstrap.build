@@ -12,7 +12,7 @@ class Header extends Component {
     return (
       <header>
         <div className="header__left">
-          <img src="logo.svg" height="40" />
+          
         </div>
         <div className="header__right">
           <Dropdown overlay={exportMenu}>

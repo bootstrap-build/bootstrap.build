@@ -165,6 +165,7 @@ class App extends Component {
     let iframe = ''
     if(this.state.lock) {
       iframe = <iframe
+        className="scroll-style"
         src={this.state.lockedTemplate}
         ref={ref => this.iframe = ref}
         onLoad={this.handleFrameLoaded}
@@ -172,6 +173,7 @@ class App extends Component {
     } else {
       if(element) {
         iframe = <iframe
+          className="scroll-style"
           src={element.template}
           ref={ref => this.iframe = ref}
           onLoad={this.handleFrameLoaded}
@@ -182,7 +184,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <SidebarElements items={_elements} onChange={this.handleSectionChange}/>
-        <div className="sidebar2">
+        <div className="sidebar2 scroll-style">
           <VariableSection
             fields={this.state.variables}
             referenceVars={this.state.referenceVars}
@@ -190,12 +192,6 @@ class App extends Component {
           />
         </div>
         <div className="preview">
-          <PreviewMenu
-            lock={this.state.lock}
-            onLockChange={this.handleLockChange}
-            onShowDocsToggle={this.handleShowDocsToggle}
-            showDocs={this.showDocs}
-          />
           {this.state.loading && <Loader />}
           <div className={this.state.loading ? "preview__content" : "preview__content"}>
             {iframe}

@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import VariableField from './variable-field.js'
+import Field from './field.js'
 
 class VariableSection extends Component {
 
   handleChange = (field, index) => {
     this.props.onChange({
-      // should i remove this comment in case it breaks something
-      //type: field.type,
+      type: field.type,
       value: field.value,
       variable: field.variable,
       description: field.description
@@ -20,7 +19,7 @@ class VariableSection extends Component {
           return (
             <div key={index} className="sidebar2__field">
               <div className="sidebar2__field__variable">{field.variable}</div>
-              <VariableField
+              <Field
                 referenceVars={this.props.referenceVars}
                 {...field}
                 index={index}

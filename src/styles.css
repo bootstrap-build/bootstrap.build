@@ -26,9 +26,9 @@ header {
   position: fixed;
   left: 0;
   bottom: 0;
-  padding: 20px;
+  padding: 5px 10px;
   width: 240px;
-  background: #fff;
+  background: #f9f9f9;
   overflow-y: auto;
 }
 
@@ -43,7 +43,7 @@ header {
 }
 
 .sidebar1 div {
-  padding: 10px;
+  padding: 5px 10px;
   border-radius: 6px;
   cursor: pointer;
 }
@@ -133,7 +133,7 @@ header {
 
 .preview__content {
   position: absolute;
-  top: 31px;
+  top: 0;
   bottom: 0;
   left: 0;
   right: 0;
