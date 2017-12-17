@@ -1,10 +1,10 @@
 const items = [
   {
-    text: 'Core settings',
+    text: 'Colors',
     template: '/templates/core.html'
   },
   {
-    text: 'Colors',
+    text: 'Options',
     template: '/templates/colors.html'
   },
   {
@@ -49,7 +49,7 @@ const items = [
   },
   {
     text: 'Dropdowns',
-    templates: '/templates/dropdowns.html'
+    template: '/templates/dropdowns.html'
   },
   {
     text: 'Navs',

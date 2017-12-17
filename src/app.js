@@ -97,7 +97,7 @@ class App extends Component {
     if(css.css) {
       this.iframe.contentWindow.postMessage({ css: css.css }, '*')
       this.setState({
-        currentCSS: css,
+        currentCSS: css.css,
         loading: false
       })
     }
@@ -108,7 +108,6 @@ class App extends Component {
 
   async componentDidMount() {
     // register all variables
-
     this.compileSass()
     this.debouncedCompileSass = debounce(this.compileSass, 500)
   }
