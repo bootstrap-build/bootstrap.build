@@ -1,7 +1,7 @@
 const items = [
   {
     text: 'Colors',
-    template: '/templates/core.html'
+    template: '/templates/colors.html'
   },
   {
     text: 'Options',

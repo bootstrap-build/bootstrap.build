@@ -13,7 +13,7 @@ class SidebarElements extends Component {
           return (
             <div
               key={index}
-              className={item.active ? 'sidebar1__section--active' : ''}
+              className={item.active ? 'sidebar1__section--active' : 'sidebar1__section'}
               onClick={this.handleItemClick}
             >
               {item.text}

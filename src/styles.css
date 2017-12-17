@@ -33,12 +33,12 @@ header {
 }
 
 .sidebar1__section--active {
-  background-color: #007bff !important;
+  background-color: #1890ff !important;
   color: #ffffff;
   cursor: pointer;
 }
 
-.sidebar1 div:hover {
+.sidebar1 .sidebar1__section:hover {
   background-color: #f9f9f9;
 }
 
