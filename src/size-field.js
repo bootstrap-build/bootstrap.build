@@ -61,7 +61,8 @@ class SizeField extends Component {
           parser={this.parser}
           step={0.25}
           style={{
-            width: '100%'
+            width: '100%',
+            fontSize: 12
           }}
         />
       {this.props.dynamicUnit ?

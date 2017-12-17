@@ -65,12 +65,14 @@ header {
 
 .sidebar2__field__variable__split__left {
   float: left;
-  width: 70%;
+  width: 80%;
 }
 
 .sidebar2__field__variable__split__right {
-  width: 30%;
+  width: 20%;
   float: left;
+  text-align: right;
+  padding-top: 4px;
 }
 
 .sidebar2__field__description {
@@ -153,6 +155,9 @@ iframe {
   background-color: rgba(255, 255, 255, 0.6);
 }
 
+.ant-input-suffix {
+  pointer-events: none;
+}
 .color-swatch {
   width: 15px;
   height: 15px;

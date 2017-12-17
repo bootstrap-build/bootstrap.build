@@ -20,6 +20,7 @@ class VariableSection extends Component {
             <div key={index} className="sidebar2__field">
               <div className="sidebar2__field__variable">{field.variable}</div>
               <VariableField
+                referenceVars={this.props.referenceVars}
                 {...field}
                 index={index}
                 onChange={this.handleChange}

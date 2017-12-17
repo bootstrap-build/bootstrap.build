@@ -13,6 +13,15 @@ import variables from './curated-variables'
 import Loader from './loader'
 import compiler from './compiler'
 
+const defaultReferenceVars = {}
+Object.keys(variables).forEach(key => {
+  variables[key].forEach(variable => {
+    if(variable.value.indexOf('$') === 0) {
+      defaultReferenceVars[variable.variable] = variable.value
+    }
+  })
+})
+
 
 class App extends Component {
 
@@ -23,7 +32,11 @@ class App extends Component {
     code: '',
     color: '#fff',
     open: false,
+    // all bootstrap vars
     variables: variables['Buttons'],
+    // only $variables, that are possible to reference in other variables
+    // needed to generate a menu of all available vars
+    referenceVars: defaultReferenceVars,
     overwrites: {}
   }
 
@@ -33,9 +46,19 @@ class App extends Component {
 
   compileSass = async () => {
     this.setState({ loading: true })
-    let varObject = {}
+    const varObject = {}
+    const referenceVars = {}
     Object.keys(this.state.overwrites).forEach(key => {
       varObject[key] = this.state.overwrites[key]
+      if(this.state.overwrites[key].indexOf('$') === 0) {
+        referenceVars[key] = this.state.overwrites[key]
+      }
+    })
+    this.setState({
+      referenceVars: {
+        ...defaultReferenceVars,
+        ...referenceVars
+      }
     })
     const css = await (await fetch(`http://127.0.0.1:8080/bootstrap`, {
       method: 'POST',
@@ -52,6 +75,8 @@ class App extends Component {
   }
 
   async componentDidMount() {
+    // register all variables
+
     this.compileSass()
     this.debouncedCompileSass = debounce(this.compileSass, 500)
   }
@@ -120,6 +145,7 @@ class App extends Component {
         <div className="sidebar2">
           <VariableSection
             fields={this.state.variables}
+            referenceVars={this.state.referenceVars}
             onChange={this.handleVariableChange}
           />
         </div>
