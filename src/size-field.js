@@ -9,9 +9,6 @@ class SizeField extends Component {
   handleChange = event => {
     const parsed = parseUnit(event.target.value)
     const unit = parsed[1]
-    if(event.target.value.indexOf('$') === 0) {
-      return this.props.onChange(event.target.value)
-    }
     if(unit === 'px' || unit === 'em' || unit === 'rem' || unit === '%') {
       this.props.onChange(event.target.value)
     } else {

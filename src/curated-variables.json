@@ -673,7 +673,7 @@
     {
       "variable": "$kbd-box-shadow",
       "value": "inset 0 -.1rem 0 rgba($black,.25)",
-      "type": "color",
+      "type": "string",
       "description": ""
     },
     {
@@ -815,7 +815,7 @@
     {
       "variable": "$input-btn-focus-color",
       "value": "rgba(theme-color(primary), .25)",
-      "type": "color",
+      "type": "string",
       "description": ""
     },
     {
@@ -869,13 +869,13 @@
     {
       "variable": "$btn-box-shadow",
       "value": "inset 0 1px 0 rgba($white,.15), 0 1px 1px rgba($black,.075)",
-      "type": "color",
+      "type": "string",
       "description": ""
     },
     {
       "variable": "$btn-active-box-shadow",
       "value": "inset 0 3px 5px rgba($black,.125)",
-      "type": "color",
+      "type": "string",
       "description": ""
     },
     {
@@ -949,7 +949,7 @@
     {
       "variable": "$input-box-shadow",
       "value": "inset 0 1px 1px rgba($black,.075)",
-      "type": "color",
+      "type": "string",
       "description": ""
     },
     {
@@ -1141,7 +1141,7 @@
     {
       "variable": "$custom-control-indicator-box-shadow",
       "value": "inset 0 .25rem .25rem rgba($black,.1)",
-      "type": "color",
+      "type": "string",
       "description": ""
     },
     {
@@ -1345,7 +1345,7 @@
     {
       "variable": "$custom-select-focus-box-shadow",
       "value": "inset 0 1px 2px rgba($black, .075), 0 0 5px rgba($custom-select-focus-border-color, .5)",
-      "type": "color",
+      "type": "string",
       "description": ""
     },
     {
@@ -1509,7 +1509,7 @@
     {
       "variable": "$dropdown-box-shadow",
       "value": "0 .5rem 1rem rgba($black,.175)",
-      "type": "color",
+      "type": "string",
       "description": ""
     },
     {
@@ -2137,7 +2137,7 @@
     {
       "variable": "$popover-box-shadow",
       "value": "0 .25rem .5rem rgba($black,.2)",
-      "type": "color",
+      "type": "string",
       "description": ""
     },
     {
@@ -2297,13 +2297,13 @@
     {
       "variable": "$modal-content-box-shadow-xs",
       "value": "0 3px 9px rgba($black,.5)",
-      "type": "color",
+      "type": "string",
       "description": ""
     },
     {
       "variable": "$modal-content-box-shadow-sm-up",
       "value": "0 5px 15px rgba($black,.5)",
-      "type": "color",
+      "type": "string",
       "description": ""
     },
     {
@@ -2439,7 +2439,7 @@
     {
       "variable": "$progress-box-shadow",
       "value": "inset 0 .1rem .1rem rgba($black,.1)",
-      "type": "color",
+      "type": "string",
       "description": ""
     },
     {
@@ -2599,7 +2599,7 @@
     {
       "variable": "$thumbnail-box-shadow",
       "value": "0 1px 2px rgba($black,.075)",
-      "type": "color",
+      "type": "string",
       "description": ""
     },
     {

@@ -196,7 +196,7 @@ class App extends Component {
             showDocs={this.showDocs}
           />
           {this.state.loading && <Loader />}
-          <div className={this.state.loading ? "preview__content blur" : "preview__content"}>
+          <div className={this.state.loading ? "preview__content" : "preview__content"}>
             {iframe}
           </div>
         </div>
