@@ -17,9 +17,8 @@ app.post('/bootstrap', (req, res) => {
     data:
       `
       @import "functions";
-      ${Object.keys(req.body).reduce((prev, cur) => {
-        console.log(req.body[cur])
-        return `${prev}\n${cur}: ${req.body[cur]};`
+      ${(req.body.vars || []).reduce((prev, cur) => {
+        return `${prev}\n${cur[0]}: ${cur[1]};`
       }, '')}
       @import "variables";
       @import "mixins";
@@ -60,7 +59,15 @@ app.post('/bootstrap', (req, res) => {
   }, (err, result) => {
     res.header('Content-type', 'text/plain')
     res.header('Access-Control-Allow-Origin', '*')
-    res.send(result.css)
+    if(err) {
+      return res.json({
+        error: true,
+        error_description: err.formatted
+      })
+    }
+    return res.json({
+      css: result.css.toString()
+    })
   })
 })
 

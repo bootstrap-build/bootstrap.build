@@ -8,9 +8,15 @@ class ReferenceField extends Component {
   }
 
   render() {
+    const suggestData = []
+    Object.keys(this.props.referenceVars || {}).forEach(key => {
+      //if(this.props.referenceVars[key].type === this.props.type) {
+        suggestData.push(key)
+      //}
+    })
     return (
       <AutoComplete
-        dataSource={Object.keys(this.props.referenceVars || {})}
+        dataSource={suggestData}
         style={{ width: '100%' }}
         placeholder="$variable"
         value={this.props.value}

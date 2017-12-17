@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './styles.css'
 import 'antd/dist/antd.min.css';
+import { message } from 'antd'
 
 import debounce from 'debounce'
 
@@ -13,6 +14,13 @@ import variables from './curated-variables'
 import Loader from './loader'
 import compiler from './compiler'
 
+const flatten_variables = {}
+Object.keys(variables).forEach(key => {
+  variables[key].forEach(_var => {
+    flatten_variables[_var.variable] = _var.value
+  })
+})
+
 const defaultReferenceVars = {}
 Object.keys(variables).forEach(key => {
   variables[key].forEach(variable => {
@@ -21,7 +29,6 @@ Object.keys(variables).forEach(key => {
     }
   })
 })
-
 
 class App extends Component {
 
@@ -44,6 +51,22 @@ class App extends Component {
     this.compileSass()
   }
 
+  resolveVariables = (vars, prevLength) => {
+    if(prevLength === Object.keys(vars).length) {
+      return vars
+    }
+    const out = {}
+    Object.keys(vars).forEach(key => {
+      if(vars[vars[key]]) {
+        out[vars[key]] = vars[vars[key]]
+      } else if(flatten_variables[vars[key]]) {
+        out[vars[key]] = flatten_variables[vars[key]]
+      }
+      out[key] = vars[key]
+    })
+    return this.resolveVariables(out, Object.keys(vars).length)
+  }
+
   compileSass = async () => {
     this.setState({ loading: true })
     const varObject = {}
@@ -60,18 +83,27 @@ class App extends Component {
         ...referenceVars
       }
     })
+    let resolvedVars = this.resolveVariables(varObject)
+    const vars = Object.keys(resolvedVars).map(key => [key, resolvedVars[key]])
     const css = await (await fetch(`http://127.0.0.1:8080/bootstrap`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(varObject)
-    })).text()
-    this.iframe.contentWindow.postMessage({ css }, '*')
-    this.setState({
-      currentCSS: css,
-      loading: false
-    })
+      body: JSON.stringify({
+        vars
+      })
+    })).json()
+    if(css.css) {
+      this.iframe.contentWindow.postMessage({ css: css.css }, '*')
+      this.setState({
+        currentCSS: css,
+        loading: false
+      })
+    }
+    if(css.error) {
+      message.error(css.error_description)
+    }
   }
 
   async componentDidMount() {
