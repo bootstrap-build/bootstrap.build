@@ -17,7 +17,7 @@ class VariableSection extends Component {
       <div>
         {this.props.fields.map((field, index) => {
           return (
-            <div key={index} className="sidebar2__field">
+            <div key={`${index}${field.variable}`} className="sidebar2__field">
               <div className="sidebar2__field__variable">{field.variable}</div>
               <Field
                 referenceVars={this.props.referenceVars}

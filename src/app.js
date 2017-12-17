@@ -14,8 +14,6 @@ import variables from './curated-variables'
 import Loader from './loader'
 import compiler from './compiler'
 
-console.log(variables)
-
 
 const flatten_variables = {}
 Object.keys(variables).forEach(key => {
@@ -42,7 +40,7 @@ class App extends Component {
     open: false,
     showDocs: false,
     // all bootstrap vars
-    variables: variables['Buttons'],
+    variables: variables,
     // only $variables, that are possible to reference in other variables
     // needed to generate a menu of all available vars
     referenceVars: defaultReferenceVars,
@@ -116,14 +114,13 @@ class App extends Component {
 
   handleSectionChange = section => {
     this.setState({
-      active: section,
-      variables: variables[section] || []
+      active: section
     })
   }
 
   handleVariableChange = (variable, index) => {
-    const newVariables = [...this.state.variables]
-    newVariables[index] = variable
+    const newVariables = Object.assign({}, this.state.variables)
+    newVariables[this.state.active][index] = variable
     const overwriteObj = {}
     overwriteObj[variable.variable] = variable.value
     this.setState({
@@ -186,7 +183,7 @@ class App extends Component {
         <SidebarElements items={_elements} onChange={this.handleSectionChange}/>
         <div className="sidebar2 scroll-style">
           <VariableSection
-            fields={this.state.variables}
+            fields={this.state.variables[this.state.active]}
             referenceVars={this.state.referenceVars}
             onChange={this.handleVariableChange}
           />
