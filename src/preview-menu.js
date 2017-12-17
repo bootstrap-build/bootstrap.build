@@ -20,17 +20,6 @@ class PreviewMenu extends Component {
             onChange={this.handleLockChange}
           >Stay on this page</Checkbox>
         </div>
-        <div style={{ float: 'left' }}>
-          <Checkbox
-            checked={this.props.showDocs}
-            onChange={this.handleShowDocsToggle}
-          >Show docs</Checkbox>
-        </div>
-        <div style={{ float: 'right' }}>
-          <a href="#">Edit HTML</a>
-          <span> | </span>
-          <a href="#">Background color</a>
-        </div>
       </div>
     )
   }

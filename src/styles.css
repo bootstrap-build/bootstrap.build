@@ -33,12 +33,18 @@ header {
 }
 
 .sidebar1__section--active {
-  background-color: #007bff;
+  background-color: #007bff !important;
   color: #ffffff;
+  cursor: pointer;
+}
+
+.sidebar1 div:hover {
+  background-color: #f9f9f9;
 }
 
 .sidebar1 div {
-  padding: 3px 5px;
+  padding: 10px;
+  border-radius: 6px;
   cursor: pointer;
 }
 
@@ -55,9 +61,9 @@ header {
 }
 
 .sidebar2__field {
-  padding-bottom: 15px;
-  margin-bottom: 15px;
-  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #f1f1f1;
 }
 
 .sidebar2__field__variable__split {
@@ -86,6 +92,25 @@ header {
   margin-top: 3px;
 }
 
+.sidebar2__size-variable__input {
+  width: 121px !important;
+  font-size: 12px !important;
+  float: left !important;
+  border-right: none !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.sidebar2__size-variable__buttons {
+  width: 63px;
+  float: left;
+}
+
+.sidebar2__size-variable__buttons__left {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
 .preview {
   position: fixed;
   left: 240px;
@@ -97,7 +122,7 @@ header {
 .preview__menu {
   overflow: hidden;
   padding: 5px;
-  background-color: #f1f1f1;
+  background-color: #ffffff;
 }
 
 .sidebar1 a {

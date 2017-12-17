@@ -54,24 +54,14 @@ class SizeField extends Component {
         <Input
           value={this.state.value}
           onChange={this.handleChange}
-          style={{
-            width: '60%',
-            fontSize: 12,
-            float: 'left',
-            borderRight: 'none',
-            borderTopRightRadius: 0,
-            borderBottomRightRadius: 0
-          }}
+          className="sidebar2__size-variable__input"
         />
-      <div style={{width: '40%', float: 'left'}}>
+      <div className="sidebar2__size-variable__buttons">
         <Button.Group>
           <Button
             type="primary"
             icon="minus"
-            style={{
-              borderTopLeftRadius: 0,
-              borderBottomLeftRadius: 0
-            }}
+            className="sidebar2__size-variable__buttons__left"
             onClick={this.handleMinusClick}
           />
           <Button

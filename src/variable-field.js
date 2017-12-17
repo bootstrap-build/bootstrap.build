@@ -19,14 +19,21 @@ class VariableField extends Component {
   }
 
   componentDidMount() {
+    if(this.props.value.indexOf('$') === 0) {
+      return this.setState({
+        type: 'variable'
+      })
+    }
     this.setState({
       type: this.props.type
     })
   }
 
-  renderHardVariable = () => {
+  renderVariable = () => {
     const type = this.state.type || this.props.type
-    if(type === 'color') {
+    if(type === 'variable') {
+      return <ReferenceField {...this.props} onChange={this.handleChange} />
+    } else if(type === 'color') {
       return <ColorField {...this.props} onChange={this.handleChange}/>
     } else if(type === 'boolean') {
       return <BooleanField {...this.props} onChange={this.handleChange}/>
@@ -44,7 +51,6 @@ class VariableField extends Component {
   }
 
   render() {
-    let isReferenceVar = this.props.value.indexOf('$') === 0
     const typeMenu = (
       <Menu onClick={this.handleTypeChange}>
         <Menu.Item key="variable">variable</Menu.Item>
@@ -55,10 +61,7 @@ class VariableField extends Component {
     )
     return (
       <div className="sidebar2__field__variable__split">
-        { isReferenceVar ?
-          <ReferenceField {...this.props} onChange={this.handleChange} /> :
-          this.renderHardVariable()
-        }
+        { this.renderVariable() }
         <div style={{textAlign: 'right', fontSize: 10}}>
           <Dropdown overlay={typeMenu}>
             <a className="">{this.state.type || this.props.type}</a>

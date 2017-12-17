@@ -3,11 +3,10 @@ import { Menu, Dropdown, Button, Icon, message } from 'antd';
 
 class Header extends Component {
   render() {
-    const menu = (
+    const exportMenu = (
       <Menu>
-        <Menu.Item key="1">Login Screens</Menu.Item>
-        <Menu.Item key="2">2nd menu item</Menu.Item>
-        <Menu.Item key="3">3rd item</Menu.Item>
+        <Menu.Item key="1">SCSS Variables</Menu.Item>
+        <Menu.Item key="2">Bootstrap Build</Menu.Item>
       </Menu>
     );
     return (
@@ -16,12 +15,9 @@ class Header extends Component {
           <img src="logo.svg" height="40" />
         </div>
         <div className="header__right">
-          <Dropdown overlay={menu}>
-            <Button style={{ marginRight: 15 }}>
-              Preview <Icon type="down" />
-            </Button>
+          <Dropdown overlay={exportMenu}>
+            <Button type="primary" icon="download">Export</Button>
           </Dropdown>
-          <Button type="primary" icon="download">Download .SCSS</Button>
         </div>
       </header>
     )
