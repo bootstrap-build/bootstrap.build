@@ -5,7 +5,7 @@ import BooleanField from './boolean-field.js'
 import TextField from './text-field.js'
 import SizeField from './size-field.js'
 import ReferenceField from './reference-field.js'
-import getVariableType from './get-variable-type.js'
+import FontField from './font-field.js'
 
 class VariableField extends Component {
 
@@ -18,21 +18,13 @@ class VariableField extends Component {
     }, this.props.index)
   }
 
-  componentDidMount() {
-    if(this.props.value.indexOf('$') === 0) {
-      return this.setState({
-        type: 'variable'
-      })
-    }
-    this.setState({
-      type: this.props.type
-    })
-  }
-
   renderVariable = () => {
     const type = this.state.type || this.props.type
     if(type === 'variable') {
       return <ReferenceField {...this.props} onChange={this.handleChange} />
+    } else if (this.props.type === 'font') {
+      alert('font')
+      return <FontField {...this.props} onChange={this.handleChange} />
     } else if(type === 'color') {
       return <ColorField {...this.props} onChange={this.handleChange}/>
     } else if(type === 'boolean') {
@@ -57,6 +49,7 @@ class VariableField extends Component {
         <Menu.Item key="size">size</Menu.Item>
         <Menu.Item key="string">string</Menu.Item>
         <Menu.Item key="color">color</Menu.Item>
+        <Menu.Item key="font">font</Menu.Item>
       </Menu>
     )
     return (

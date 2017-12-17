@@ -14,6 +14,7 @@ import variables from './curated-variables'
 import Loader from './loader'
 import compiler from './compiler'
 
+console.log(variables)
 
 
 const flatten_variables = {}

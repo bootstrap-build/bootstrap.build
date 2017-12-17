@@ -5,7 +5,8 @@ class VariableSection extends Component {
 
   handleChange = (field, index) => {
     this.props.onChange({
-      type: field.type,
+      // should i remove this comment in case it breaks something
+      //type: field.type,
       value: field.value,
       variable: field.variable,
       description: field.description
