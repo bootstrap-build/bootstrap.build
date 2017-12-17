@@ -59,6 +59,20 @@ header {
   border-bottom: 1px solid #ddd;
 }
 
+.sidebar2__field__variable__split {
+  overflow: hidden;
+}
+
+.sidebar2__field__variable__split__left {
+  float: left;
+  width: 70%;
+}
+
+.sidebar2__field__variable__split__right {
+  width: 30%;
+  float: left;
+}
+
 .sidebar2__field__description {
   font-size: 13px;
 }
@@ -90,7 +104,6 @@ header {
 }
 
 .preview__content {
-  padding: 20px;
   position: absolute;
   top: 31px;
   bottom: 0;

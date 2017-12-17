@@ -9,7 +9,7 @@ import elements from './elements'
 import VariableSection from './variable-section'
 import PreviewMenu from './preview-menu'
 import Header from './header'
-import variables from './variables'
+import variables from './curated-variables'
 import Loader from './loader'
 import compiler from './compiler'
 
@@ -23,7 +23,8 @@ class App extends Component {
     code: '',
     color: '#fff',
     open: false,
-    variables: variables['Buttons']
+    variables: variables['Buttons'],
+    overwrites: {}
   }
 
   handleButtonClick = () => {
@@ -32,8 +33,17 @@ class App extends Component {
 
   compileSass = async () => {
     this.setState({ loading: true })
-    const code = this.state.variables.map(variable => `${variable.variable}: ${variable.value};`).join('\n')
-    const css = await compiler(code, '/bootstrap_scss')
+    let varObject = {}
+    Object.keys(this.state.overwrites).forEach(key => {
+      varObject[key] = this.state.overwrites[key]
+    })
+    const css = await (await fetch(`http://127.0.0.1:8080/bootstrap`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(varObject)
+    })).text()
     this.iframe.contentWindow.postMessage({ css }, '*')
     this.setState({
       currentCSS: css,
@@ -49,13 +59,21 @@ class App extends Component {
   handleSectionChange = section => {
     this.setState({
       active: section,
-      variables: variables[section]
+      variables: variables[section] || []
     })
   }
 
-  handleVariableChange = variables => {
+  handleVariableChange = (variable, index) => {
+    const newVariables = [...this.state.variables]
+    newVariables[index] = variable
+    const overwriteObj = {}
+    overwriteObj[variable.variable] = variable.value
     this.setState({
-      variables
+      variables: newVariables,
+      overwrites: {
+        ...this.state.overwrites,
+        ...overwriteObj
+      }
     })
     this.debouncedCompileSass()
   }

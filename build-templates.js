@@ -9,6 +9,7 @@ const template = content => {
         <meta charset="utf-8">
         <title></title>
         <link rel="stylesheet" href="template.css" />
+        <link rel="stylesheet" href="docs.min.css" />
         <style id="styles"></style>
       </head>
       <body>

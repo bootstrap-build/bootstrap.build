@@ -4,9 +4,12 @@ import VariableField from './variable-field.js'
 class VariableSection extends Component {
 
   handleChange = (field, index) => {
-    const fields = this.props.fields
-    fields[index] = field
-    this.props.onChange(fields)
+    this.props.onChange({
+      type: field.type,
+      value: field.value,
+      variable: field.variable,
+      description: field.description
+    }, index)
   }
 
   render() {
@@ -28,7 +31,7 @@ class VariableSection extends Component {
       </div>
     )
   }
-  
+
 }
 
 export default VariableSection
