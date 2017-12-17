@@ -26,7 +26,8 @@ header {
   position: fixed;
   left: 0;
   bottom: 0;
-  width: 150px;
+  padding: 20px;
+  width: 240px;
   background: #fff;
   overflow-y: auto;
 }
@@ -87,7 +88,7 @@ header {
 
 .preview {
   position: fixed;
-  left: 150px;
+  left: 240px;
   right: 240px;
   top: 60px;
   bottom: 0;

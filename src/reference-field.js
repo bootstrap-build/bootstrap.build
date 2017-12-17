@@ -17,9 +17,7 @@ class ReferenceField extends Component {
   render() {
     const suggestData = []
     Object.keys(this.props.referenceVars || {}).forEach(key => {
-      //if(this.props.referenceVars[key].type === this.props.type) {
-        suggestData.push(key)
-      //}
+      suggestData.push(key)
     })
     return (
       <AutoComplete
