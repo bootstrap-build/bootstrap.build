@@ -52,9 +52,11 @@ class ColorField extends Component {
             onChange={this.handleInputChange}
             suffix={<div className="color-swatch" style={{ backgroundColor: this.props.value }}/>}
           />
-          {this.state.colorPickerVisible && <SketchPicker
+        {this.state.colorPickerVisible && <SketchPicker
+            presetColors={[]}
             color={this.props.value}
             onChange={this.handleChange}
+            onChangeComplete={this.handleChange}
           />}
         </TetherComponent>
       </div>

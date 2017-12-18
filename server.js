@@ -12,7 +12,13 @@ app.use((req, res, next) => {
   next()
 })
 
-app.post('/bootstrap', (req, res) => {
+app.get('/', (req, res) => {
+  res.json({
+    endPoints: '/compile'
+  })
+})
+
+app.post('/compile', (req, res) => {
   sass.render({
     data:
       `
