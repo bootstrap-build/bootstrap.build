@@ -2,9 +2,7 @@ import React, { Component } from 'react'
 import './styles.css'
 import 'antd/dist/antd.min.css';
 import { message } from 'antd'
-
 import debounce from 'debounce'
-
 import SidebarElements from './sidebar-elements'
 import elements from './elements'
 import VariableSection from './variable-section'
@@ -13,7 +11,6 @@ import Header from './header'
 import variables from './curated-variables'
 import Loader from './loader'
 import compiler from './compiler'
-
 
 const flatten_variables = {}
 Object.keys(variables).forEach(key => {
@@ -29,13 +26,19 @@ Object.keys(variables).forEach(key => {
   })
 })
 
+const download = (filename, data) => {
+  var element = document.createElement('a')
+  element.setAttribute('href', 'data:text/text;charset=utf-8,' + encodeURI(data))
+  element.setAttribute('download', filename)
+  element.click()
+}
+
 class App extends Component {
 
   state = {
     loading: false,
     lock: false,
     active: 'Buttons',
-    code: '',
     open: false,
     showDocs: true,
     // all bootstrap vars
@@ -66,8 +69,7 @@ class App extends Component {
     return this.resolveVariables(out, Object.keys(vars).length)
   }
 
-  compileSass = async () => {
-    this.setState({ loading: true })
+  prepare = () => {
     const varObject = {}
     const referenceVars = {}
     Object.keys(this.state.overwrites).forEach(key => {
@@ -76,22 +78,30 @@ class App extends Component {
         referenceVars[key] = this.state.overwrites[key]
       }
     })
+    const resolvedVars = this.resolveVariables(varObject)
+    return {
+      varObject,
+      referenceVars,
+      resolvedVars
+    }
+  }
+
+  compileSass = async () => {
+    const { resolvedVars, referenceVars } = this.prepare()
     this.setState({
+      loading: true,
       referenceVars: {
         ...defaultReferenceVars,
         ...referenceVars
       }
     })
-    let resolvedVars = this.resolveVariables(varObject)
     const vars = Object.keys(resolvedVars).map(key => [key, resolvedVars[key]])
     const css = await (await fetch(`/api/compile`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        vars
-      })
+      body: JSON.stringify({ vars })
     })).json()
     if(css.css) {
       this.iframe.contentWindow.postMessage({ css: css.css }, '*')
@@ -151,6 +161,17 @@ class App extends Component {
     })
   }
 
+  handleSCSSExport = () => {
+    const { resolvedVars } = this.prepare()
+    download('theme.scss', Object.keys(resolvedVars).reduce((prev, cur) => {
+      return `${prev}\n${cur}: ${resolvedVars[cur]};`
+    }, ''))
+  }
+
+  handleBootstrapBuildExport = () => {
+    download('bootstrap.css', this.state.currentCSS)
+  }
+
   render() {
     const _elements = elements.map(element => {
       return {
@@ -184,6 +205,8 @@ class App extends Component {
           templateLock={this.state.lock}
           onShowDocsToggle={this.handleShowDocsToggle}
           showDocs={this.state.showDocs}
+          onSCSSExport={this.handleSCSSExport}
+          onBootstrapBuildExport={this.handleBootstrapBuildExport}
         />
         <SidebarElements items={_elements} onChange={this.handleSectionChange}/>
         <div className="sidebar2 scroll-style">

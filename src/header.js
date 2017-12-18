@@ -11,11 +11,21 @@ import {
 } from 'antd'
 
 class Header extends Component {
+
+  handleExportMenuClick = (event) => {
+    if(event.key === 'scss') {
+      this.props.onSCSSExport()
+    }
+    if(event.key === 'build') {
+      this.props.onBootstrapBuildExport()
+    }
+  }
+
   render() {
     const exportMenu = (
-      <Menu>
-        <Menu.Item key="1">SCSS Variables</Menu.Item>
-        <Menu.Item key="2">Bootstrap Build</Menu.Item>
+      <Menu onClick={this.handleExportMenuClick}>
+        <Menu.Item key="scss">SCSS Variables</Menu.Item>
+        <Menu.Item key="build">Bootstrap Build</Menu.Item>
       </Menu>
     )
     let tooltipText = this.props.templateLock ? 'Only variables section will update when you change sections.' : 'Template and variables section will update when you change sections.'
