@@ -85,7 +85,7 @@ class App extends Component {
     })
     let resolvedVars = this.resolveVariables(varObject)
     const vars = Object.keys(resolvedVars).map(key => [key, resolvedVars[key]])
-    const css = await (await fetch(`http://127.0.0.1:8080/bootstrap`, {
+    const css = await (await fetch(`/bootstrap`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -136,7 +136,7 @@ class App extends Component {
   handleLockChange = lock => {
     this.setState({
       lock,
-      lockedTemplate: lock ? elements.find(e => e.text === this.state.active).template : null
+      lockedTemplate: lock ? elements.find(e => e.text === this.state.active).template : ''
     })
   }
 
@@ -179,7 +179,10 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <Header />
+        <Header
+          onTemplateLock={this.handleLockChange}
+          templateLock={this.state.lock}
+        />
         <SidebarElements items={_elements} onChange={this.handleSectionChange}/>
         <div className="sidebar2 scroll-style">
           <VariableSection

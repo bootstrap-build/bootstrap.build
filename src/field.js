@@ -26,8 +26,6 @@ class Field extends Component {
 
   renderVariable = () => {
     const type = this.state.type || this.props.type
-    console.log('state.type', this.state.type)
-    console.log('props.type', this.props.type)
     if(type === 'variable') {
       return <ReferenceField {...this.props} onChange={this.handleChange} />
     } else if (this.props.type === 'font') {

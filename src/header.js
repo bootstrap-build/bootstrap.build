@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Menu, Dropdown, Button, Icon, message } from 'antd';
+import { Menu, Dropdown, Button, Icon, message, Checkbox } from 'antd';
 
 class Header extends Component {
   render() {
@@ -11,8 +11,14 @@ class Header extends Component {
     );
     return (
       <header>
-        <div className="header__left">
-          
+        <div className="header__controls">
+          <Checkbox
+            onChange={event => {
+              this.props.onTemplateLock(event.target.checked)
+            }}
+            checked={this.props.templateLock}>
+            Stay on this template
+          </Checkbox>
         </div>
         <div className="header__right">
           <Dropdown overlay={exportMenu}>

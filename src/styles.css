@@ -20,6 +20,12 @@ header {
   padding: 9px 15px;
 }
 
+.header__controls {
+  float: left;
+  margin-left: 240px;
+  padding-top: 19px;
+}
+
 .sidebar1 {
   top: 60px;
   border-right: 1px solid #ddd;
