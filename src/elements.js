@@ -5,7 +5,7 @@ const items = [
   },
   {
     text: 'Options',
-    template: '/templates/colors.html'
+    template: '/templates/options.html'
   },
   {
     text: 'Links',
@@ -57,7 +57,7 @@ const items = [
   },
   {
     text: 'Cards',
-    template: '/templates/cards.html'
+    template: '/templates/card.html'
   },
   {
     text: 'Tooltips',
@@ -68,12 +68,12 @@ const items = [
     template: '/templates/popovers.html'
   },
   {
-    text: 'Badges',
-    template: '/templates/badges.html'
+    text: 'Badge',
+    template: '/templates/badge.html'
   },
   {
     text: 'Modals',
-    template: '/templates/modals.html'
+    template: '/templates/modal.html'
   },
   {
     text: 'Alerts',
@@ -88,8 +88,8 @@ const items = [
     template: '/templates/list-group.html'
   },
   {
-    text: 'Image thumbnails',
-    template: '/templates/image-thumbnails.html'
+    text: 'Images',
+    template: '/templates/images.html'
   },
   {
     text: 'Figures',

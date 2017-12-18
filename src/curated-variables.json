@@ -2201,7 +2201,7 @@
       "description": ""
     }
   ],
-  "Badges": [
+  "Badge": [
     {
       "variable": "$badge-font-size",
       "value": "75%",
@@ -2559,7 +2559,7 @@
       "description": ""
     }
   ],
-  "Image thumbnails": [
+  "Images": [
     {
       "variable": "$thumbnail-padding",
       "value": ".25rem",
@@ -2617,7 +2617,7 @@
       "description": ""
     }
   ],
-  "Breadcrumbs": [
+  "Breadcrumb": [
     {
       "variable": "$breadcrumb-padding-y",
       "value": ".75rem",
