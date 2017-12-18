@@ -37,7 +37,7 @@ class App extends Component {
     active: 'Buttons',
     code: '',
     open: false,
-    showDocs: false,
+    showDocs: true,
     // all bootstrap vars
     variables: variables,
     // only $variables, that are possible to reference in other variables
@@ -113,7 +113,8 @@ class App extends Component {
 
   handleSectionChange = section => {
     this.setState({
-      active: section
+      active: section,
+      showDocs: true
     })
   }
 
@@ -144,7 +145,7 @@ class App extends Component {
   }
 
   handleShowDocsToggle = () => {
-    this.iframe.contentWindow.postMessage({ toggleCode: true }, '*')
+    this.iframe.contentWindow.postMessage({ toggleDocs: true }, '*')
     this.setState({
       showDocs: !this.state.showDocs
     })
@@ -181,6 +182,8 @@ class App extends Component {
         <Header
           onTemplateLock={this.handleLockChange}
           templateLock={this.state.lock}
+          onShowDocsToggle={this.handleShowDocsToggle}
+          showDocs={this.state.showDocs}
         />
         <SidebarElements items={_elements} onChange={this.handleSectionChange}/>
         <div className="sidebar2 scroll-style">
