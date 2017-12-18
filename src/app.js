@@ -36,7 +36,6 @@ class App extends Component {
     lock: false,
     active: 'Buttons',
     code: '',
-    color: '#fff',
     open: false,
     showDocs: false,
     // all bootstrap vars
@@ -85,7 +84,7 @@ class App extends Component {
     })
     let resolvedVars = this.resolveVariables(varObject)
     const vars = Object.keys(resolvedVars).map(key => [key, resolvedVars[key]])
-    const css = await (await fetch(`/bootstrap`, {
+    const css = await (await fetch(`/api/compile`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
