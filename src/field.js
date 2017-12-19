@@ -12,16 +12,21 @@ class Field extends Component {
   state = {}
 
   handleChange = value => {
-    console.log({
-      ...this.props,
-      type: this.state.type || this.props.type,
-      value
+    this.setState({
+      changed: true
     })
     this.props.onChange({
       ...this.props,
       type: this.state.type || this.props.type,
       value
     }, this.props.index)
+  }
+
+  handleSetDefault = event => {
+    this.setState({
+      changed: false
+    })
+    this.props.onSetDefault(this.props.variable, this.props.index)
   }
 
   renderVariable = () => {
@@ -64,7 +69,9 @@ class Field extends Component {
         </div>
         <div style={{textAlign: 'right', fontSize: 10, overflow: 'hidden'}}>
           <div style={{ float: 'left' }}>
-            <a>set default</a>
+            {this.state.changed ?
+              <a onClick={this.handleSetDefault}><i className="fa fa-times"></i></a>
+            : ''}
           </div>
           <div style={{ float: 'right' }}>
             <Dropdown overlay={typeMenu}>

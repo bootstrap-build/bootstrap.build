@@ -12,6 +12,10 @@ class VariableSection extends Component {
     }, index)
   }
 
+  handleSetDefault = (varName, index) => {
+    this.props.onSetDefault(varName, index)
+  }
+
   render() {
     return (
       <div>
@@ -24,6 +28,7 @@ class VariableSection extends Component {
                 {...field}
                 index={index}
                 onChange={this.handleChange}
+                onSetDefault={this.handleSetDefault}
               />
               <div className="sidebar2__field__description" dangerouslySetInnerHTML={{ __html: field.description }} />
             </div>

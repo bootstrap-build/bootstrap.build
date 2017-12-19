@@ -42,7 +42,7 @@ class App extends Component {
     open: false,
     showDocs: true,
     // all bootstrap vars
-    variables: variables,
+    variables: JSON.parse(JSON.stringify(variables)),
     // only $variables, that are possible to reference in other variables
     // needed to generate a menu of all available vars
     referenceVars: defaultReferenceVars,
@@ -111,6 +111,9 @@ class App extends Component {
         body: JSON.stringify({ vars })
       })).json()
       css = compileResponse.css || ''
+      if(compileResponse.error) {
+        message.error(css.error_description)
+      }
     }
     this.iframe.contentWindow.postMessage({
       css
@@ -119,9 +122,6 @@ class App extends Component {
       currentCSS: css,
       loading: false
     })
-    if(css.error) {
-      message.error(css.error_description)
-    }
   }
 
   async componentDidMount() {
@@ -147,6 +147,18 @@ class App extends Component {
         ...this.state.overwrites,
         ...overwriteObj
       }
+    })
+    this.debouncedCompileSass()
+  }
+
+  handleSetDefault = (varName, index) => {
+    const newVariables = Object.assign({}, this.state.variables)
+    newVariables[this.state.active][index] = variables[this.state.active][index]
+    const newOverwrites = Object.assign({}, this.state.overwrites)
+    delete newOverwrites[varName]
+    this.setState({
+      variables: newVariables,
+      overwrites: newOverwrites
     })
     this.debouncedCompileSass()
   }
@@ -231,6 +243,7 @@ class App extends Component {
             fields={this.state.variables[this.state.active] || []}
             referenceVars={this.state.referenceVars}
             onChange={this.handleVariableChange}
+            onSetDefault={this.handleSetDefault}
           />
         </div>
         <div className="preview">
