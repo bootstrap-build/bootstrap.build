@@ -12,7 +12,7 @@ class BooleanField extends Component {
   }
 
   handleChange = checked => {
-    this.props.onChange(checked)
+    this.props.onChange(String(checked))
   }
 
   render() {
