@@ -102,6 +102,8 @@ class App extends Component {
       css = await compiler(Object.keys(resolvedVars).reduce((prev, cur) => {
         return `${prev}\n${cur}: ${resolvedVars[cur]};`
       }, ''))
+      // TODO:
+      // add error handling for client compile
     } else {
       const compileResponse = await (await fetch(`/api/compile`, {
         method: 'POST',
