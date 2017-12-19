@@ -10,7 +10,7 @@ import PreviewMenu from './preview-menu'
 import Header from './header'
 import variables from './curated-variables'
 import Loader from './loader'
-import compiler from './compiler'
+//import compiler from './compiler'
 
 const flatten_variables = {}
 Object.keys(variables).forEach(key => {
