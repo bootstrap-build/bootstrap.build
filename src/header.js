@@ -21,11 +21,21 @@ class Header extends Component {
     }
   }
 
+  handleCompileStrategyChange = event => {
+    this.props.onCompileStrategyChange(event.key)
+  }
+
   render() {
     const exportMenu = (
       <Menu onClick={this.handleExportMenuClick}>
         <Menu.Item key="scss">SCSS Variables</Menu.Item>
         <Menu.Item key="build">Bootstrap Build</Menu.Item>
+      </Menu>
+    )
+    const compileStrategyMenu = (
+      <Menu onClick={this.handleCompileStrategyChange}>
+        <Menu.Item key="client">Compile on client</Menu.Item>
+        <Menu.Item key="server">Compile on server</Menu.Item>
       </Menu>
     )
     let tooltipText = this.props.templateLock ? 'Only variables section will update when you change sections.' : 'Template and variables section will update when you change sections.'
@@ -54,6 +64,13 @@ class Header extends Component {
         <div className="header__right">
           <Dropdown overlay={exportMenu}>
             <Button type="primary" icon="download">Export</Button>
+          </Dropdown>
+        </div>
+        <div className="header__compile__strategy">
+          <Dropdown overlay={compileStrategyMenu}>
+            <Button>
+              Compile on {this.props.compileStrategy} <Icon type="down" />
+            </Button>
           </Dropdown>
         </div>
       </header>

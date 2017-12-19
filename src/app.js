@@ -10,7 +10,7 @@ import PreviewMenu from './preview-menu'
 import Header from './header'
 import variables from './curated-variables'
 import Loader from './loader'
-//import compiler from './compiler'
+import compiler from './compiler'
 
 const flatten_variables = {}
 Object.keys(variables).forEach(key => {
@@ -46,6 +46,7 @@ class App extends Component {
     // only $variables, that are possible to reference in other variables
     // needed to generate a menu of all available vars
     referenceVars: defaultReferenceVars,
+    compileStrategy: 'client',
     overwrites: {}
   }
 
@@ -96,29 +97,34 @@ class App extends Component {
       }
     })
     const vars = Object.keys(resolvedVars).map(key => [key, resolvedVars[key]])
-    const css = await (await fetch(`/api/compile`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ vars })
-    })).json()
-    if(css.css) {
-      this.iframe.contentWindow.postMessage({
-        css: css.css,
-      }, '*')
-      this.setState({
-        currentCSS: css.css,
-        loading: false
-      })
+    let css = ''
+    if(this.state.compileStrategy === 'client') {
+      css = await compiler(Object.keys(resolvedVars).reduce((prev, cur) => {
+        return `${prev}\n${cur}: ${resolvedVars[cur]};`
+      }, ''))
+    } else {
+      const compileResponse = await (await fetch(`/api/compile`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ vars })
+      })).json()
+      css = compileResponse.css || ''
     }
+    this.iframe.contentWindow.postMessage({
+      css
+    }, '*')
+    this.setState({
+      currentCSS: css,
+      loading: false
+    })
     if(css.error) {
       message.error(css.error_description)
     }
   }
 
   async componentDidMount() {
-    // register all variables
     this.compileSass()
     this.debouncedCompileSass = debounce(this.compileSass, 500)
   }
@@ -174,6 +180,12 @@ class App extends Component {
     download('bootstrap.css', this.state.currentCSS)
   }
 
+  handleCompileStrategyChange = strategy => {
+    this.setState({
+      compileStrategy: strategy
+    })
+  }
+
   render() {
     const _elements = elements.map(element => {
       return {
@@ -209,6 +221,8 @@ class App extends Component {
           showDocs={this.state.showDocs}
           onSCSSExport={this.handleSCSSExport}
           onBootstrapBuildExport={this.handleBootstrapBuildExport}
+          compileStrategy={this.state.compileStrategy}
+          onCompileStrategyChange={this.handleCompileStrategyChange}
         />
         <SidebarElements items={_elements} onChange={this.handleSectionChange}/>
         <div className="sidebar2 scroll-style">

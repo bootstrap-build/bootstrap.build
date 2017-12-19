@@ -1,6 +1,4 @@
 import Sass from 'sass.js/dist/sass.js'
-Sass.setWorkerUrl('/sass.worker.js');
-const sass = new Sass()
 
 const sassFiles = [
   '_alert.scss',
@@ -91,8 +89,11 @@ const sassFiles = [
 ]
 
 var bootstrapCode = ''
+let sass
 
 const initialCompile = code => {
+  Sass.setWorkerUrl('/sass.worker.js');
+  sass = new Sass()
   console.time('initial compile')
   return new Promise((resolve, reject) => {
     sass.preloadFiles('./bootstrap_scss', '.', sassFiles, function ()  {

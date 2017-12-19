@@ -37,6 +37,11 @@ header {
   padding: 7px 15px;
 }
 
+.header__compile__strategy {
+  float: right;
+  padding: 13px 10px;
+}
+
 .sidebar1 {
   top: 60px;
   border-right: 1px solid #ddd;
