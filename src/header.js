@@ -42,7 +42,7 @@ class Header extends Component {
     return (
       <header>
         <div className="header__logo">
-          <img src="./logo.png" height="45" />
+          <img src="./logo.svg" height="45" />
         </div>
         <div className="header__controls">
           <Tooltip placement="bottom" title={tooltipText}>

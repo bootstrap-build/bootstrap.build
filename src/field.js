@@ -59,11 +59,18 @@ class Field extends Component {
     )
     return (
       <div className="sidebar2__field__variable__split">
-        { this.renderVariable() }
-        <div style={{textAlign: 'right', fontSize: 10}}>
-          <Dropdown overlay={typeMenu}>
-            <a className=""><i className="fa fa-gear"></i> {this.state.type || this.props.type}</a>
-          </Dropdown>
+        <div style={{ overflow: 'hidden' }}>
+          { this.renderVariable() }
+        </div>
+        <div style={{textAlign: 'right', fontSize: 10, overflow: 'hidden'}}>
+          <div style={{ float: 'left' }}>
+            <a>set default</a>
+          </div>
+          <div style={{ float: 'right' }}>
+            <Dropdown overlay={typeMenu}>
+              <a><i className="fa fa-gear"></i> {this.state.type || this.props.type}</a>
+            </Dropdown>
+          </div>
         </div>
       </div>
     )

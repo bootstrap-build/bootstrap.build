@@ -127,6 +127,7 @@ class App extends Component {
   async componentDidMount() {
     this.compileSass()
     this.debouncedCompileSass = debounce(this.compileSass, 500)
+    window.loading_screen.finish()
   }
 
   handleSectionChange = section => {
