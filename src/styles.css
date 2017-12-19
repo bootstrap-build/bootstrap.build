@@ -22,7 +22,7 @@ header {
 
 .header__controls {
   float: left;
-  margin-left: 240px;
+  margin-left: 38px;
   padding-top: 19px;
 }
 
@@ -30,6 +30,11 @@ header {
   margin-left: 100px;
   padding-top: 19px;
   float: left;
+}
+
+.header__logo {
+  float: left;
+  padding: 7px 15px;
 }
 
 .sidebar1 {

@@ -1,12 +1,9 @@
-var docsShown = true
 window.addEventListener('message', message => {
-  if(message.data.toggleDocs) {
-    if(docsShown) {
-      $('body > :not(.bd-example)').hide()
-      docsShown = false
-    } else {
+  if(typeof message.data.showDocs !== 'undefined') {
+    if(message.data.showDocs) {
       $('body > :not(.bd-example)').show()
-      docsShown = true
+    } else {
+      $('body > :not(.bd-example)').hide()
     }
   }
   if(message.data.css) {

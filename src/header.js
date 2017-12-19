@@ -31,6 +31,9 @@ class Header extends Component {
     let tooltipText = this.props.templateLock ? 'Only variables section will update when you change sections.' : 'Template and variables section will update when you change sections.'
     return (
       <header>
+        <div className="header__logo">
+          <img src="./logo.png" height="45" />
+        </div>
         <div className="header__controls">
           <Tooltip placement="bottom" title={tooltipText}>
             <Switch

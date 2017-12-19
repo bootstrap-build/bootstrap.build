@@ -104,7 +104,9 @@ class App extends Component {
       body: JSON.stringify({ vars })
     })).json()
     if(css.css) {
-      this.iframe.contentWindow.postMessage({ css: css.css }, '*')
+      this.iframe.contentWindow.postMessage({
+        css: css.css,
+      }, '*')
       this.setState({
         currentCSS: css.css,
         loading: false
@@ -123,8 +125,7 @@ class App extends Component {
 
   handleSectionChange = section => {
     this.setState({
-      active: section,
-      showDocs: true
+      active: section
     })
   }
 
@@ -152,10 +153,11 @@ class App extends Component {
 
   handleFrameLoaded = () => {
     this.iframe.contentWindow.postMessage({ css: this.state.currentCSS }, '*')
+    this.iframe.contentWindow.postMessage({ showDocs: this.state.showDocs }, '*')
   }
 
   handleShowDocsToggle = () => {
-    this.iframe.contentWindow.postMessage({ toggleDocs: true }, '*')
+    this.iframe.contentWindow.postMessage({ showDocs: !this.state.showDocs }, '*')
     this.setState({
       showDocs: !this.state.showDocs
     })
