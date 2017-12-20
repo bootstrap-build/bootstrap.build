@@ -34,7 +34,7 @@ class Field extends Component {
     if(type === 'variable') {
       return <ReferenceField {...this.props} onChange={this.handleChange} />
     } else if (this.props.type === 'font') {
-      return <FontField {...this.props} onChange={this.handleChange} />
+      return <FontField {...this.props} onChange={this.handleChange} onGoogleFontSelected={this.props.onGoogleFontSelected} />
     } else if(type === 'color') {
       return <ColorField {...this.props} onChange={this.handleChange}/>
     } else if(type === 'boolean') {

@@ -29,6 +29,7 @@ class VariableSection extends Component {
                 index={index}
                 onChange={this.handleChange}
                 onSetDefault={this.handleSetDefault}
+                onGoogleFontSelected={this.props.onGoogleFontSelected}
               />
               <div className="sidebar2__field__description" dangerouslySetInnerHTML={{ __html: field.description }} />
             </div>

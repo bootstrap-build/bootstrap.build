@@ -1,19 +1,22 @@
 import React, { Component } from 'react'
 import { AutoComplete } from 'antd'
-import fonts from './google-fonts.json'
+import GoogleFonts from './google-fonts.json'
 
-const fontNames = fonts.map(font => font.family)
+const googleFontNames = GoogleFonts.map(font => font.family)
 
 class FontField extends Component {
 
   handleChange = value => {
     this.props.onChange(value)
+    if(googleFontNames.indexOf(value) !== -1) {
+      this.props.onGoogleFontSelected(value)
+    }
   }
 
   render() {
     return (
       <AutoComplete
-        dataSource={fontNames}
+        dataSource={googleFontNames}
         style={{ width: '100%' }}
         placeholder="Font Family"
         value={this.props.value}

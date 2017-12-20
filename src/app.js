@@ -11,6 +11,9 @@ import Header from './header'
 import variables from './curated-variables'
 import Loader from './loader'
 import compiler from './compiler'
+import GoogleFonts from './google-fonts.json'
+
+const googleFontNames = GoogleFonts.map(font => font.family)
 
 const flatten_variables = {}
 Object.keys(variables).forEach(key => {
@@ -40,6 +43,7 @@ class App extends Component {
     lock: false,
     active: 'Buttons',
     open: false,
+    fontsUsed: [],
     showDocs: true,
     // all bootstrap vars
     variables: JSON.parse(JSON.stringify(variables)),
@@ -96,7 +100,16 @@ class App extends Component {
         ...referenceVars
       }
     })
-    const vars = Object.keys(resolvedVars).map(key => [key, resolvedVars[key]])
+    const vars = []
+    const fontsUsed = []
+    Object.keys(resolvedVars).forEach(key => {
+      vars.push([key, resolvedVars[key]])
+      if(key.indexOf('font-family') !== -1 && resolvedVars[key].indexOf('$') === -1) {
+        const fonts = resolvedVars[key].split(',').map(_ => _.trim())
+        fontsUsed.push(...fonts.filter(font => googleFontNames.indexOf(font) !== -1))
+      }
+    })
+    console.log('Google Fonts found', fontsUsed.join(','))
     let css = ''
     if(this.state.compileStrategy === 'client') {
       css = await compiler(Object.keys(resolvedVars).reduce((prev, cur) => {
@@ -118,11 +131,13 @@ class App extends Component {
       }
     }
     this.iframe.contentWindow.postMessage({
-      css
+      css,
+      fonts: fontsUsed,
     }, '*')
     this.setState({
       currentCSS: css,
-      loading: false
+      loading: false,
+      fontsUsed
     })
   }
 
@@ -173,8 +188,11 @@ class App extends Component {
   }
 
   handleFrameLoaded = () => {
-    this.iframe.contentWindow.postMessage({ css: this.state.currentCSS }, '*')
-    this.iframe.contentWindow.postMessage({ showDocs: this.state.showDocs }, '*')
+    this.iframe.contentWindow.postMessage({
+      css: this.state.currentCSS,
+      showDocs: this.state.showDocs,
+      fonts: this.state.fontsUsed
+    }, '*')
   }
 
   handleShowDocsToggle = () => {
@@ -199,6 +217,10 @@ class App extends Component {
     this.setState({
       compileStrategy: strategy
     })
+  }
+
+  handleGoogleFontSelect = font => {
+    console.log(font)
   }
 
   render() {
@@ -246,6 +268,7 @@ class App extends Component {
             referenceVars={this.state.referenceVars}
             onChange={this.handleVariableChange}
             onSetDefault={this.handleSetDefault}
+            onGoogleFontSelected={this.handleGoogleFontSelect}
           />
         </div>
         <div className="preview">
