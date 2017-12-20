@@ -9,7 +9,6 @@ window.addEventListener('message', message => {
   if(message.data.css) {
     document.getElementById('styles').innerHTML = message.data.css
   }
-  console.log(message.data)
   if(message.data.fonts) {
     console.log('message', message.data.fonts)
     WebFont.load({
@@ -18,4 +17,13 @@ window.addEventListener('message', message => {
       }
     });
   }
+  if(message.data.html) {
+    $('body').html(message.data.html)
+  }
 }, false)
+
+$(document).ready(() => {
+  window.parent.postMessage({
+    html: $('body').html()
+  }, '*')
+})

@@ -42,7 +42,7 @@ class Header extends Component {
     return (
       <header>
         <div className="header__logo">
-          <img src="./logo.svg" height="30" />
+          <img src="./logo.png" height="30" />
         </div>
         <div className="header__controls">
           <Tooltip placement="bottom" title={tooltipText}>
@@ -72,6 +72,12 @@ class Header extends Component {
               Compile on {this.props.compileStrategy} <Icon type="down" />
             </Button>
           </Dropdown>
+        </div>
+        <div className="header__code-editor">
+          <Switch
+            onChange={this.props.onCodeEditorToggle}
+            checked={this.props.codeEditorOpen}
+          />
         </div>
       </header>
     )

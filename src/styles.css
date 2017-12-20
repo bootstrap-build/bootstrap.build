@@ -32,6 +32,12 @@ header {
   float: left;
 }
 
+.header__code-editor {
+  float: right;
+  padding-top: 19px;
+  padding-right: 10px;
+}
+
 .header__logo {
   float: left;
   padding: 15px;
@@ -161,6 +167,29 @@ header {
   right: 0;
 }
 
+.preview__content--split {
+  bottom: 50%;
+}
+
+.ace_scrollbar::-webkit-scrollbar-track {
+	background-color: #fff;
+	border-radius: 0;
+}
+
+.ace_scrollbar::-webkit-scrollbar {
+	width: 7px;
+	background-color: #f9f9f9;
+}
+
+.ace_scrollbar::-webkit-scrollbar-thumb {
+	border-radius: 0;
+  background-color: #dddddd;
+}
+
+.ace_scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #cccccc;
+}
+
 .scroll-style::-webkit-scrollbar-track {
 	background-color: #fff;
 	border-radius: 0;
@@ -206,8 +235,33 @@ iframe {
 .ant-input-suffix {
   pointer-events: none;
 }
+
 .color-swatch {
   width: 15px;
   height: 15px;
   border-radius: 50%;
+}
+
+.code-editor {
+  border-top: 2px solid #ddd;
+  position: absolute;
+  top: 50%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  cursor: vertical-text;
+}
+
+#brace-editor {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: auto !important;
+  height: auto !important;
+}
+
+.ace_scrollbar-h {
+  height: 7px !important;
 }

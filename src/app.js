@@ -12,6 +12,7 @@ import variables from './curated-variables'
 import Loader from './loader'
 import compiler from './compiler'
 import GoogleFonts from './google-fonts.json'
+import CodeEditor from './code-editor.js'
 
 const googleFontNames = GoogleFonts.map(font => font.family)
 
@@ -51,7 +52,9 @@ class App extends Component {
     // needed to generate a menu of all available vars
     referenceVars: defaultReferenceVars,
     compileStrategy: 'client',
-    overwrites: {}
+    overwrites: {},
+    htmlCode: [],
+    codeEditorOpen: false
   }
 
   handleButtonClick = () => {
@@ -144,7 +147,17 @@ class App extends Component {
   async componentDidMount() {
     this.compileSass()
     this.debouncedCompileSass = debounce(this.compileSass, 500)
+    this.debouncedCodeChange = debounce(this.handleCodeChange, 500)
     window.loading_screen.finish()
+    window.addEventListener('message', message => {
+      if(message.data.html) {
+        const _htmlCode = this.state.htmlCode
+        _htmlCode[this.state.active] = message.data.html
+        this.setState({
+          htmlCode: _htmlCode
+        })
+      }
+    })
   }
 
   handleSectionChange = section => {
@@ -219,8 +232,16 @@ class App extends Component {
     })
   }
 
-  handleGoogleFontSelect = font => {
-    console.log(font)
+  handleCodeChange = code => {
+    this.iframe.contentWindow.postMessage({
+      html: code
+    }, '*')
+  }
+
+  handleCodeEditorToggle = checked => {
+    this.setState({
+      codeEditorOpen: checked
+    })
   }
 
   render() {
@@ -260,6 +281,8 @@ class App extends Component {
           onBootstrapBuildExport={this.handleBootstrapBuildExport}
           compileStrategy={this.state.compileStrategy}
           onCompileStrategyChange={this.handleCompileStrategyChange}
+          onCodeEditorToggle={this.handleCodeEditorToggle}
+          codeEditorOpen={this.state.codeEditorOpen}
         />
         <SidebarElements items={_elements} onChange={this.handleSectionChange}/>
         <div className="sidebar2 scroll-style">
@@ -273,9 +296,15 @@ class App extends Component {
         </div>
         <div className="preview">
           {this.state.loading && <Loader />}
-          <div className={this.state.loading ? "preview__content" : "preview__content"}>
+          <div className={this.state.codeEditorOpen ? "preview__content preview__content--split" : "preview__content"}>
             {iframe}
           </div>
+          {this.state.codeEditorOpen ?
+            <CodeEditor
+              code={this.state.htmlCode[this.state.active]}
+              onCodeChange={this.debouncedCodeChange}
+            />
+          : ''}
         </div>
       </div>
     );
