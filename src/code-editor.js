@@ -11,6 +11,10 @@ class CodeEditor extends Component {
     this.props.onCodeChange(value)
   }
 
+  handleLoad = instance => {
+    instance.getSession().setScrollTop(0)
+  }
+
   render() {
     return (
       <div className="code-editor">
@@ -21,6 +25,7 @@ class CodeEditor extends Component {
           }}
           theme="textmate"
           onChange={this.handleChange}
+          onLoad={this.handleLoad}
           fontSize={14}
           showPrintMargin={true}
           showGutter={true}

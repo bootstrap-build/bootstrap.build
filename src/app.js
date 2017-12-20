@@ -112,7 +112,6 @@ class App extends Component {
         fontsUsed.push(...fonts.filter(font => googleFontNames.indexOf(font) !== -1))
       }
     })
-    console.log('Google Fonts found', fontsUsed.join(','))
     let css = ''
     if(this.state.compileStrategy === 'client') {
       css = await compiler(Object.keys(resolvedVars).reduce((prev, cur) => {
@@ -146,11 +145,11 @@ class App extends Component {
 
   async componentDidMount() {
     this.compileSass()
-    this.debouncedCompileSass = debounce(this.compileSass, 500)
-    this.debouncedCodeChange = debounce(this.handleCodeChange, 500)
+    this.debouncedCompileSass = debounce(this.compileSass, 1000)
+    this.debouncedCodeChange = debounce(this.handleCodeChange, 1000)
     window.loading_screen.finish()
     window.addEventListener('message', message => {
-      if(message.data.html) {
+      if(!this.state.htmlCode[this.state.active] && message.data.html) {
         const _htmlCode = this.state.htmlCode
         _htmlCode[this.state.active] = message.data.html
         this.setState({
@@ -204,7 +203,8 @@ class App extends Component {
     this.iframe.contentWindow.postMessage({
       css: this.state.currentCSS,
       showDocs: this.state.showDocs,
-      fonts: this.state.fontsUsed
+      fonts: this.state.fontsUsed,
+      html: this.state.htmlCode[this.state.active]
     }, '*')
   }
 
@@ -233,6 +233,11 @@ class App extends Component {
   }
 
   handleCodeChange = code => {
+    const _htmlCode = this.state.htmlCode
+    _htmlCode[this.state.active] = code
+    this.setState({
+      htmlCode: _htmlCode
+    })
     this.iframe.contentWindow.postMessage({
       html: code
     }, '*')

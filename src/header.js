@@ -38,7 +38,8 @@ class Header extends Component {
         <Menu.Item key="server">Compile on server</Menu.Item>
       </Menu>
     )
-    let tooltipText = this.props.templateLock ? 'Only variables section will update when you change sections.' : 'Template and variables section will update when you change sections.'
+    let tooltipText = this.props.templateLock ? 'Only variables section will update when you change sections' : 'Template and preview section will update when you change sections'
+    let codeTooltipText = this.props.codeEditorOpen ? 'Hide code editor' : 'Show HTML code editor'
     return (
       <header>
         <div className="header__logo">
@@ -54,13 +55,13 @@ class Header extends Component {
             />
           </Tooltip>
         </div>
-        <div className="header__docs">
+        {/*<div className="header__docs">
           <span>Show docs </span>
           <Switch
             onChange={this.props.onShowDocsToggle}
             checked={this.props.showDocs}
           />
-        </div>
+        </div>*/}
         <div className="header__right">
           <Dropdown overlay={exportMenu}>
             <Button type="primary" icon="download">Export</Button>
@@ -74,10 +75,14 @@ class Header extends Component {
           </Dropdown>
         </div>
         <div className="header__code-editor">
-          <Switch
-            onChange={this.props.onCodeEditorToggle}
-            checked={this.props.codeEditorOpen}
-          />
+          <Tooltip placement="bottom" title={codeTooltipText}>
+            <Switch
+              onChange={this.props.onCodeEditorToggle}
+              checked={this.props.codeEditorOpen}
+              checkedChildren={<i className="fa fa-code" />}
+              unCheckedChildren={<i className="fa fa-code" />}
+            />
+        </Tooltip>
         </div>
       </header>
     )

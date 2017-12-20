@@ -70,7 +70,7 @@ class Field extends Component {
         <div style={{textAlign: 'right', fontSize: 10, overflow: 'hidden'}}>
           <div style={{ float: 'left' }}>
             {this.state.changed ?
-              <a onClick={this.handleSetDefault}><i className="fa fa-times"></i></a>
+              <a onClick={this.handleSetDefault}><i className="fa fa-times"></i> set default</a>
             : ''}
           </div>
           <div style={{ float: 'right' }}>

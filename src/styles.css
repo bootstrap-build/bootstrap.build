@@ -35,7 +35,7 @@ header {
 .header__code-editor {
   float: right;
   padding-top: 19px;
-  padding-right: 10px;
+  padding-right: 15px;
 }
 
 .header__logo {
@@ -229,7 +229,7 @@ iframe {
   text-align: center;
   padding-top: 60px;
   z-index: 3;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 .ant-input-suffix {
