@@ -6,7 +6,6 @@ import debounce from 'debounce'
 import SidebarElements from './sidebar-elements'
 import elements from './elements'
 import VariableSection from './variable-section'
-import PreviewMenu from './preview-menu'
 import Header from './header'
 import variables from './curated-variables'
 import Loader from './loader'
@@ -45,7 +44,6 @@ class App extends Component {
     active: 'Buttons',
     open: false,
     fontsUsed: [],
-    showDocs: true,
     // all bootstrap vars
     variables: JSON.parse(JSON.stringify(variables)),
     // only $variables, that are possible to reference in other variables
@@ -202,17 +200,9 @@ class App extends Component {
   handleFrameLoaded = () => {
     this.iframe.contentWindow.postMessage({
       css: this.state.currentCSS,
-      showDocs: this.state.showDocs,
       fonts: this.state.fontsUsed,
       html: this.state.htmlCode[this.state.active]
     }, '*')
-  }
-
-  handleShowDocsToggle = () => {
-    this.iframe.contentWindow.postMessage({ showDocs: !this.state.showDocs }, '*')
-    this.setState({
-      showDocs: !this.state.showDocs
-    })
   }
 
   handleSCSSExport = () => {
@@ -280,8 +270,6 @@ class App extends Component {
         <Header
           onTemplateLock={this.handleLockChange}
           templateLock={this.state.lock}
-          onShowDocsToggle={this.handleShowDocsToggle}
-          showDocs={this.state.showDocs}
           onSCSSExport={this.handleSCSSExport}
           onBootstrapBuildExport={this.handleBootstrapBuildExport}
           compileStrategy={this.state.compileStrategy}

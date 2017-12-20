@@ -55,13 +55,6 @@ class Header extends Component {
             />
           </Tooltip>
         </div>
-        {/*<div className="header__docs">
-          <span>Show docs </span>
-          <Switch
-            onChange={this.props.onShowDocsToggle}
-            checked={this.props.showDocs}
-          />
-        </div>*/}
         <div className="header__right">
           <Dropdown overlay={exportMenu}>
             <Button type="primary" icon="download">Export</Button>
