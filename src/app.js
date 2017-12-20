@@ -55,8 +55,26 @@ class App extends Component {
     codeEditorOpen: false
   }
 
-  handleButtonClick = () => {
+  async componentDidMount() {
     this.compileSass()
+    this.debouncedCompileSass = debounce(this.compileSass, 1000)
+    this.debouncedCodeChange = debounce(this.handleCodeChange, 1000)
+    window.loading_screen.finish()
+    window.addEventListener('message', message => {
+      if(!this.state.htmlCode[this.state.active] && message.data.html) {
+        const _htmlCode = this.state.htmlCode
+        _htmlCode[this.state.active] = message.data.html
+        this.setState({
+          htmlCode: _htmlCode
+        })
+      }
+    })
+    window.addEventListener('beforeunload', event => {
+      if(JSON.stringify(variables) !== JSON.stringify(this.state.variables)) {
+        event.returnValue = 'Are you sure you want to exit? All unsaved progress will be lost.'
+        return event.returnValue
+      }
+    })
   }
 
   resolveVariables = (vars, prevLength) => {
@@ -138,22 +156,6 @@ class App extends Component {
       currentCSS: css,
       loading: false,
       fontsUsed
-    })
-  }
-
-  async componentDidMount() {
-    this.compileSass()
-    this.debouncedCompileSass = debounce(this.compileSass, 1000)
-    this.debouncedCodeChange = debounce(this.handleCodeChange, 1000)
-    window.loading_screen.finish()
-    window.addEventListener('message', message => {
-      if(!this.state.htmlCode[this.state.active] && message.data.html) {
-        const _htmlCode = this.state.htmlCode
-        _htmlCode[this.state.active] = message.data.html
-        this.setState({
-          htmlCode: _htmlCode
-        })
-      }
     })
   }
 
