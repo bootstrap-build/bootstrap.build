@@ -23,7 +23,17 @@ body::-webkit-scrollbar-thumb:hover {
   background-color: #cccccc;
 }
 
-/*p, ul, .bd-callout, .highlight {
-  display: none;
+.bs-component {
+    position: relative;
+    margin-top: 1rem;
 }
-*/
+
+.bs-component .modal {
+    position: relative;
+    top: auto;
+    right: auto;
+    left: auto;
+    bottom: auto;
+    z-index: 1;
+    display: block;
+}

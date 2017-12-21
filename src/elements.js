@@ -1,23 +1,15 @@
 const items = [
   {
+    text: 'Core',
+    template: '/templates/core.html'
+  },
+  {
     text: 'Colors',
     template: '/templates/colors.html'
   },
   {
-    text: 'Options',
-    template: '/templates/options.html'
-  },
-  {
-    text: 'Links',
-    template: '/templates/links.html'
-  },
-  {
     text: 'Grid',
     template: '/templates/grid.html'
-  },
-  {
-    text: 'Components',
-    template: '/templates/components.html'
   },
   {
     text: 'Typography',

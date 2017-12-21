@@ -41,7 +41,7 @@ class App extends Component {
   state = {
     loading: false,
     lock: false,
-    active: 'Buttons',
+    active: 'Core',
     open: false,
     fontsUsed: [],
     // all bootstrap vars

@@ -199,7 +199,7 @@
       "description": ""
     }
   ],
-  "Options": [
+  "Core": [
     {
       "variable": "$enable-caret",
       "value": "true",
@@ -277,61 +277,7 @@
       "value": "(25: 25%,50: 50%,75: 75%,100: 100%)",
       "type": "string",
       "description": ""
-    }
-  ],
-  "Links": [
-    {
-      "variable": "$link-color",
-      "value": "theme-color(primary)",
-      "type": "string",
-      "description": ""
     },
-    {
-      "variable": "$link-decoration",
-      "value": "none",
-      "type": "string",
-      "description": ""
-    },
-    {
-      "variable": "$link-hover-color",
-      "value": "darken($link-color, 15%)",
-      "type": "string",
-      "description": ""
-    },
-    {
-      "variable": "$link-hover-decoration",
-      "value": "underline",
-      "type": "string",
-      "description": ""
-    }
-  ],
-  "Grid": [
-    {
-      "variable": "$grid-breakpoints",
-      "value": "(xs: 0,sm: 576px,md: 768px,lg: 992px,xl: 1200px)",
-      "type": "string",
-      "description": ""
-    },
-    {
-      "variable": "$container-max-widths",
-      "value": "(sm: 540px,md: 720px,lg: 960px,xl: 1140px)",
-      "type": "string",
-      "description": ""
-    },
-    {
-      "variable": "$grid-columns",
-      "value": "12",
-      "type": "string",
-      "description": ""
-    },
-    {
-      "variable": "$grid-gutter-width",
-      "value": "30px",
-      "type": "size",
-      "description": ""
-    }
-  ],
-  "Components": [
     {
       "variable": "$line-height-lg",
       "value": "1.5",
@@ -408,6 +354,56 @@
       "variable": "$transition-collapse",
       "value": "height .35s ease",
       "type": "string",
+      "description": ""
+    },
+    {
+      "variable": "$link-color",
+      "value": "theme-color(primary)",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "variable": "$link-decoration",
+      "value": "none",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "variable": "$link-hover-color",
+      "value": "darken($link-color, 15%)",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "variable": "$link-hover-decoration",
+      "value": "underline",
+      "type": "string",
+      "description": ""
+    }
+  ],
+  "Grid": [
+    {
+      "variable": "$grid-breakpoints",
+      "value": "(xs: 0,sm: 576px,md: 768px,lg: 992px,xl: 1200px)",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "variable": "$container-max-widths",
+      "value": "(sm: 540px,md: 720px,lg: 960px,xl: 1140px)",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "variable": "$grid-columns",
+      "value": "12",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "variable": "$grid-gutter-width",
+      "value": "30px",
+      "type": "size",
       "description": ""
     }
   ],
