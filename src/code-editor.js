@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button } from 'antd'
+import { Button, Tooltip } from 'antd'
 import AceEditor from 'react-ace'
 
 import 'brace/mode/html'
@@ -38,6 +38,19 @@ class CodeEditor extends Component {
             showLineNumbers: true,
             tabSize: 2
           }}/>
+        <Tooltip placement="bottom" title={`Revert to default code for this template`}>
+          <Button
+            type="primary"
+            onClick={this.props.onResetCode}
+            shape="circle"
+            icon="close"
+            style={{
+              position: 'absolute',
+              top: 10,
+              right: 10
+            }}
+          />
+        </Tooltip>
       </div>
     )
   }

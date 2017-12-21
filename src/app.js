@@ -51,7 +51,8 @@ class App extends Component {
     referenceVars: defaultReferenceVars,
     compileStrategy: 'client',
     overwrites: {},
-    htmlCode: [],
+    htmlCode: {},
+    htmlCodeOriginal: {},
     codeEditorOpen: false
   }
 
@@ -62,10 +63,15 @@ class App extends Component {
     window.loading_screen.finish()
     window.addEventListener('message', message => {
       if(!this.state.htmlCode[this.state.active] && message.data.html) {
-        const _htmlCode = this.state.htmlCode
-        _htmlCode[this.state.active] = message.data.html
+        const newHtmlCode = this.state.htmlCode
+        newHtmlCode[this.state.active] = message.data.html
+        const newHtmlCodeOriginal = this.state.htmlCodeOriginal
+        if(!newHtmlCodeOriginal[this.state.active]) {
+          newHtmlCodeOriginal[this.state.active] = message.data.html
+        }
         this.setState({
-          htmlCode: _htmlCode
+          htmlCode: newHtmlCode,
+          htmlCodeOriginal: newHtmlCodeOriginal
         })
       }
     })
@@ -235,6 +241,19 @@ class App extends Component {
     }, '*')
   }
 
+  handleResetCode = () => {
+    if(this.state.htmlCodeOriginal[this.state.active]) {
+      this.iframe.contentWindow.postMessage({
+        html: this.state.htmlCodeOriginal[this.state.active]
+      }, '*')
+      const newHtmlCode = this.state.htmlCode
+      newHtmlCode[this.state.active] = this.state.htmlCodeOriginal[this.state.active]
+      this.setState({
+        htmlCode: newHtmlCode
+      })
+    }
+  }
+
   handleCodeEditorToggle = checked => {
     this.setState({
       codeEditorOpen: checked
@@ -298,6 +317,7 @@ class App extends Component {
             <CodeEditor
               code={this.state.htmlCode[this.state.active]}
               onCodeChange={this.debouncedCodeChange}
+              onResetCode={this.handleResetCode}
             />
           : ''}
         </div>
