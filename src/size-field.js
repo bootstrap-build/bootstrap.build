@@ -18,28 +18,74 @@ class SizeField extends Component {
     }
   }
 
-  handleMinusClick = () => {
+  decrement = () => {
     const parsed = parseUnit(this.props.value)
-    const unit = parsed[1]
+    const unit = parsed[1] || ''
     const value = Number(parsed[0])
     let newValue
+    let decrement = 1
+    if(!unit || unit === 'rem' || unit === 'em') {
+      decrement = 0.1
+    }
     if(value) {
-      this.props.onChange(`${value - 0.5}${unit}`)
-    } else {
-      this.props.onChange(`1rem`)
+      newValue = Math.round((value - decrement) * 10) / 10
+      this.props.onChange(`${newValue}${unit}`)
+    }
+  }
+
+  handleMinusMouseDown = () => {
+    this.setState({
+      mouseDown: true
+    })
+    const func = () => {
+      if(this.state.mouseDown) {
+        this.decrement()
+        setTimeout(func, 50)
+      }
+    }
+    setTimeout(func, 500)
+  }
+
+  handlePlusMouseDown = () => {
+    this.setState({
+      mouseDown: true
+    })
+    const func = () => {
+      if(this.state.mouseDown) {
+        this.increment()
+        setTimeout(func, 50)
+      }
+    }
+    setTimeout(func, 500)
+  }
+
+  handleMouseUp = () => {
+    this.setState({
+      mouseDown: false
+    })
+  }
+
+  handleMinusClick = () => {
+    this.decrement()
+  }
+
+  increment = () => {
+    const parsed = parseUnit(this.props.value)
+    const unit = parsed[1] || ''
+    const value = Number(parsed[0])
+    let newValue
+    let decrement = 1
+    if(!unit || unit === 'rem' || unit === 'em') {
+      decrement = 0.1
+    }
+    if(value) {
+      newValue = Math.round((value + decrement) * 10) / 10
+      this.props.onChange(`${newValue}${unit}`)
     }
   }
 
   handlePlusClick = () => {
-    const parsed = parseUnit(this.props.value)
-    const unit = parsed[1]
-    const value = Number(parsed[0])
-    let newValue
-    if(value) {
-      this.props.onChange(`${value + 0.5}${unit}`)
-    } else {
-      this.props.onChange(`1rem`)
-    }
+    this.increment()
   }
 
   componentDidMount() {
@@ -70,12 +116,16 @@ class SizeField extends Component {
             type="primary"
             icon="minus"
             className="sidebar2__size-variable__buttons__left"
+            onMouseDown={this.handleMinusMouseDown}
+            onMouseUp={this.handleMouseUp}
             onClick={this.handleMinusClick}
           />
           <Button
             type="primary"
             icon="plus"
             onClick={this.handlePlusClick}
+            onMouseUp={this.handleMouseUp}
+            onMouseDown={this.handlePlusMouseDown}
           />
         </Button.Group>
       </div>
