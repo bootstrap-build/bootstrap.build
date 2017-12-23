@@ -49,7 +49,7 @@ class App extends Component {
     // only $variables, that are possible to reference in other variables
     // needed to generate a menu of all available vars
     referenceVars: defaultReferenceVars,
-    compileStrategy: 'client',
+    compileStrategy: 'server',
     overwrites: {},
     htmlCode: {},
     htmlCodeOriginal: {},
@@ -62,7 +62,7 @@ class App extends Component {
     this.debouncedCodeChange = debounce(this.handleCodeChange, 1000)
     window.loading_screen.finish()
     window.addEventListener('message', message => {
-      if(!this.state.htmlCode[this.state.active] && message.data.html) {
+      if(message.data.html) {
         const newHtmlCode = this.state.htmlCode
         newHtmlCode[this.state.active] = message.data.html
         const newHtmlCodeOriginal = this.state.htmlCodeOriginal
@@ -157,6 +157,7 @@ class App extends Component {
     this.iframe.contentWindow.postMessage({
       css,
       fonts: fontsUsed,
+      showCodeEditor: this.state.codeEditorOpen
     }, '*')
     this.setState({
       currentCSS: css,
@@ -209,7 +210,8 @@ class App extends Component {
     this.iframe.contentWindow.postMessage({
       css: this.state.currentCSS,
       fonts: this.state.fontsUsed,
-      html: this.state.htmlCode[this.state.active]
+      html: this.state.htmlCode[this.state.active],
+      showCodeEditor: this.state.codeEditorOpen
     }, '*')
   }
 
@@ -258,6 +260,9 @@ class App extends Component {
     this.setState({
       codeEditorOpen: checked
     })
+    this.iframe.contentWindow.postMessage({
+      showCodeEditor: checked
+    }, '*')
   }
 
   render() {
@@ -310,16 +315,9 @@ class App extends Component {
         </div>
         <div className="preview">
           {this.state.loading && <Loader />}
-          <div className={this.state.codeEditorOpen ? "preview__content preview__content--split" : "preview__content"}>
+          <div className="preview__content">
             {iframe}
           </div>
-          {this.state.codeEditorOpen ?
-            <CodeEditor
-              code={this.state.htmlCode[this.state.active]}
-              onCodeChange={this.debouncedCodeChange}
-              onResetCode={this.handleResetCode}
-            />
-          : ''}
         </div>
       </div>
     );

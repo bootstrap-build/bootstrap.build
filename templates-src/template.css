@@ -37,3 +37,37 @@ body::-webkit-scrollbar-thumb:hover {
     z-index: 1;
     display: block;
 }
+
+.hljs-tag, .hljs-name {
+  color: #2f6f9f;
+}
+
+.hljs-attr {
+  color: #4f9fcf;
+}
+
+.hljs-hljs-equals {
+  color: #4f9fcf;
+}
+
+.hljs-string {
+  color: #d44950;
+}
+
+.highlight {
+  overflow: auto;
+  position: relative;
+}
+
+.resizable {
+  height: auto;
+  resize: vertical;
+}
+
+.code-editor__wrap {
+  min-height: 200px;
+}
+
+.editor {
+
+}
