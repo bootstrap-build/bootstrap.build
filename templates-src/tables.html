@@ -1,8 +1,4 @@
-<h2 id="examples">Examples</h2>
-
-<p>Due to the widespread use of tables across third-party widgets like calendars and date pickers, we’ve designed our tables to be <strong>opt-in</strong>. Just add the base class <code class="highlighter-rouge">.table</code> to any <code class="highlighter-rouge">&lt;table&gt;</code>, then extend with custom styles or our various included modifier classes.</p>
-
-<p>Using the most basic table markup, here’s how <code class="highlighter-rouge">.table</code>-based tables look in Bootstrap. <strong>All table styles are inherited in Bootstrap 4</strong>, meaning any nested tables will be styled in the same manner as the parent.</p>
+<h1 id="examples">Tables</h1>
 
 <div class="bd-example">
 <table class="table">
@@ -66,8 +62,6 @@
     <span class="nt">&lt;/tr&gt;</span>
   <span class="nt">&lt;/tbody&gt;</span>
 <span class="nt">&lt;/table&gt;</span></code></pre></div>
-
-<p>You can also invert the colors—with light text on dark backgrounds—with <code class="highlighter-rouge">.table-dark</code>.</p>
 
 <div class="bd-example">
 <table class="table table-dark">
@@ -133,8 +127,6 @@
 <span class="nt">&lt;/table&gt;</span></code></pre></div>
 
 <h2 id="table-head-options">Table head options</h2>
-
-<p>Similar to tables and dark tables, use the modifier classes <code class="highlighter-rouge">.thead-light</code> or <code class="highlighter-rouge">.thead-dark</code> to make <code class="highlighter-rouge">&lt;thead&gt;</code>s appear light or dark gray.</p>
 
 <div class="bd-example">
 <table class="table">
@@ -263,8 +255,6 @@
 
 <h2 id="striped-rows">Striped rows</h2>
 
-<p>Use <code class="highlighter-rouge">.table-striped</code> to add zebra-striping to any table row within the <code class="highlighter-rouge">&lt;tbody&gt;</code>.</p>
-
 <div class="bd-example">
 <table class="table table-striped">
   <thead>
@@ -392,8 +382,6 @@
 <span class="nt">&lt;/table&gt;</span></code></pre></div>
 
 <h2 id="bordered-table">Bordered table</h2>
-
-<p>Add <code class="highlighter-rouge">.table-bordered</code> for borders on all sides of the table and cells.</p>
 
 <div class="bd-example">
 <table class="table table-bordered">
@@ -543,8 +531,6 @@
 
 <h2 id="hoverable-rows">Hoverable rows</h2>
 
-<p>Add <code class="highlighter-rouge">.table-hover</code> to enable a hover state on table rows within a <code class="highlighter-rouge">&lt;tbody&gt;</code>.</p>
-
 <div class="bd-example">
 <table class="table table-hover">
   <thead>
@@ -668,8 +654,6 @@
 <span class="nt">&lt;/table&gt;</span></code></pre></div>
 
 <h2 id="small-table">Small table</h2>
-
-<p>Add <code class="highlighter-rouge">.table-sm</code> to make tables more compact by cutting cell padding in half.</p>
 
 <div class="bd-example">
 <table class="table table-sm">
@@ -795,8 +779,6 @@
 
 <h2 id="contextual-classes">Contextual classes</h2>
 
-<p>Use contextual classes to color table rows or individual cells.</p>
-
 <div class="bd-example">
   <table class="table">
     <thead>
@@ -821,7 +803,7 @@
         <td>Column content</td>
       </tr>
 
-      
+
       <tr class="table-primary">
         <th scope="row">Primary</th>
         <td>Column content</td>
@@ -889,7 +871,7 @@
 <span class="c">&lt;!-- On cells (`td` or `th`) --&gt;</span>
 <span class="nt">&lt;tr&gt;</span>
   <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"table-active"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/td&gt;</span>
-  
+
   <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"table-primary"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/td&gt;</span>
   <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"table-secondary"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/td&gt;</span>
   <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"table-success"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/td&gt;</span>
@@ -899,8 +881,6 @@
   <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"table-light"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/td&gt;</span>
   <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"table-dark"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/td&gt;</span>
 <span class="nt">&lt;/tr&gt;</span></code></pre></figure>
-
-<p>Regular table background variants are not available with the dark table, however, you may use <a href="/docs/4.0/utilities/colors/">text or background utilities</a> to achieve similar styles.</p>
 
 <div class="bd-example">
   <table class="table table-dark">
@@ -987,12 +967,6 @@
   <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"bg-info"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/td&gt;</span>
 <span class="nt">&lt;/tr&gt;</span></code></pre></figure>
 
-<div class="bd-callout bd-callout-warning">
-<h4 id="conveying-meaning-to-assistive-technologies">Conveying meaning to assistive technologies</h4>
-
-<p>Using color to add meaning only provides a visual indication, which will not be conveyed to users of assistive technologies – such as screen readers. Ensure that information denoted by the color is either obvious from the content itself (e.g. the visible text), or is included through alternative means, such as additional text hidden with the <code class="highlighter-rouge">.sr-only</code> class.</p>
-</div>
-
 <h2 id="captions">Captions</h2>
 
 <p>A <code class="highlighter-rouge">&lt;caption&gt;</code> functions like a heading for a table. It helps users with screen readers to find a table and understand what it’s about and decide if they want to read it.</p>
@@ -1061,301 +1035,3 @@
     <span class="nt">&lt;/tr&gt;</span>
   <span class="nt">&lt;/tbody&gt;</span>
 <span class="nt">&lt;/table&gt;</span></code></pre></div>
-
-<h2 id="responsive-tables">Responsive tables</h2>
-
-<p>Responsive tables allow tables to be scrolled horizontally with ease. Make any table responsive across all viewports by adding <code class="highlighter-rouge">.table-responsive</code> class on <code class="highlighter-rouge">.table</code>. Or, pick a maximum breakpoint with which to have a responsive table up to by adding <code class="highlighter-rouge">.table-responsive{-sm|-md|-lg|-xl}</code>.</p>
-
-<div class="bd-callout bd-callout-warning">
-<h4 id="vertical-clippingtruncation">Vertical clipping/truncation</h4>
-
-<p>Responsive tables make use of <code class="highlighter-rouge">overflow-y: hidden</code>, which clips off any content that goes beyond the bottom or top edges of the table. In particular, this can clip off dropdown menus and other third-party widgets.</p>
-</div>
-
-<h3 id="always-responsive">Always responsive</h3>
-
-<div class="bd-example">
-  <table class="table table-responsive">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Table heading</th>
-        <th scope="col">Table heading</th>
-        <th scope="col">Table heading</th>
-        <th scope="col">Table heading</th>
-        <th scope="col">Table heading</th>
-        <th scope="col">Table heading</th>
-        <th scope="col">Table heading</th>
-        <th scope="col">Table heading</th>
-        <th scope="col">Table heading</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <table class="table table-bordered table-responsive-lg">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Table heading</th>
-        <th scope="col">Table heading</th>
-        <th scope="col">Table heading</th>
-        <th scope="col">Table heading</th>
-        <th scope="col">Table heading</th>
-        <th scope="col">Table heading</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"table table-responsive"</span><span class="nt">&gt;</span>
-  ...
-<span class="nt">&lt;/table&gt;</span></code></pre></figure>
-
-<h3 id="breakpoint-specific">Breakpoint specific</h3>
-
-<p>Use <code class="highlighter-rouge">.table-responsive{-sm|-md|-lg|-xl}</code> as needed to create responsive tables up to a particular breakpoint. From that breakpoint and up, the table will behave normally and not scroll horizontally.</p>
-
-<div class="bd-example">
-
-<table class="table table-responsive-sm">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Table heading</th>
-      <th scope="col">Table heading</th>
-      <th scope="col">Table heading</th>
-      <th scope="col">Table heading</th>
-      <th scope="col">Table heading</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="table table-responsive-md">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Table heading</th>
-      <th scope="col">Table heading</th>
-      <th scope="col">Table heading</th>
-      <th scope="col">Table heading</th>
-      <th scope="col">Table heading</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="table table-responsive-lg">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Table heading</th>
-      <th scope="col">Table heading</th>
-      <th scope="col">Table heading</th>
-      <th scope="col">Table heading</th>
-      <th scope="col">Table heading</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="table table-responsive-xl">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Table heading</th>
-      <th scope="col">Table heading</th>
-      <th scope="col">Table heading</th>
-      <th scope="col">Table heading</th>
-      <th scope="col">Table heading</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-    </tr>
-  </tbody>
-</table>
-
-</div>
-
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"table table-responsive-sm"</span><span class="nt">&gt;</span>
-  ...
-<span class="nt">&lt;/table&gt;</span>
-
-<span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"table table-responsive-md"</span><span class="nt">&gt;</span>
-  ...
-<span class="nt">&lt;/table&gt;</span>
-
-<span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"table table-responsive-lg"</span><span class="nt">&gt;</span>
-  ...
-<span class="nt">&lt;/table&gt;</span>
-
-<span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"table table-responsive-xl"</span><span class="nt">&gt;</span>
-  ...
-<span class="nt">&lt;/table&gt;</span></code></pre></figure>
-
-

@@ -1,6 +1,4 @@
-<h2 id="responsive-images">Responsive images</h2>
-
-<p>Images in Bootstrap are made responsive with <code class="highlighter-rouge">.img-fluid</code>. <code class="highlighter-rouge">max-width: 100%;</code> and <code class="highlighter-rouge">height: auto;</code> are applied to the image so that it scales with the parent element.</p>
+<h1 id="responsive-images">Images</h1>
 
 <div class="bd-example">
   <img data-src="holder.js/100px250" class="img-fluid" alt="Generic responsive image" />
@@ -8,15 +6,7 @@
 
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"..."</span> <span class="na">class=</span><span class="s">"img-fluid"</span> <span class="na">alt=</span><span class="s">"Responsive image"</span><span class="nt">&gt;</span></code></pre></figure>
 
-<div class="bd-callout bd-callout-warning">
-<h4 id="svg-images-and-ie-10">SVG images and IE 10</h4>
-
-<p>In Internet Explorer 10, SVG images with <code class="highlighter-rouge">.img-fluid</code> are disproportionately sized. To fix this, add <code class="highlighter-rouge">width: 100% \9;</code> where necessary. This fix improperly sizes other image formats, so Bootstrap doesn’t apply it automatically.</p>
-</div>
-
 <h2 id="image-thumbnails">Image thumbnails</h2>
-
-<p>In addition to our <a href="/docs/4.0/utilities/borders/">border-radius utilities</a>, you can use <code class="highlighter-rouge">.img-thumbnail</code> to give an image a rounded 1px border appearance.</p>
 
 <div class="bd-example bd-example-images">
   <img data-src="holder.js/200x200" class="img-thumbnail" alt="A generic square placeholder image with a white border around it, making it resemble a photograph taken with an old instant camera" />
@@ -25,8 +15,6 @@
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"..."</span> <span class="na">alt=</span><span class="s">"..."</span> <span class="na">class=</span><span class="s">"img-thumbnail"</span><span class="nt">&gt;</span></code></pre></figure>
 
 <h2 id="aligning-images">Aligning images</h2>
-
-<p>Align images with the <a href="/docs/4.0/utilities/float">helper float classes</a> or <a href="/docs/4.0/utilities/text/#text-alignment">text alignment classes</a>. <code class="highlighter-rouge">block</code>-level images can be centered using <a href="/docs/4.0/utilities/spacing/#horizontal-centering">the <code class="highlighter-rouge">.mx-auto</code> margin utility class</a>.</p>
 
 <div class="bd-example bd-example-images">
   <img data-src="holder.js/200x200" class="rounded float-left" alt="A generic square placeholder image with rounded corners" />
@@ -51,14 +39,3 @@
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"text-center"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"..."</span> <span class="na">class=</span><span class="s">"rounded"</span> <span class="na">alt=</span><span class="s">"..."</span><span class="nt">&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></figure>
-
-<h2 id="picture">Picture</h2>
-
-<p>If you are using the <code class="highlighter-rouge">&lt;picture&gt;</code> element to specify multiple <code class="highlighter-rouge">&lt;source&gt;</code> elements for a specific <code class="highlighter-rouge">&lt;img&gt;</code>, make sure to add the <code class="highlighter-rouge">.img-*</code> classes to the <code class="highlighter-rouge">&lt;img&gt;</code> and not to the <code class="highlighter-rouge">&lt;picture&gt;</code> tag.</p>
-
-<figure class="highlight"><pre><code class="language-html" data-lang="html">​<span class="nt">&lt;picture&gt;</span>
-  <span class="nt">&lt;source</span> <span class="na">srcset=</span><span class="s">"..."</span> <span class="na">type=</span><span class="s">"image/svg+xml"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"..."</span> <span class="na">class=</span><span class="s">"img-fluid img-thumbnail"</span> <span class="na">alt=</span><span class="s">"..."</span><span class="nt">&gt;</span>
-<span class="nt">&lt;/picture&gt;</span></code></pre></figure>
-
-
