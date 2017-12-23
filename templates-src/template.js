@@ -20,6 +20,8 @@ const hideCodeEditor = () => {
     '</code></pre></div>')
   })
   editors = []
+  $('body').find('.btn-clipboard')
+    .css({ display: 'none' })
 }
 
 const changeHandler = function(i, editor) {
@@ -81,8 +83,6 @@ window.addEventListener('message', message => {
   if(message.data.html) {
     $('#html_wrapper').html(message.data.html)
   }
-  console.log('message.data.showCodeEditor', message.data.showCodeEditor)
-  console.log('editors.length', editors.length)
   if(message.data.showCodeEditor) {
     if(!editors.length) showCodeEditor()
   } else {

@@ -165,6 +165,8 @@ header {
   bottom: 0;
   left: 0;
   right: 0;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: scroll;
 }
 
 .preview__content--split {

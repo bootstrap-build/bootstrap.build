@@ -265,6 +265,10 @@ class App extends Component {
     }, '*')
   }
 
+  handleGoogleFontSelect = font => {
+    console.log('Google Font selected', font)
+  }
+
   render() {
     const _elements = elements.map(element => {
       return {
