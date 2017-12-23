@@ -61,6 +61,8 @@ const showCodeEditor = () => {
       'min-height': 200,
       display: 'block'
     })
+  $('body').find('.btn-clipboard')
+    .css({ display: 'block' })
 }
 
 window.addEventListener('message', message => {
