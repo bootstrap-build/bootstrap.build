@@ -19,6 +19,7 @@ const hideCodeEditor = () => {
       hljs.highlight('xml', editors[i].getSession().getValue()).value +
     '</code></pre></div>')
   })
+  editors = []
 }
 
 const changeHandler = function(i, editor) {
@@ -71,9 +72,10 @@ window.addEventListener('message', message => {
     } catch(err) {}
   }
   if(message.data.html) {
-    console.log(message.data.html)
     $('#html_wrapper').html(message.data.html)
   }
+  console.log('message.data.showCodeEditor', message.data.showCodeEditor)
+  console.log('editors.length', editors.length)
   if(message.data.showCodeEditor) {
     if(!editors.length) showCodeEditor()
   } else {
