@@ -169,6 +169,10 @@ header {
   overflow-y: scroll;
 }
 
+.preview__content::-webkit-scrollbar { 
+    display: none;
+}
+
 .preview__content--split {
   bottom: 50%;
 }
