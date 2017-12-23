@@ -55,7 +55,12 @@ const showCodeEditor = () => {
     editor.setAutoScrollEditorIntoView(true)
     editor.on('change', debouncedChange.bind('no context', i, editor))
   })
-  $('body').find('.highlight').addClass('resizable').css('min-height', 200)
+  $('body').find('.highlight')
+    .addClass('resizable')
+    .css({
+      'min-height': 200,
+      display: 'block'
+    })
 }
 
 window.addEventListener('message', message => {

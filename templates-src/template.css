@@ -57,6 +57,7 @@ body::-webkit-scrollbar-thumb:hover {
 .highlight {
   overflow: auto;
   position: relative;
+  display: none;
 }
 
 .resizable {
@@ -68,6 +69,6 @@ body::-webkit-scrollbar-thumb:hover {
   min-height: 200px;
 }
 
-.editor {
-
+.bd-example {
+  margin-bottom: 20px !important;
 }
