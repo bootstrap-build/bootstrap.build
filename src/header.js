@@ -39,7 +39,7 @@ class Header extends Component {
       </Menu>
     )
     let tooltipText = this.props.templateLock ? 'Only variables section will update when you change sections' : 'Template and preview section will update when you change sections'
-    let codeTooltipText = this.props.codeEditorOpen ? 'Hide code editor' : 'Show HTML code editor'
+    let codeTooltipText = this.props.codeEditorOpen ? 'Hide code snippets' : 'Show code snippets'
     return (
       <header>
         <div className="header__logo">

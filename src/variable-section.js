@@ -35,9 +35,9 @@ class VariableSection extends Component {
     )
     return (
       <div>
-        <div style={{ fontSize: 15, textAlign: 'center' }}>
+        <div style={{ fontSize: 15, textAlign: 'center'}}>
           <Dropdown overlay={variableSectionDropdown}>
-            <Button style={{ width: '100%' }}>
+            <Button style={{ width: '80%' }}>
               {this.state.active || this.props.active} <Icon type="down" />
             </Button>
           </Dropdown>

@@ -60,8 +60,8 @@ const showCodeEditor = () => {
   $('body').find('.highlight')
     .addClass('resizable')
     .css({
-      'min-height': 200,
-      display: 'block'
+      display: 'block',
+			paddingLeft: 0
     })
   $('body').find('.btn-clipboard')
     .css({ display: 'block' })

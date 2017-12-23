@@ -53,7 +53,7 @@ class App extends Component {
     overwrites: {},
     htmlCode: {},
     htmlCodeOriginal: {},
-    codeEditorOpen: false
+    codeEditorOpen: true
   }
 
   async componentDidMount() {
