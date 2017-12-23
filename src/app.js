@@ -57,6 +57,7 @@ class App extends Component {
   }
 
   async componentDidMount() {
+    this.variableSection.setActive(this.state.active)
     this.compileSass()
     this.debouncedCompileSass = debounce(this.compileSass, 1000)
     this.debouncedCodeChange = debounce(this.handleCodeChange, 1000)
@@ -170,6 +171,7 @@ class App extends Component {
     this.setState({
       active: section
     })
+    this.variableSection.setActive(section)
   }
 
   handleVariableChange = (variable, active, index) => {
@@ -310,6 +312,7 @@ class App extends Component {
         <SidebarElements items={_elements} onChange={this.handleSectionChange}/>
         <div className="sidebar2 scroll-style">
           <VariableSection
+            ref={ref => this.variableSection = ref}
             fields={this.state.variables}
             active={this.state.active}
             referenceVars={this.state.referenceVars}

@@ -12,17 +12,21 @@ class VariableSection extends Component {
       value: field.value,
       variable: field.variable,
       description: field.description
-    }, this.state.active || this.props.active, index)
+    }, this.state.active, index)
   }
 
   handleSetDefault = (varName, index) => {
-    this.props.onSetDefault(varName, this.state.active || this.props.active, index)
+    this.props.onSetDefault(varName, this.state.active, index)
   }
 
   handleVariableSectionMenuClick = event => {
     this.setState({
       active: event.key
     })
+  }
+
+  setActive = active => {
+    this.setState({ active })
   }
 
   render() {
@@ -37,12 +41,12 @@ class VariableSection extends Component {
       <div>
         <div style={{ fontSize: 15, textAlign: 'center'}}>
           <Dropdown overlay={variableSectionDropdown}>
-            <Button style={{ width: '80%' }}>
-              {this.state.active || this.props.active} <Icon type="down" />
+            <Button style={{ width: '100%', marginBottom: 15 }}>
+              {this.state.active} <Icon type="down" />
             </Button>
           </Dropdown>
         </div>
-        {(this.props.fields[this.state.active || this.props.active] || []).map((field, index) => {
+        {(this.props.fields[this.state.active] || []).map((field, index) => {
           return (
             <div key={`${index}${field.variable}`} className="sidebar2__field">
               <div className="sidebar2__field__variable">{field.variable}</div>
