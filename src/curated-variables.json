@@ -1,78 +1,6 @@
 {
   "Colors": [
     {
-      "variable": "$white",
-      "value": "#fff",
-      "type": "color",
-      "description": ""
-    },
-    {
-      "variable": "$gray-100",
-      "value": "#f8f9fa",
-      "type": "color",
-      "description": ""
-    },
-    {
-      "variable": "$gray-200",
-      "value": "#e9ecef",
-      "type": "color",
-      "description": ""
-    },
-    {
-      "variable": "$gray-300",
-      "value": "#dee2e6",
-      "type": "color",
-      "description": ""
-    },
-    {
-      "variable": "$gray-400",
-      "value": "#ced4da",
-      "type": "color",
-      "description": ""
-    },
-    {
-      "variable": "$gray-500",
-      "value": "#adb5bd",
-      "type": "color",
-      "description": ""
-    },
-    {
-      "variable": "$gray-600",
-      "value": "#868e96",
-      "type": "color",
-      "description": ""
-    },
-    {
-      "variable": "$gray-700",
-      "value": "#495057",
-      "type": "color",
-      "description": ""
-    },
-    {
-      "variable": "$gray-800",
-      "value": "#343a40",
-      "type": "color",
-      "description": ""
-    },
-    {
-      "variable": "$gray-900",
-      "value": "#212529",
-      "type": "color",
-      "description": ""
-    },
-    {
-      "variable": "$black",
-      "value": "#000",
-      "type": "color",
-      "description": ""
-    },
-    {
-      "variable": "$grays",
-      "value": "(100: $gray-100, 200: $gray-200, 300: $gray-300, 400: $gray-400, 500: $gray-500, 600: $gray-600, 700: $gray-700, 800: $gray-800, 900: $gray-900)",
-      "type": "string",
-      "description": ""
-    },
-    {
       "variable": "$blue",
       "value": "#007bff",
       "type": "color",
@@ -195,6 +123,78 @@
     {
       "variable": "$theme-color-interval",
       "value": "8%",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "variable": "$white",
+      "value": "#fff",
+      "type": "color",
+      "description": ""
+    },
+    {
+      "variable": "$gray-100",
+      "value": "#f8f9fa",
+      "type": "color",
+      "description": ""
+    },
+    {
+      "variable": "$gray-200",
+      "value": "#e9ecef",
+      "type": "color",
+      "description": ""
+    },
+    {
+      "variable": "$gray-300",
+      "value": "#dee2e6",
+      "type": "color",
+      "description": ""
+    },
+    {
+      "variable": "$gray-400",
+      "value": "#ced4da",
+      "type": "color",
+      "description": ""
+    },
+    {
+      "variable": "$gray-500",
+      "value": "#adb5bd",
+      "type": "color",
+      "description": ""
+    },
+    {
+      "variable": "$gray-600",
+      "value": "#868e96",
+      "type": "color",
+      "description": ""
+    },
+    {
+      "variable": "$gray-700",
+      "value": "#495057",
+      "type": "color",
+      "description": ""
+    },
+    {
+      "variable": "$gray-800",
+      "value": "#343a40",
+      "type": "color",
+      "description": ""
+    },
+    {
+      "variable": "$gray-900",
+      "value": "#212529",
+      "type": "color",
+      "description": ""
+    },
+    {
+      "variable": "$black",
+      "value": "#000",
+      "type": "color",
+      "description": ""
+    },
+    {
+      "variable": "$grays",
+      "value": "(100: $gray-100, 200: $gray-200, 300: $gray-300, 400: $gray-400, 500: $gray-500, 600: $gray-600, 700: $gray-700, 800: $gray-800, 900: $gray-900)",
       "type": "string",
       "description": ""
     }

@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import Field from './field.js'
+import { Menu, Dropdown, Button, Icon } from 'antd'
 
 class VariableSection extends Component {
+
+  state = {}
 
   handleChange = (field, index) => {
     this.props.onChange({
@@ -9,17 +12,37 @@ class VariableSection extends Component {
       value: field.value,
       variable: field.variable,
       description: field.description
-    }, index)
+    }, this.state.active || this.props.active, index)
   }
 
   handleSetDefault = (varName, index) => {
-    this.props.onSetDefault(varName, index)
+    this.props.onSetDefault(varName, this.state.active || this.props.active, index)
+  }
+
+  handleVariableSectionMenuClick = event => {
+    this.setState({
+      active: event.key
+    })
   }
 
   render() {
+    const variableSectionDropdown = (
+      <Menu onClick={this.handleVariableSectionMenuClick}>
+        {Object.keys(this.props.fields).map(key => {
+          return <Menu.Item style={{fontSize: 11, padding: 2}} key={key}>{key}</Menu.Item>
+        })}
+      </Menu>
+    )
     return (
       <div>
-        {this.props.fields.map((field, index) => {
+        <div style={{ fontSize: 15, textAlign: 'center' }}>
+          <Dropdown overlay={variableSectionDropdown}>
+            <Button style={{ width: '100%' }}>
+              {this.state.active || this.props.active} <Icon type="down" />
+            </Button>
+          </Dropdown>
+        </div>
+        {(this.props.fields[this.state.active || this.props.active] || []).map((field, index) => {
           return (
             <div key={`${index}${field.variable}`} className="sidebar2__field">
               <div className="sidebar2__field__variable">{field.variable}</div>

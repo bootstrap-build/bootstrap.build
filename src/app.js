@@ -172,9 +172,9 @@ class App extends Component {
     })
   }
 
-  handleVariableChange = (variable, index) => {
+  handleVariableChange = (variable, active, index) => {
     const newVariables = Object.assign({}, this.state.variables)
-    newVariables[this.state.active][index] = variable
+    newVariables[active][index] = variable
     const overwriteObj = {}
     overwriteObj[variable.variable] = variable.value
     this.setState({
@@ -187,9 +187,9 @@ class App extends Component {
     this.debouncedCompileSass()
   }
 
-  handleSetDefault = (varName, index) => {
+  handleSetDefault = (varName, active, index) => {
     const newVariables = Object.assign({}, this.state.variables)
-    newVariables[this.state.active][index] = variables[this.state.active][index]
+    newVariables[active][index] = variables[this.state.active][index]
     const newOverwrites = Object.assign({}, this.state.overwrites)
     delete newOverwrites[varName]
     this.setState({
@@ -310,7 +310,8 @@ class App extends Component {
         <SidebarElements items={_elements} onChange={this.handleSectionChange}/>
         <div className="sidebar2 scroll-style">
           <VariableSection
-            fields={this.state.variables[this.state.active] || []}
+            fields={this.state.variables}
+            active={this.state.active}
             referenceVars={this.state.referenceVars}
             onChange={this.handleVariableChange}
             onSetDefault={this.handleSetDefault}
