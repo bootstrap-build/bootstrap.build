@@ -68,7 +68,3 @@ body::-webkit-scrollbar-thumb:hover {
 .code-editor__wrap {
   min-height: 200px;
 }
-
-.bd-example {
-  margin-bottom: 20px !important;
-}

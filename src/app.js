@@ -323,7 +323,7 @@ class App extends Component {
         </div>
         <div className="preview">
           {this.state.loading && <Loader />}
-          <div className="preview__content">
+          <div className="preview__content" style={{ display: this.state.loading ? 'none' : 'block' }}>
             {iframe}
           </div>
         </div>

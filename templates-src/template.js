@@ -89,10 +89,3 @@ window.addEventListener('message', message => {
     if(editors.length) hideCodeEditor()
   }
 }, false)
-
-$(document).ready(() => {
-  ready = true
-  window.parent.postMessage({
-    html: $('#html_wrapper').html()
-  }, '*')
-})
