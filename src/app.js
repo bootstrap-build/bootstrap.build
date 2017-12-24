@@ -202,7 +202,7 @@ class App extends Component {
 
   handleSetDefault = (varName, active, index) => {
     const newVariables = Object.assign({}, this.state.variables)
-    newVariables[active][index] = variables[this.state.active][index]
+    newVariables[active][index] = variables[active][index]
     const newOverwrites = Object.assign({}, this.state.overwrites)
     delete newOverwrites[varName]
     this.setState({
