@@ -11,7 +11,6 @@ import variables from './curated-variables'
 import Loader from './loader'
 import compiler from './compiler'
 import GoogleFonts from './google-fonts.json'
-import CodeEditor from './code-editor.js'
 
 const googleFontNames = GoogleFonts.map(font => font.family)
 
@@ -294,6 +293,7 @@ class App extends Component {
     let iframe = ''
     if(this.state.lock) {
       iframe = <iframe
+        title="iframe content"
         className="scroll-style"
         src={this.state.lockedTemplate}
         ref={ref => this.iframe = ref}
@@ -302,6 +302,7 @@ class App extends Component {
     } else {
       if(element) {
         iframe = <iframe
+          title="iframe content"
           className="scroll-style"
           src={element.template}
           ref={ref => this.iframe = ref}

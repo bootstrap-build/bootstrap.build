@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Input, Menu, Dropdown, Icon, Button } from 'antd'
+import { Input, Button } from 'antd'
 import parseUnit from 'parse-unit'
 
 class SizeField extends Component {

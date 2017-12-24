@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Switch, Menu, Dropdown, Icon } from 'antd'
+import { Menu, Dropdown } from 'antd'
 import ColorField from './color-field.js'
 import BooleanField from './boolean-field.js'
 import TextField from './text-field.js'

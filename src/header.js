@@ -4,8 +4,6 @@ import {
   Dropdown,
   Button,
   Icon,
-  message,
-  Checkbox,
   Switch,
   Tooltip
 } from 'antd'
@@ -38,23 +36,12 @@ class Header extends Component {
         <Menu.Item key="server">Compile on server</Menu.Item>
       </Menu>
     )
-    let tooltipText = this.props.templateLock ? 'Only variables section will update when you change sections' : 'Template and preview section will update when you change sections'
     let codeTooltipText = this.props.codeEditorOpen ? 'Hide code snippets' : 'Show code snippets'
     return (
       <header>
         <div className="header__logo">
-          <img src="./logo.png" height="30" />
+          <img src="./logo.png" height="30" alt="Bootstrap.build logo" />
         </div>
-        {/*<div className="header__controls">
-          <Tooltip placement="bottom" title={tooltipText}>
-            <Switch
-              onChange={this.props.onTemplateLock}
-              checked={this.props.templateLock}
-              checkedChildren={<Icon type="lock" />}
-              unCheckedChildren={<Icon type="unlock" />}
-            />
-          </Tooltip>
-        </div>*/}
         <div className="header__right">
           <Dropdown overlay={exportMenu} trigger="click">
             <Button type="primary" icon="download">Export</Button>
