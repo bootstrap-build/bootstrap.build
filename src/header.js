@@ -56,12 +56,12 @@ class Header extends Component {
           </Tooltip>
         </div>*/}
         <div className="header__right">
-          <Dropdown overlay={exportMenu}>
+          <Dropdown overlay={exportMenu} trigger="click">
             <Button type="primary" icon="download">Export</Button>
           </Dropdown>
         </div>
         <div className="header__compile__strategy">
-          <Dropdown overlay={compileStrategyMenu}>
+          <Dropdown overlay={compileStrategyMenu} trigger="click">
             <Button>
               Compile on {this.props.compileStrategy} <Icon type="down" />
             </Button>

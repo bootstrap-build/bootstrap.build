@@ -74,7 +74,7 @@ class Field extends Component {
             : ''}
           </div>
           <div style={{ float: 'right' }}>
-            <Dropdown overlay={typeMenu}>
+            <Dropdown overlay={typeMenu} trigger="click">
               <a><i className="fa fa-gear"></i> {this.state.type || this.props.type}</a>
             </Dropdown>
           </div>
