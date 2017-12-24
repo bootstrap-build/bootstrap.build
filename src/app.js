@@ -90,10 +90,15 @@ class App extends Component {
     }
     const out = {}
     Object.keys(vars).forEach(key => {
-      if(vars[vars[key]]) {
-        out[vars[key]] = vars[vars[key]]
-      } else if(flatten_variables[vars[key]]) {
-        out[vars[key]] = flatten_variables[vars[key]]
+      const matches = vars[key].match(/\$[0a-zA-Z1-9\-_]*/)
+      if(matches) {
+        matches.forEach(match => {
+          if(vars[match]) {
+            out[match] = vars[match]
+          } else if(flatten_variables[match]) {
+            out[match] = flatten_variables[match]
+          }
+        })
       }
       out[key] = vars[key]
     })
@@ -105,7 +110,7 @@ class App extends Component {
     const referenceVars = {}
     Object.keys(this.state.overwrites).forEach(key => {
       varObject[key] = this.state.overwrites[key]
-      if(this.state.overwrites[key].indexOf('$') === 0) {
+      if(this.state.overwrites[key].indexOf('$') !== -1) {
         referenceVars[key] = this.state.overwrites[key]
       }
     })
@@ -127,14 +132,21 @@ class App extends Component {
       }
     })
     const vars = []
-    const fontsUsed = []
+    let fontsUsed = []
+    const fontWeights = [300,400,700]
     Object.keys(resolvedVars).forEach(key => {
       vars.push([key, resolvedVars[key]])
       if(key.indexOf('font-family') !== -1 && resolvedVars[key].indexOf('$') === -1) {
         const fonts = resolvedVars[key].split(',').map(_ => _.trim())
         fontsUsed.push(...fonts.filter(font => googleFontNames.indexOf(font) !== -1))
       }
+      if(key.indexOf('font-weight') !== -1 && Number(resolvedVars[key])) {
+        if(fontWeights.indexOf(Number(resolvedVars[key])) === -1) {
+          fontWeights.push(Number(resolvedVars[key]))
+        }
+      }
     })
+    fontsUsed = fontsUsed.map(font => `${font}:${fontWeights.join(',')}`)
     let css = ''
     if(this.state.compileStrategy === 'client') {
       css = await compiler(Object.keys(resolvedVars).reduce((prev, cur) => {
@@ -152,7 +164,7 @@ class App extends Component {
       })).json()
       css = compileResponse.css || ''
       if(compileResponse.error) {
-        message.error(css.error_description)
+        message.error(compileResponse.error_description)
       }
     }
     this.iframe.contentWindow.postMessage({

@@ -27,7 +27,7 @@ class SizeField extends Component {
     if(!unit || unit === 'rem' || unit === 'em') {
       decrement = 0.1
     }
-    if(value) {
+    if(typeof value !== 'undefined') {
       newValue = Math.round((value - decrement) * 10) / 10
       this.props.onChange(`${newValue}${unit}`)
     }
@@ -78,7 +78,7 @@ class SizeField extends Component {
     if(!unit || unit === 'rem' || unit === 'em') {
       decrement = 0.1
     }
-    if(value) {
+    if(typeof value !== 'undefined') {
       newValue = Math.round((value + decrement) * 10) / 10
       this.props.onChange(`${newValue}${unit}`)
     }
