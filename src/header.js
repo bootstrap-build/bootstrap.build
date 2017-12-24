@@ -45,7 +45,7 @@ class Header extends Component {
         <div className="header__logo">
           <img src="./logo.png" height="30" />
         </div>
-        <div className="header__controls">
+        {/*<div className="header__controls">
           <Tooltip placement="bottom" title={tooltipText}>
             <Switch
               onChange={this.props.onTemplateLock}
@@ -54,7 +54,7 @@ class Header extends Component {
               unCheckedChildren={<Icon type="unlock" />}
             />
           </Tooltip>
-        </div>
+        </div>*/}
         <div className="header__right">
           <Dropdown overlay={exportMenu}>
             <Button type="primary" icon="download">Export</Button>
