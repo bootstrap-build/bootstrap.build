@@ -154,7 +154,7 @@ class App extends Component {
       // TODO:
       // add error handling for client compile
     } else {
-      const compileResponse = await (await fetch(`/api/compile`, {
+      const compileResponse = await (await fetch(`/app/api/compile`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
