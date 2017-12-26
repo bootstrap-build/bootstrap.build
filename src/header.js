@@ -40,7 +40,7 @@ class Header extends Component {
     return (
       <header>
         <div className="header__logo">
-          <img src="./logo.png" height="30" alt="Bootstrap.build logo" />
+          <img src="logo.png" height="30" alt="Bootstrap.build logo" />
         </div>
         <div className="header__right">
           <Dropdown overlay={exportMenu} trigger="click">
