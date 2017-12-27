@@ -11,6 +11,14 @@ class Field extends Component {
 
   state = {}
 
+  componentDidMount() {
+    if(this.props.referenceVars[this.props.variable] !== this.props.value) {
+      this.setState({
+        changed: true
+      })
+    }
+  }
+
   handleChange = value => {
     this.setState({
       changed: true
