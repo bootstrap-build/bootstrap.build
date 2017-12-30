@@ -6,7 +6,7 @@
 <br />
 **[Product Hunt](https://www.producthunt.com/posts/bootstrap-build)**
 <br /><br />
-![](https://i.imgur.com/xU0qXKD.png =250x)
+![bootstrap.build](https://i.imgur.com/xU0qXKD.png)
 </p>
 
 ## Features
