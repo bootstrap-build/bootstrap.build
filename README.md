@@ -1,13 +1,14 @@
 # Bootstrap Theme Builder (Generator)
 
-<div style="text-align:center;">
-
+<p align="center">
 **[>>> Launch App <<<](https://bootstrap.build/app)**
-<br />
+</p>
+<p align="center">
 [Product Hunt](https://www.producthunt.com/posts/bootstrap-build)
-<br /><br />
-![bootstrap.build](https://i.imgur.com/xU0qXKD.png)
-</div>
+</p>
+<p align="center">
+ <img src="https://i.imgur.com/xU0qXKD.png" height="200"/>
+</p>
 
 ## Features
 
