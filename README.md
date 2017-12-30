@@ -1,10 +1,12 @@
 # Bootstrap Theme Builder (Generator)
 
 <p align="center">
-**[>>> Launch App <<<](https://bootstrap.build/app)**
+<b><a href="https://bootstrap.build/app">
+ &#x3E;&#x3E;&#x3E; Launch app &#x3C;&#x3C;&#x3C;
+</a></b>
 </p>
 <p align="center">
-[Product Hunt](https://www.producthunt.com/posts/bootstrap-build)
+<a href="https://www.producthunt.com/posts/bootstrap-build">Product Hunt</a>
 </p>
 <p align="center">
  <img src="https://i.imgur.com/xU0qXKD.png" height="200"/>
