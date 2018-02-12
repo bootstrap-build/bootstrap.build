@@ -92,7 +92,7 @@ var bootstrapCode = ''
 let sass
 
 const initialCompile = code => {
-  Sass.setWorkerUrl('/sass.worker.js');
+  Sass.setWorkerUrl('/app/v4.0.0-beta.2/sass.worker.js');
   sass = new Sass()
   console.time('initial compile')
   return new Promise((resolve, reject) => {
