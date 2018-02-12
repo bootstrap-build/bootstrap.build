@@ -39,8 +39,6 @@ const sassFiles = [
   'bootstrap-reboot.scss',
   '_variables.scss',
   'bootstrap.scss',
-  'mixins',
-  'utilities',
   'mixins/_alert.scss',
   'mixins/_background-variant.scss',
   'mixins/_badge.scss',
