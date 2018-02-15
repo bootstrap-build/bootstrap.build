@@ -40,7 +40,7 @@ class VariableSection extends Component {
     return (
       <div>
         <div style={{ fontSize: 15, textAlign: 'center'}}>
-          <Dropdown overlay={variableSectionDropdown} trigger="click">
+          <Dropdown overlay={variableSectionDropdown} trigger={["click"]}>
             <Button style={{ width: '100%', marginBottom: 15 }}>
               {this.state.active} <Icon type="down" />
             </Button>

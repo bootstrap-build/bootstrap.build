@@ -43,12 +43,12 @@ class Header extends Component {
           <img src="./logo.png" height="30" alt="Bootstrap.build logo" />
         </div>
         <div className="header__right">
-          <Dropdown overlay={exportMenu} trigger="click">
+          <Dropdown overlay={exportMenu} trigger={["click"]}>
             <Button type="primary" icon="download">Export</Button>
           </Dropdown>
         </div>
         <div className="header__compile__strategy">
-          <Dropdown overlay={compileStrategyMenu} trigger="click">
+          <Dropdown overlay={compileStrategyMenu} trigger={["click"]}>
             <Button>
               Compile on {this.props.compileStrategy} <Icon type="down" />
             </Button>

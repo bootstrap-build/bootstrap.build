@@ -48,7 +48,7 @@ class App extends Component {
     // only $variables, that are possible to reference in other variables
     // needed to generate a menu of all available vars
     referenceVars: defaultReferenceVars,
-    compileStrategy: 'server',
+    compileStrategy: 'client',
     overwrites: {},
     htmlCode: {},
     htmlCodeOriginal: {},
