@@ -64,6 +64,7 @@ class Field extends Component {
     const typeMenu = (
       <Menu onClick={this.handleTypeChange}>
         <Menu.Item key="variable">variable</Menu.Item>
+        <Menu.Item key="boolean">boolean</Menu.Item>
         <Menu.Item key="size">size</Menu.Item>
         <Menu.Item key="string">string</Menu.Item>
         <Menu.Item key="color">color</Menu.Item>
