@@ -10,11 +10,11 @@
       </head>
       <body>
         <div id="html_wrapper">
-          <h1>Jumbotron</h1>
+          <p>A lightweight, flexible component that can optionally extend the entire viewport to showcase key marketing messages on your site.</p>
 
 <div class="bd-example">
 <div class="jumbotron">
-  <h1 class="display-3">Hello, world!</h1>
+  <h1 class="display-4">Hello, world!</h1>
   <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
   <hr class="my-4" />
   <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
@@ -24,7 +24,7 @@
 </div>
 </div>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"jumbotron"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"display-3"</span><span class="nt">&gt;</span>Hello, world!<span class="nt">&lt;/h1&gt;</span>
+  <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"display-4"</span><span class="nt">&gt;</span>Hello, world!<span class="nt">&lt;/h1&gt;</span>
   <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"lead"</span><span class="nt">&gt;</span>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.<span class="nt">&lt;/p&gt;</span>
   <span class="nt">&lt;hr</span> <span class="na">class=</span><span class="s">"my-4"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;p&gt;</span>It uses utility classes for typography and spacing to space content out within the larger container.<span class="nt">&lt;/p&gt;</span>
@@ -33,20 +33,24 @@
   <span class="nt">&lt;/p&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
 
+<p>To make the jumbotron full width, and without rounded corners, add the <code class="highlighter-rouge">.jumbotron-fluid</code> modifier class and add a <code class="highlighter-rouge">.container</code> or <code class="highlighter-rouge">.container-fluid</code> within.</p>
+
 <div class="bd-example">
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-3">Fluid jumbotron</h1>
+    <h1 class="display-4">Fluid jumbotron</h1>
     <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
   </div>
 </div>
 </div>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"jumbotron jumbotron-fluid"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"display-3"</span><span class="nt">&gt;</span>Fluid jumbotron<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"display-4"</span><span class="nt">&gt;</span>Fluid jumbotron<span class="nt">&lt;/h1&gt;</span>
     <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"lead"</span><span class="nt">&gt;</span>This is a modified jumbotron that occupies the entire horizontal space of its parent.<span class="nt">&lt;/p&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+
 
         </div>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

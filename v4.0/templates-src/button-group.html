@@ -16,7 +16,7 @@
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
 
 <div class="bd-callout bd-callout-warning">
-<h4 id="ensure-correct-role-and-provide-a-label">Ensure correct <code class="highlighter-rouge">role</code> and provide a label</h4>
+<h5 id="ensure-correct-role-and-provide-a-label">Ensure correct <code class="highlighter-rouge">role</code> and provide a label</h5>
 
 <p>In order for assistive technologies (such as screen readers) to convey that a series of buttons is grouped, an appropriate <code class="highlighter-rouge">role</code> attribute needs to be provided. For button groups, this would be <code class="highlighter-rouge">role="group"</code>, while toolbars should have a <code class="highlighter-rouge">role="toolbar"</code>.</p>
 
@@ -73,7 +73,9 @@
     <button type="button" class="btn btn-secondary">4</button>
   </div>
   <div class="input-group">
-    <span class="input-group-addon" id="btnGroupAddon">@</span>
+    <div class="input-group-prepend">
+      <div class="input-group-text" id="btnGroupAddon">@</div>
+    </div>
     <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon" />
   </div>
 </div>
@@ -86,7 +88,9 @@
     <button type="button" class="btn btn-secondary">4</button>
   </div>
   <div class="input-group">
-    <span class="input-group-addon" id="btnGroupAddon2">@</span>
+    <div class="input-group-prepend">
+      <div class="input-group-text" id="btnGroupAddon2">@</div>
+    </div>
     <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon2" />
   </div>
 </div>
@@ -99,7 +103,9 @@
     <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-secondary"</span><span class="nt">&gt;</span>4<span class="nt">&lt;/button&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-addon"</span> <span class="na">id=</span><span class="s">"btnGroupAddon"</span><span class="nt">&gt;</span>@<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-prepend"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-text"</span> <span class="na">id=</span><span class="s">"btnGroupAddon"</span><span class="nt">&gt;</span>@<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">placeholder=</span><span class="s">"Input group example"</span> <span class="na">aria-label=</span><span class="s">"Input group example"</span> <span class="na">aria-describedby=</span><span class="s">"btnGroupAddon"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
@@ -112,7 +118,9 @@
     <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-secondary"</span><span class="nt">&gt;</span>4<span class="nt">&lt;/button&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-addon"</span> <span class="na">id=</span><span class="s">"btnGroupAddon2"</span><span class="nt">&gt;</span>@<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-prepend"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-text"</span> <span class="na">id=</span><span class="s">"btnGroupAddon2"</span><span class="nt">&gt;</span>@<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">placeholder=</span><span class="s">"Input group example"</span> <span class="na">aria-label=</span><span class="s">"Input group example"</span> <span class="na">aria-describedby=</span><span class="s">"btnGroupAddon2"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
