@@ -1,9 +1,5 @@
 const items = [
   {
-    text: 'Core',
-    template: './templates/core.html'
-  },
-  {
     text: 'Colors',
     template: './templates/colors.html'
   },

@@ -40,7 +40,7 @@ class App extends Component {
   state = {
     loading: false,
     lock: false,
-    active: 'Core',
+    active: 'Buttons',
     open: false,
     fontsUsed: [],
     // all bootstrap vars
