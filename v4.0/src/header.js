@@ -107,6 +107,7 @@ class Header extends Component {
     )
     const previewMenu = (
       <Menu onClick={this.handlePreviewMenuClick}>
+        <Menu.Item key="full-ui-kit">Full UI Kit</Menu.Item>
         <Menu.Item key="album">Album</Menu.Item>
         <Menu.Item key="blog">Blog</Menu.Item>
         <Menu.Item key="carousel">Carousel</Menu.Item>
@@ -137,11 +138,13 @@ class Header extends Component {
           <img src="./logo.png" height="30" alt="Bootstrap.build logo" />
         </div>
         <div className="header__right">
-          <Dropdown overlay={previewMenu} trigger={["click"]}>
-            <Button>Preview</Button>
-          </Dropdown>
           <Dropdown overlay={exportMenu} trigger={["click"]}>
             <Button type="primary" icon="download">Export</Button>
+          </Dropdown>
+        </div>
+        <div className="header__preview">
+          <Dropdown overlay={previewMenu} trigger={["click"]} style={{ marginRight: 15 }}>
+            <Button icon="search">Preview</Button>
           </Dropdown>
         </div>
         <div className="header__compile__strategy">
@@ -163,7 +166,7 @@ class Header extends Component {
         </div>
         <div className="header__import">
           <Dropdown overlay={importMenu} trigger={["click"]}>
-            <Button>
+            <Button icon="upload">
               Import
             </Button>
           </Dropdown>

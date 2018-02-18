@@ -12,7 +12,12 @@ header {
 
 .header__right {
   float: right;
-  padding: 13px 20px;
+  padding: 13px;
+}
+
+.header__preview {
+  float: right;
+  padding: 13px 4px;
 }
 
 .header__left {
