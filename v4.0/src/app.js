@@ -11,6 +11,7 @@ import variables from './curated-variables'
 import Loader from './loader'
 import compiler from './compiler'
 import GoogleFonts from './google-fonts.json'
+import CleanCSS from 'clean-css'
 
 const googleFontNames = GoogleFonts.map(font => font.family)
 
@@ -254,13 +255,18 @@ class App extends Component {
 
   handleSCSSExport = () => {
     const { resolvedVars } = this.prepare()
-    download('theme.scss', Object.keys(resolvedVars).reduce((prev, cur) => {
+    download('_variables.scss', Object.keys(resolvedVars).reduce((prev, cur) => {
       return `${prev}\n${cur}: ${resolvedVars[cur]};`
     }, ''))
   }
 
   handleBootstrapBuildExport = () => {
     download('bootstrap.css', this.state.currentCSS)
+  }
+  
+  handleBootstrapBuildMinExport = () => {
+    const minified = new CleanCSS({}).minify(this.state.currentCSS)
+    download('bootstrap.min.css', minified.styles)
   }
 
   handleCompileStrategyChange = strategy => {
@@ -341,6 +347,7 @@ class App extends Component {
           templateLock={this.state.lock}
           onSCSSExport={this.handleSCSSExport}
           onBootstrapBuildExport={this.handleBootstrapBuildExport}
+          onBootstrapBuildMinExport={this.handleBootstrapBuildMinExport}
           compileStrategy={this.state.compileStrategy}
           onCompileStrategyChange={this.handleCompileStrategyChange}
           onCodeEditorToggle={this.handleCodeEditorToggle}

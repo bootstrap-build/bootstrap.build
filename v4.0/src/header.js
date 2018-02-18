@@ -19,6 +19,9 @@ class Header extends Component {
     if(event.key === 'build') {
       this.props.onBootstrapBuildExport()
     }
+    if(event.key === 'build.min') {
+      this.props.onBootstrapBuildMinExport()
+    }
   }
   
   handleImportMenuClick = async event => {
@@ -48,6 +51,7 @@ class Header extends Component {
       <Menu onClick={this.handleExportMenuClick}>
         <Menu.Item key="scss">_variables.scss</Menu.Item>
         <Menu.Item key="build">bootstrap.css</Menu.Item>
+        <Menu.Item key="build.min">bootstrap.min.css</Menu.Item>
       </Menu>
     )
     const compileStrategyMenu = (

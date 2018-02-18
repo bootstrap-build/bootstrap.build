@@ -1410,6 +1410,10 @@ chardet@^0.4.0:
   version "0.4.2"
   resolved "https://registry.yarnpkg.com/chardet/-/chardet-0.4.2.tgz#b5473b33dc97c424e5d98dc87d55d4d8a29c8bf2"
 
+checkup@~1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/checkup/-/checkup-1.3.0.tgz#d3800276fea5d0f247ffc951be78c8b02f8e0d76"
+
 chokidar@^1.6.0, chokidar@^1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-1.7.0.tgz#798e689778151c8076b4b360e5edd28cda2bb468"
@@ -1450,7 +1454,7 @@ classnames@2.x, classnames@^2.2.0, classnames@^2.2.1, classnames@^2.2.3, classna
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.5.tgz#fb3801d453467649ef3603c7d61a02bd129bde6d"
 
-clean-css@4.1.x:
+clean-css@4.1.x, clean-css@^4.1.6, clean-css@^4.1.9:
   version "4.1.9"
   resolved "https://registry.yarnpkg.com/clean-css/-/clean-css-4.1.9.tgz#35cee8ae7687a49b98034f70de00c4edd3826301"
   dependencies:
@@ -1549,6 +1553,10 @@ combined-stream@^1.0.5, combined-stream@~1.0.5:
 commander@2.12.x, commander@^2.9.0, commander@~2.12.1:
   version "2.12.2"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.12.2.tgz#0f5946c427ed9ec0d91a46bb9def53e54650e555"
+
+commander@2.14.x, commander@~2.14.1:
+  version "2.14.1"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.14.1.tgz#2235123e37af8ca3c65df45b026dbd357b01b9aa"
 
 commondir@^1.0.1:
   version "1.0.1"
@@ -1778,6 +1786,10 @@ css-animation@1.x, css-animation@^1.2.5, css-animation@^1.3.2:
     babel-runtime "6.x"
     component-classes "^1.2.5"
 
+css-b64-images@~0.2.5:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/css-b64-images/-/css-b64-images-0.2.5.tgz#42005d83204b2b4a5d93b6b1a5644133b5927a02"
+
 css-color-names@0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/css-color-names/-/css-color-names-0.0.4.tgz#808adc2e79cf84738069b646cb20ec27beb629e0"
@@ -1910,13 +1922,13 @@ debounce@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/debounce/-/debounce-1.1.0.tgz#6a1a4ee2a9dc4b7c24bb012558dbcdb05b37f408"
 
-debug@2.6.9, debug@^2.2.0, debug@^2.6.0, debug@^2.6.6, debug@^2.6.8:
+debug@2.6.9, debug@^2.2.0, debug@^2.3.0, debug@^2.6.0, debug@^2.6.6, debug@^2.6.8:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
   dependencies:
     ms "2.0.0"
 
-debug@^3.0.1, debug@^3.1.0:
+debug@^3.0.0, debug@^3.0.1, debug@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
   dependencies:
@@ -2560,6 +2572,10 @@ execa@^0.7.0:
     p-finally "^1.0.0"
     signal-exit "^3.0.0"
     strip-eof "^1.0.0"
+
+execon@^1.2.9, execon@~1.2.0:
+  version "1.2.9"
+  resolved "https://registry.yarnpkg.com/execon/-/execon-1.2.9.tgz#6db11333dcc824f1f13e7317fed0d94a2f26491f"
 
 expand-brackets@^0.1.4:
   version "0.1.5"
@@ -3252,6 +3268,19 @@ html-entities@^1.2.0:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-1.2.1.tgz#0df29351f0721163515dfb9e5543e5f6eed5162f"
 
+html-minifier@^3.0.1:
+  version "3.5.9"
+  resolved "https://registry.yarnpkg.com/html-minifier/-/html-minifier-3.5.9.tgz#74424014b872598d4bb0e20ac420926ec61024b6"
+  dependencies:
+    camel-case "3.0.x"
+    clean-css "4.1.x"
+    commander "2.14.x"
+    he "1.1.x"
+    ncname "1.0.x"
+    param-case "2.1.x"
+    relateurl "0.2.x"
+    uglify-js "3.3.x"
+
 html-minifier@^3.2.3:
   version "3.5.7"
   resolved "https://registry.yarnpkg.com/html-minifier/-/html-minifier-3.5.7.tgz#511e69bb5a8e7677d1012ebe03819aa02ca06208"
@@ -3681,6 +3710,17 @@ isarray@0.0.1:
 isarray@1.0.0, isarray@^1.0.0, isarray@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
+
+ischanged@~1.0.7:
+  version "1.0.18"
+  resolved "https://registry.yarnpkg.com/ischanged/-/ischanged-1.0.18.tgz#20567fa6cb0181c56b99edb3cfc18cadb19661c4"
+  dependencies:
+    checkup "~1.3.0"
+    debug "^2.3.0"
+    mkdirp "~0.5.0"
+    readjson "~1.1.0"
+    timem "~1.1.0"
+    writejson "~1.1.0"
 
 isexe@^2.0.0:
   version "2.0.0"
@@ -4487,6 +4527,19 @@ mini-store@^1.0.2:
     hoist-non-react-statics "^2.3.1"
     prop-types "^15.6.0"
     shallowequal "^1.0.2"
+
+minify@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/minify/-/minify-3.0.3.tgz#0d5196bbe6f2ace32948cedffc25778d65a25a53"
+  dependencies:
+    clean-css "^4.1.6"
+    css-b64-images "~0.2.5"
+    debug "^3.0.0"
+    execon "^1.2.9"
+    html-minifier "^3.0.1"
+    tomas "^2.0.0"
+    try-catch "^2.0.0"
+    uglify-js "^3.0.3"
 
 minimalistic-assert@^1.0.0:
   version "1.0.0"
@@ -6104,6 +6157,12 @@ readdirp@^2.0.0:
     readable-stream "^2.0.2"
     set-immediate-shim "^1.0.1"
 
+readjson@~1.1.0:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/readjson/-/readjson-1.1.4.tgz#89501f648453dcda9b15399b3fb10c38249662c7"
+  dependencies:
+    try-catch "^2.0.0"
+
 recompose@0.26.0:
   version "0.26.0"
   resolved "https://registry.yarnpkg.com/recompose/-/recompose-0.26.0.tgz#9babff039cb72ba5bd17366d55d7232fbdfb2d30"
@@ -7006,6 +7065,10 @@ timed-out@^3.0.0:
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/timed-out/-/timed-out-3.1.3.tgz#95860bfcc5c76c277f8f8326fd0f5b2e20eba217"
 
+timem@~1.1.0:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/timem/-/timem-1.1.2.tgz#fe93006c28253a8da5c49299306991fa4cc4f40c"
+
 timers-browserify@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/timers-browserify/-/timers-browserify-2.0.4.tgz#96ca53f4b794a5e7c0e1bd7cc88a372298fa01e6"
@@ -7037,6 +7100,15 @@ to-fast-properties@^1.0.3:
 to-fast-properties@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/to-fast-properties/-/to-fast-properties-2.0.0.tgz#dc5e698cbd079265bc73e0377681a4e4e83f616e"
+
+tomas@^2.0.0:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/tomas/-/tomas-2.0.2.tgz#4409d3d39e26b87b22ecb23b7280a84ff6b46759"
+  dependencies:
+    checkup "~1.3.0"
+    execon "~1.2.0"
+    ischanged "~1.0.7"
+    mkdirp "~0.5.0"
 
 toposort@^1.0.0:
   version "1.0.6"
@@ -7071,6 +7143,10 @@ trim-right@^1.0.1:
   resolved "https://registry.yarnpkg.com/true-case-path/-/true-case-path-1.0.2.tgz#7ec91130924766c7f573be3020c34f8fdfd00d62"
   dependencies:
     glob "^6.0.4"
+
+try-catch@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/try-catch/-/try-catch-2.0.0.tgz#a491141d597f8b72b46757fe1c47059341a16aed"
 
 tryit@^1.0.1:
   version "1.0.3"
@@ -7120,6 +7196,13 @@ uglify-js@3.2.x, uglify-js@^3.0.13:
   resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.2.2.tgz#870e4b34ed733d179284f9998efd3293f7fd73f6"
   dependencies:
     commander "~2.12.1"
+    source-map "~0.6.1"
+
+uglify-js@3.3.x, uglify-js@^3.0.3:
+  version "3.3.11"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.3.11.tgz#e9d058b20715138bb4e8e5cae2ea581686bdaae3"
+  dependencies:
+    commander "~2.14.1"
     source-map "~0.6.1"
 
 uglify-js@^2.6, uglify-js@^2.8.29:
@@ -7524,6 +7607,12 @@ write@^0.2.1:
   resolved "https://registry.yarnpkg.com/write/-/write-0.2.1.tgz#5fc03828e264cea3fe91455476f7a3c566cb0757"
   dependencies:
     mkdirp "^0.5.1"
+
+writejson@~1.1.0:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/writejson/-/writejson-1.1.2.tgz#0d99fdc2aa07190747b52eb335a73b42f4feabb0"
+  dependencies:
+    try-catch "^2.0.0"
 
 xdg-basedir@^2.0.0:
   version "2.0.0"

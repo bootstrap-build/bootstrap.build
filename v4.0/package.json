@@ -5,9 +5,11 @@
   "dependencies": {
     "antd": "^3.0.1",
     "body-parser": "^1.18.2",
+    "clean-css": "^4.1.9",
     "debounce": "^1.1.0",
     "express": "^4.16.2",
     "lunr": "^2.1.5",
+    "minify": "^3.0.3",
     "node-sass": "^4.7.2",
     "parse-unit": "^1.0.1",
     "react": "^16.2.0",
