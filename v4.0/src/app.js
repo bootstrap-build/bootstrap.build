@@ -49,7 +49,7 @@ class App extends Component {
     // only $variables, that are possible to reference in other variables
     // needed to generate a menu of all available vars
     referenceVars: defaultReferenceVars,
-    compileStrategy: 'server',
+    compileStrategy: 'client',
     overwrites: {},
     htmlCode: {},
     htmlCodeOriginal: {},
@@ -117,7 +117,7 @@ class App extends Component {
     if(this.state.previewWindow) {
       this.state.previewWindow.close()
     }
-    const previewWindow = window.open(`https://bootstrap.build/app/v4.0/preview/${file}`)
+    const previewWindow = window.open(`https://bootstrap.build/app/v4.0/preview/${file}/index.html`)
     previewWindow.addEventListener('load', () => {
       previewWindow.postMessage({
         css: this.state.currentCSS

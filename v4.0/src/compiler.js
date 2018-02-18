@@ -96,7 +96,6 @@ const initialCompile = code => {
   return new Promise((resolve, reject) => {
     sass.preloadFiles('./bootstrap_scss', '.', sassFiles, function ()  {
       sass.readFile('bootstrap.scss', bootstrap => {
-        console.log(bootstrap)
         bootstrapCode = bootstrap
         sass.compile(`@import 'functions'; ${bootstrap}`, compiled => {
           console.timeEnd('initial compile')
@@ -112,7 +111,6 @@ const compile = code => {
   return new Promise((resolve, reject) => {
     sass.writeFile('theme', code)
     sass.compile(`@import 'functions'; @import 'theme'; ${bootstrapCode}`, compiled => {
-      console.log(compiled.text)
       console.timeEnd('usual compile')
       return resolve(compiled.text)
     })
