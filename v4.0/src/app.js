@@ -117,7 +117,7 @@ class App extends Component {
     if(this.state.previewWindow) {
       this.state.previewWindow.close()
     }
-    const previewWindow = window.open(`./preview/${file}`)
+    const previewWindow = window.open(`/app/v4.0/preview/${file}`)
     previewWindow.addEventListener('load', () => {
       previewWindow.postMessage({
         css: this.state.currentCSS
