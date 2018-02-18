@@ -107,6 +107,15 @@ class App extends Component {
       }
     })
   }
+  
+  handlePreviewButtonClick = () => {
+    const previewWindow = window.open('/preview/blog')
+    previewWindow.addEventListener('load', () => {
+      previewWindow.postMessage({
+        css: this.state.currentCSS
+      }, '*')
+    }, false)
+  }
 
   resolveVariables = (vars, prevLength) => {
     if(prevLength === Object.keys(vars).length) {
@@ -353,6 +362,7 @@ class App extends Component {
           onCodeEditorToggle={this.handleCodeEditorToggle}
           codeEditorOpen={this.state.codeEditorOpen}
           onFileImport={this.handleFileImport}
+          onPreviewButtonClick={this.handlePreviewButtonClick}
         />
         <SidebarElements items={_elements} onChange={this.handleSectionChange}/>
         <div className="sidebar2 scroll-style">

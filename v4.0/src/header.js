@@ -130,6 +130,7 @@ class Header extends Component {
           </Tooltip>
         </div>
         <div className="header__import">
+          <Button onClick={this.props.onPreviewButtonClick}>Preview</Button>
           <Dropdown overlay={importMenu} trigger={["click"]}>
             <Button>
               Import
