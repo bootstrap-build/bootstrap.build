@@ -57,6 +57,11 @@ class App extends Component {
   }
   
   handleFileImport = contents => {
+    if(this.state.previewWindow) {
+      this.state.previewWindow.postMessage({
+        loading: true
+      }, '*')
+    }
     const lines = contents.split('\n').filter(line => line.indexOf('$') === 0)
     const importVars = {}
     lines.forEach(line => {
@@ -213,7 +218,8 @@ class App extends Component {
     }, '*')
     if(this.state.previewWindow) {
       this.state.previewWindow.postMessage({
-        css
+        css,
+        fonts: fontsUsed
       }, '*')
     }
     this.setState({
@@ -237,11 +243,17 @@ class App extends Component {
     overwriteObj[variable.variable] = variable.value
     this.setState({
       variables: newVariables,
+      currentCSS: '',
       overwrites: {
         ...this.state.overwrites,
         ...overwriteObj
       }
     })
+    if(this.state.previewWindow) {
+      this.state.previewWindow.postMessage({
+        loading: true
+      }, '*')
+    }
     this.debouncedCompileSass()
   }
 
@@ -250,6 +262,11 @@ class App extends Component {
     newVariables[active][index] = variables[active][index]
     const newOverwrites = Object.assign({}, this.state.overwrites)
     delete newOverwrites[varName]
+    if(this.state.previewWindow) {
+      this.state.previewWindow.postMessage({
+        loading: true
+      }, '*')
+    }
     this.setState({
       variables: newVariables,
       overwrites: newOverwrites
@@ -313,6 +330,11 @@ class App extends Component {
       }, '*')
       const newHtmlCode = this.state.htmlCode
       newHtmlCode[this.state.active] = this.state.htmlCodeOriginal[this.state.active]
+      if(this.state.previewWindow) {
+        this.state.previewWindow.postMessage({
+          loading: true
+        }, '*')
+      }
       this.setState({
         htmlCode: newHtmlCode
       })
@@ -374,6 +396,7 @@ class App extends Component {
           codeEditorOpen={this.state.codeEditorOpen}
           onFileImport={this.handleFileImport}
           onPreviewButtonClick={this.handlePreviewButtonClick}
+          previewReady={Boolean(this.state.currentCSS)}
         />
         <SidebarElements items={_elements} onChange={this.handleSectionChange}/>
         <div className="sidebar2 scroll-style">

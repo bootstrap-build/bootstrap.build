@@ -17,12 +17,26 @@ rimraf('./public/preview', () => {
             .replace('../../../../assets/js/vendor/jquery-slim.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js')
             .replace('<link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">', '<style id="css"></style>')
             .replace('</body>', `
+              <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
               <script type="text/javascript">
-                window.addEventListener("message", event => {
-                  if(event.data.css) {
-                    $('#css').html(event.data.css)
+                window.addEventListener('message', message => {
+                  if(message.data.loading) {
+                    document.title = '⏱ Loading...'
                   }
-                }, false);
+                  if(message.data.css) {
+                    document.getElementById('css').innerHTML = message.data.css
+                    document.title = '✅ Preview updated'
+                  }
+                  if(message.data.fonts) {
+                    try {
+                      WebFont.load({
+                        google: {
+                          families: message.data.fonts
+                        }
+                      })
+                    } catch(err) {}
+                  }
+                }, false)
               </script>
               </body>
             `)

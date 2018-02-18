@@ -25,7 +25,9 @@ class Header extends Component {
   }
   
   handlePreviewMenuClick = event => {
-    this.props.onPreviewButtonClick(event.key)
+    if(this.props.previewReady) {
+      this.props.onPreviewButtonClick(event.key)
+    }
   }
   
   handleImportMenuClick = async event => {
@@ -144,7 +146,7 @@ class Header extends Component {
         </div>
         <div className="header__preview">
           <Dropdown overlay={previewMenu} trigger={["click"]} style={{ marginRight: 15 }}>
-            <Button icon="search">Preview</Button>
+            {this.props.previewReady ? <Button icon="search">Preview</Button> : <Button icon="loading">Preview loading...</Button>}
           </Dropdown>
         </div>
         <div className="header__compile__strategy">

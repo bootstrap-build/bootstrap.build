@@ -33,12 +33,26 @@
       <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
     </form>
   
+              <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
               <script type="text/javascript">
-                window.addEventListener("message", event => {
-                  if(event.data.css) {
-                    $('#css').html(event.data.css)
+                window.addEventListener('message', message => {
+                  if(message.data.loading) {
+                    document.title = '⏱ Loading...'
                   }
-                }, false);
+                  if(message.data.css) {
+                    document.getElementById('css').innerHTML = message.data.css
+                    document.title = '✅ Preview updated'
+                  }
+                  if(message.data.fonts) {
+                    try {
+                      WebFont.load({
+                        google: {
+                          families: message.data.fonts
+                        }
+                      })
+                    } catch(err) {}
+                  }
+                }, false)
               </script>
               </body>
             
