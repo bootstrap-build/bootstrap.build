@@ -109,12 +109,18 @@ class App extends Component {
   }
   
   handlePreviewButtonClick = file => {
+    if(this.state.previewWindow) {
+      this.state.previewWindow.close()
+    }
     const previewWindow = window.open(`/preview/${file}`)
     previewWindow.addEventListener('load', () => {
       previewWindow.postMessage({
         css: this.state.currentCSS
       }, '*')
     }, false)
+    this.setState({
+      previewWindow
+    })
   }
 
   resolveVariables = (vars, prevLength) => {
@@ -205,6 +211,11 @@ class App extends Component {
       fonts: fontsUsed,
       showCodeEditor: this.state.codeEditorOpen
     }, '*')
+    if(this.state.previewWindow) {
+      this.state.previewWindow.postMessage({
+        css
+      }, '*')
+    }
     this.setState({
       currentCSS: css,
       loading: false,
