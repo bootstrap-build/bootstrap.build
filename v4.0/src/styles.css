@@ -34,8 +34,14 @@ header {
 
 .header__code-editor {
   float: right;
-  padding-top: 19px;
+  padding-top: 18px;
   padding-right: 15px;
+}
+
+.header__import {
+  float: left;
+  padding-top: 13px;
+  margin-left: 30px;
 }
 
 .header__logo {
@@ -169,7 +175,7 @@ header {
   overflow-y: scroll;
 }
 
-.preview__content::-webkit-scrollbar { 
+.preview__content::-webkit-scrollbar {
     display: none;
 }
 

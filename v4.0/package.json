@@ -20,7 +20,8 @@
     "react-spinners": "^0.2.5",
     "react-tether": "^0.6.0",
     "sass-export": "^1.0.0",
-    "sass.js": "^0.10.7"
+    "sass.js": "^0.10.7",
+    "uglifycss": "^0.0.27"
   },
   "scripts": {
     "start": "react-scripts start",

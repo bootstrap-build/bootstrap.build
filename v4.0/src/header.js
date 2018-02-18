@@ -21,9 +21,11 @@ class Header extends Component {
     }
   }
   
-  handleImportMenuClick = event => {
-    if(event.key === 'import') {
-      
+  handleImportMenuClick = async event => {
+    if(event.key.indexOf('bootswatch') === 0) {
+      const themeName = event.key.replace('bootswatch/', '')
+      const theme = await (await fetch(`./bootswatch/${themeName}.scss`)).text()
+      this.props.onFileImport(theme)
     }
   }
   
@@ -44,8 +46,8 @@ class Header extends Component {
   render() {
     const exportMenu = (
       <Menu onClick={this.handleExportMenuClick}>
-        <Menu.Item key="scss">SCSS Variables</Menu.Item>
-        <Menu.Item key="build">Bootstrap Build</Menu.Item>
+        <Menu.Item key="scss">_variables.scss</Menu.Item>
+        <Menu.Item key="build">bootstrap.css</Menu.Item>
       </Menu>
     )
     const compileStrategyMenu = (
@@ -61,9 +63,32 @@ class Header extends Component {
             style={{ height: 'auto', border: 'none' }}
             onDrop={this.handleFileDrop}
             multiple={false}
-          >Import file...
+          >Import _variables.scss
           </Dropzone>
         </Menu.Item>
+        <Menu.SubMenu title="Bootswatch themes">
+          <Menu.Item key="bootswatch/cerulean">Cerulean</Menu.Item>
+          <Menu.Item key="bootswatch/cosmo">Cosmo</Menu.Item>
+          <Menu.Item key="bootswatch/cyborg">Cyborg</Menu.Item>
+          <Menu.Item key="bootswatch/darkly">Darkly</Menu.Item>
+          <Menu.Item key="bootswatch/flatly">Flatly</Menu.Item>
+          <Menu.Item key="bootswatch/journal">Journal</Menu.Item>
+          <Menu.Item key="bootswatch/litera">Litera</Menu.Item>
+          <Menu.Item key="bootswatch/lumen">Lumen</Menu.Item>
+          <Menu.Item key="bootswatch/lux">Lux</Menu.Item>
+          <Menu.Item key="bootswatch/materia">Materia</Menu.Item>
+          <Menu.Item key="bootswatch/minty">Minty</Menu.Item>
+          <Menu.Item key="bootswatch/pulse">Pulse</Menu.Item>
+          <Menu.Item key="bootswatch/sandstone">Sandstone</Menu.Item>
+          <Menu.Item key="bootswatch/simplex">Simplex</Menu.Item>
+          <Menu.Item key="bootswatch/sketchy">Sketchy</Menu.Item>
+          <Menu.Item key="bootswatch/slate">Slate</Menu.Item>
+          <Menu.Item key="bootswatch/solar">Solar</Menu.Item>
+          <Menu.Item key="bootswatch/spacelab">Spacelab</Menu.Item>
+          <Menu.Item key="bootswatch/superhero">Superhero</Menu.Item>
+          <Menu.Item key="bootswatch/united">United</Menu.Item>
+          <Menu.Item key="bootswatch/yeti">Yeti</Menu.Item>
+        </Menu.SubMenu>
       </Menu>
     )
     let codeTooltipText = this.props.codeEditorOpen ? 'Hide code snippets' : 'Show code snippets'
@@ -97,7 +122,7 @@ class Header extends Component {
         <div className="header__import">
           <Dropdown overlay={importMenu} trigger={["click"]}>
             <Button>
-              Import...
+              Import
             </Button>
           </Dropdown>
         </div>
