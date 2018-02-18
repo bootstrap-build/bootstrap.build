@@ -74,7 +74,7 @@ class App extends Component {
         }
       })
     }
-    this.setState({ 
+    this.setState({
       overwrites
     })
     this.debouncedCompileSass()

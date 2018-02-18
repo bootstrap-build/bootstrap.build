@@ -25,21 +25,27 @@ class Header extends Component {
   }
   
   handleImportMenuClick = async event => {
-    if(event.key.indexOf('bootswatch') === 0) {
-      const themeName = event.key.replace('bootswatch/', '')
-      const theme = await (await fetch(`./bootswatch/${themeName}.scss`)).text()
-      this.props.onFileImport(theme)
+    const shouldImport = window.confirm('Are you sure you want to import a new theme? Your theme variables will be overwriten.')
+    if(shouldImport) {
+      if(event.key.indexOf('bootswatch') === 0) {
+        const themeName = event.key.replace('bootswatch/', '')
+        const theme = await (await fetch(`./bootswatch/${themeName}.scss`)).text()
+        this.props.onFileImport(theme)
+      }
     }
   }
   
   handleFileDrop = files => {
-    files.forEach(file => {
-      var reader = new FileReader();
-      reader.addEventListener("loadend", event => {
-        this.props.onFileImport(event.target.result)
+    const shouldImport = window.confirm('Are you sure you want to import a new theme? Your theme variables will be overwriten.')
+    if(shouldImport) {
+      files.forEach(file => {
+        var reader = new FileReader();
+        reader.addEventListener("loadend", event => {
+          this.props.onFileImport(event.target.result)
+        })
+        reader.readAsText(file);
       })
-      reader.readAsText(file);
-    })
+    }
   }
 
   handleCompileStrategyChange = event => {
