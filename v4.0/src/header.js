@@ -24,6 +24,10 @@ class Header extends Component {
     }
   }
   
+  handlePreviewMenuClick = event => {
+    this.props.onPreviewButtonClick(event.key)
+  }
+  
   handleImportMenuClick = async event => {
     const shouldImport = window.confirm('Are you sure you want to import a new theme? Your theme variables will be overwriten.')
     if(shouldImport) {
@@ -101,6 +105,31 @@ class Header extends Component {
         </Menu.SubMenu>
       </Menu>
     )
+    const previewMenu = (
+      <Menu onClick={this.handlePreviewMenuClick}>
+        <Menu.Item key="album">Album</Menu.Item>
+        <Menu.Item key="blog">Blog</Menu.Item>
+        <Menu.Item key="carousel">Carousel</Menu.Item>
+        <Menu.Item key="checkout">Checkout</Menu.Item>
+        <Menu.Item key="cover">Cover</Menu.Item>
+        <Menu.Item key="dashboard">Dashboard</Menu.Item>
+        <Menu.Item key="floating-labels">Floting labels</Menu.Item>
+        <Menu.Item key="grid">Grid</Menu.Item>
+        <Menu.Item key="jumbotron">Jumbotron</Menu.Item>
+        <Menu.Item key="navbar-bottom">Navbar bottom</Menu.Item>
+        <Menu.Item key="navbar-fixed">Navbar fixed</Menu.Item>
+        <Menu.Item key="navbar-static">Navbar static</Menu.Item>
+        <Menu.Item key="navbars">Navbar static</Menu.Item>
+        <Menu.Item key="offcanvas">Offcanvas</Menu.Item>
+        <Menu.Item key="pricing">Pricing</Menu.Item>
+        <Menu.Item key="product">Product</Menu.Item>
+        <Menu.Item key="sign-in">Sign in</Menu.Item>
+        <Menu.Item key="starter-template">Starter template</Menu.Item>
+        <Menu.Item key="sticky-footer">Sticky footer</Menu.Item>
+        <Menu.Item key="sticky-footer-navbar">Sticky footer navbar</Menu.Item>
+        <Menu.Item key="tooltip-viewport">Tooltip viewport</Menu.Item>
+      </Menu>
+    )
     let codeTooltipText = this.props.codeEditorOpen ? 'Hide code snippets' : 'Show code snippets'
     return (
       <header>
@@ -108,6 +137,9 @@ class Header extends Component {
           <img src="./logo.png" height="30" alt="Bootstrap.build logo" />
         </div>
         <div className="header__right">
+          <Dropdown overlay={previewMenu} trigger={["click"]}>
+            <Button>Preview</Button>
+          </Dropdown>
           <Dropdown overlay={exportMenu} trigger={["click"]}>
             <Button type="primary" icon="download">Export</Button>
           </Dropdown>
@@ -130,7 +162,6 @@ class Header extends Component {
           </Tooltip>
         </div>
         <div className="header__import">
-          <Button onClick={this.props.onPreviewButtonClick}>Preview</Button>
           <Dropdown overlay={importMenu} trigger={["click"]}>
             <Button>
               Import

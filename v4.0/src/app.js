@@ -108,8 +108,8 @@ class App extends Component {
     })
   }
   
-  handlePreviewButtonClick = () => {
-    const previewWindow = window.open('/preview/blog')
+  handlePreviewButtonClick = file => {
+    const previewWindow = window.open(`/preview/${file}`)
     previewWindow.addEventListener('load', () => {
       previewWindow.postMessage({
         css: this.state.currentCSS
