@@ -7,16 +7,34 @@ import {
   Switch,
   Tooltip
 } from 'antd'
+import Dropzone from 'react-dropzone'
+
 
 class Header extends Component {
 
-  handleExportMenuClick = (event) => {
+  handleExportMenuClick = event => {
     if(event.key === 'scss') {
       this.props.onSCSSExport()
     }
     if(event.key === 'build') {
       this.props.onBootstrapBuildExport()
     }
+  }
+  
+  handleImportMenuClick = event => {
+    if(event.key === 'import') {
+      
+    }
+  }
+  
+  handleFileDrop = files => {
+    files.forEach(file => {
+      var reader = new FileReader();
+      reader.addEventListener("loadend", event => {
+        this.props.onFileImport(event.target.result)
+      })
+      reader.readAsText(file);
+    })
   }
 
   handleCompileStrategyChange = event => {
@@ -34,6 +52,18 @@ class Header extends Component {
       <Menu onClick={this.handleCompileStrategyChange}>
         <Menu.Item key="client">Compile on client</Menu.Item>
         <Menu.Item key="server">Compile on server</Menu.Item>
+      </Menu>
+    )
+    const importMenu = (
+      <Menu onClick={this.handleImportMenuClick}>
+        <Menu.Item key="import">
+          <Dropzone
+            style={{ height: 'auto', border: 'none' }}
+            onDrop={this.handleFileDrop}
+            multiple={false}
+          >Import file...
+          </Dropzone>
+        </Menu.Item>
       </Menu>
     )
     let codeTooltipText = this.props.codeEditorOpen ? 'Hide code snippets' : 'Show code snippets'
@@ -62,7 +92,14 @@ class Header extends Component {
               checkedChildren={<i className="fa fa-code" />}
               unCheckedChildren={<i className="fa fa-code" />}
             />
-        </Tooltip>
+          </Tooltip>
+        </div>
+        <div className="header__import">
+          <Dropdown overlay={importMenu} trigger={["click"]}>
+            <Button>
+              Import...
+            </Button>
+          </Dropdown>
         </div>
       </header>
     )

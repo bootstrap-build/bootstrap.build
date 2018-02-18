@@ -54,6 +54,33 @@ class App extends Component {
     htmlCodeOriginal: {},
     codeEditorOpen: true
   }
+  
+  handleFileImport = contents => {
+    const lines = contents.split('\n').filter(line => line.indexOf('$') === 0)
+    const importVars = {}
+    lines.forEach(line => {
+      let splittedLine = line.replace('!default', '').replace(';', '').split(':')
+      if(splittedLine.length === 2) {
+        importVars[splittedLine[0].trim()] = splittedLine[1].trim()
+      }
+    })
+    const variables = JSON.parse(JSON.stringify(this.state.variables))
+    let overwrites = {}
+    for(let key in variables) {
+      variables[key].forEach(variable => {
+        if(importVars[variable.variable]) {
+          overwrites[variable.variable] = importVars[variable.variable]
+        }
+      })
+    }
+    this.setState({ 
+      overwrites: {
+        ...this.state.overwrites,
+        ...overwrites
+      }
+    })
+    this.debouncedCompileSass()
+  }
 
   async componentDidMount() {
     this.variableSection.setActive(this.state.active)
@@ -321,6 +348,7 @@ class App extends Component {
           onCompileStrategyChange={this.handleCompileStrategyChange}
           onCodeEditorToggle={this.handleCodeEditorToggle}
           codeEditorOpen={this.state.codeEditorOpen}
+          onFileImport={this.handleFileImport}
         />
         <SidebarElements items={_elements} onChange={this.handleSectionChange}/>
         <div className="sidebar2 scroll-style">

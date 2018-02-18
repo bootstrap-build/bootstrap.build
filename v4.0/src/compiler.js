@@ -112,7 +112,7 @@ const compile = code => {
   return new Promise((resolve, reject) => {
     sass.writeFile('theme', code)
     sass.compile(`@import 'functions'; @import 'theme'; ${bootstrapCode}`, compiled => {
-      console.log(compiled)
+      console.log(compiled.text)
       console.timeEnd('usual compile')
       return resolve(compiled.text)
     })
