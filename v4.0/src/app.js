@@ -177,7 +177,7 @@ class App extends Component {
     })
     const vars = []
     let fontsUsed = []
-    const fontWeights = [300,400,700]
+    const fontWeights = [300, 400, 700]
     Object.keys(resolvedVars).forEach(key => {
       vars.push([key, resolvedVars[key]])
       if(key.indexOf('font-family') !== -1 && resolvedVars[key].indexOf('$') === -1) {

@@ -96,8 +96,9 @@ const initialCompile = code => {
   return new Promise((resolve, reject) => {
     sass.preloadFiles('./bootstrap_scss', '.', sassFiles, function ()  {
       sass.readFile('bootstrap.scss', bootstrap => {
+        sass.writeFile('theme', code)
         bootstrapCode = bootstrap
-        sass.compile(`@import 'functions'; ${bootstrap}`, compiled => {
+        sass.compile(`@import 'functions'; @import 'theme'; ${bootstrap}`, compiled => {
           console.timeEnd('initial compile')
           return resolve(compiled.text)
         })
