@@ -19,6 +19,21 @@ rimraf('./public/preview', () => {
             .replace('</body>', `
               <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
               <script type="text/javascript">
+                const css = localStorage.getItem('css')
+                const fonts = localStorage.getItem('fonts')
+                if(css) {
+                  document.getElementById('css').innerHTML = css
+                  document.title = '✅ Preview updated'
+                }
+                if(fonts) {
+                  try {
+                    WebFont.load({
+                      google: {
+                        families: fonts
+                      }
+                    })
+                  } catch(err) {}
+                }
                 window.addEventListener('message', message => {
                   if(message.data.loading) {
                     document.title = '⏱ Loading...'
@@ -26,6 +41,7 @@ rimraf('./public/preview', () => {
                   if(message.data.css) {
                     document.getElementById('css').innerHTML = message.data.css
                     document.title = '✅ Preview updated'
+                    localStorage.setItem('css', message.data.css)
                   }
                   if(message.data.fonts) {
                     try {
@@ -34,9 +50,13 @@ rimraf('./public/preview', () => {
                           families: message.data.fonts
                         }
                       })
+                      localStorage.setItem('fonts', message.data.fonts)
                     } catch(err) {}
                   }
                 }, false)
+                window.addEventListener('beforeunload', event => {
+                  localStorage.clear()
+                })
               </script>
               </body>
             `)
