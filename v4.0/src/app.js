@@ -49,7 +49,7 @@ class App extends Component {
     // only $variables, that are possible to reference in other variables
     // needed to generate a menu of all available vars
     referenceVars: defaultReferenceVars,
-    compileStrategy: 'server',
+    compileStrategy: 'client',
     overwrites: {},
     htmlCode: {},
     htmlCodeOriginal: {},
@@ -416,6 +416,16 @@ class App extends Component {
           {this.state.loading && <Loader />}
           <div className="preview__content" style={{ display: this.state.loading ? 'none' : 'block' }}>
             {iframe}
+          </div>
+          <div className="ads">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <ins className="adsbygoogle"
+                 style={{ display:'inline-block', width:728, height:90 }}
+                 data-ad-client="ca-pub-7062432953325416"
+                 data-ad-slot="7777761719"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
           </div>
         </div>
       </div>

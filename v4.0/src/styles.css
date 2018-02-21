@@ -283,3 +283,12 @@ iframe {
 .ace_scrollbar-h {
   height: 7px !important;
 }
+
+.ads {
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  width: 728px;
+  height: 90px;
+  background-color: #f1f1f1;
+}
