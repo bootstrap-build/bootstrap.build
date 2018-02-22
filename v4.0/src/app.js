@@ -55,7 +55,7 @@ class App extends Component {
     htmlCodeOriginal: {},
     codeEditorOpen: true
   }
-  
+
   handleFileImport = contents => {
     if(this.state.previewWindow) {
       this.state.previewWindow.postMessage({
@@ -112,7 +112,7 @@ class App extends Component {
       }
     })
   }
-  
+
   handlePreviewButtonClick = file => {
     if(this.state.previewWindow) {
       this.state.previewWindow.close()
@@ -300,7 +300,7 @@ class App extends Component {
   handleBootstrapBuildExport = () => {
     download('bootstrap.css', this.state.currentCSS)
   }
-  
+
   handleBootstrapBuildMinExport = () => {
     const minified = new CleanCSS({}).minify(this.state.currentCSS)
     download('bootstrap.min.css', minified.styles)
@@ -427,6 +427,16 @@ class App extends Component {
             (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
           </div>
+          <script>{`
+              (function(h,o,t,j,a,r){
+                  h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                  h._hjSettings={hjid:789419,hjsv:6};
+                  a=o.getElementsByTagName('head')[0];
+                  r=o.createElement('script');r.async=1;
+                  r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                  a.appendChild(r);
+              })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+          `}</script>
         </div>
       </div>
     );
