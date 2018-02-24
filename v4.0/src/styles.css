@@ -292,3 +292,20 @@ iframe {
   height: 90px;
   background-color: #f1f1f1;
 }
+
+.header__ads {
+  text-align: center;
+  float: right;
+  margin-right: 100px;
+  width: 220px;
+  padding-top: 13px;
+}
+
+.header__ads .bottom {
+  color: #ddd;
+  font-size: 11px;
+}
+
+.header__ads:hover .bottom {
+  color: #999;
+}

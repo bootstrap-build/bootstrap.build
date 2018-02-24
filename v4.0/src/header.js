@@ -166,6 +166,12 @@ class Header extends Component {
             />
           </Tooltip>
         </div>
+        <div className="header__ads">
+          <a href="https://a.paddle.com/click?said=58&aaid=4499&link_id=684&chk=3c56e07c7ec2dbe46b8ff13caae08217&redir=aHR0cHM6Ly9oYWNrZXJ0aGVtZXMuY29tL2Jvb3RzdHJhcC10ZW1wbGF0ZXMvY2hhcm1pbmctcHJvLw==" target="_blank">
+            <div className="top">🔥 Charming Pro</div>
+            <div className="bottom">A Bootstrap 4 template made for builders</div>
+          </a>
+        </div>
         <div className="header__import">
           <Dropdown overlay={importMenu} trigger={["click"]}>
             <Button icon="upload">
