@@ -120,7 +120,8 @@ class App extends Component {
     const previewWindow = window.open(`https://bootstrap.build/app/v4.0/preview/${file}/index.html`)
     previewWindow.addEventListener('load', () => {
       previewWindow.postMessage({
-        css: this.state.currentCSS
+        css: this.state.currentCSS,
+        fonts: this.state.fontsUsed
       }, '*')
     }, false)
     this.setState({
