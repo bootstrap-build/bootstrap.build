@@ -23,13 +23,13 @@ class Header extends Component {
       this.props.onBootstrapBuildMinExport()
     }
   }
-  
+
   handlePreviewMenuClick = event => {
     if(this.props.previewReady) {
       this.props.onPreviewButtonClick(event.key)
     }
   }
-  
+
   handleImportMenuClick = async event => {
     const shouldImport = window.confirm('Are you sure you want to import a new theme? Your theme variables will be overwriten.')
     if(shouldImport) {
@@ -40,7 +40,7 @@ class Header extends Component {
       }
     }
   }
-  
+
   handleFileDrop = files => {
     const shouldImport = window.confirm('Are you sure you want to import a new theme? Your theme variables will be overwriten.')
     if(shouldImport) {
@@ -56,6 +56,10 @@ class Header extends Component {
 
   handleCompileStrategyChange = event => {
     this.props.onCompileStrategyChange(event.key)
+  }
+
+  handleTutorialClick = () => {
+    window.open('/blog/tutorial.html')
   }
 
   render() {
@@ -178,6 +182,9 @@ class Header extends Component {
               Import
             </Button>
           </Dropdown>
+        </div>
+        <div className="header__import">
+          <Button icon="question-circle-o" onClick={this.handleTutorialClick}>Tutorial</Button>
         </div>
       </header>
     )
